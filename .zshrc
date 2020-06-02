@@ -89,5 +89,7 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+# Show which libraries have been linked with yarn or npm
 alias showlinked="( ls -l node_modules ; ls -l node_modules/@* ) | grep ^l"
+
 alias xcodeclean="rm -rf ~/library/Developer/Xcode/DerivedData/*"
