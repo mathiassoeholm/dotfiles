@@ -74,7 +74,8 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# export MANPATH="/usr/local/man:$MANPATH"
+# Use Ruby from brew, since the default Ruby doesn't have the right permissions
+export PATH="/usr/local/opt/ruby/bin:$PATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -93,3 +94,5 @@ source $ZSH/oh-my-zsh.sh
 alias showlinked="( ls -l node_modules ; ls -l node_modules/@* ) | grep ^l"
 
 alias xcodeclean="rm -rf ~/library/Developer/Xcode/DerivedData/*"
+
+alias recentbranches="git for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname)' refs/heads refs/remotes --count=25"
