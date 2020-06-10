@@ -96,3 +96,6 @@ alias showlinked="( ls -l node_modules ; ls -l node_modules/@* ) | grep ^l"
 alias xcodeclean="rm -rf ~/library/Developer/Xcode/DerivedData/*"
 
 alias recentbranches="git for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname)' refs/heads refs/remotes --count=25"
+
+# Open an Xcode workspace
+alias workspace="open *.xcworkspace"
