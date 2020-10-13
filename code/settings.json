@@ -1,11 +1,12 @@
 {
-    "git.autofetch": true,
-    "files.autoSave": "onWindowChange",
-    "typescript.updateImportsOnFileMove.enabled": "always",
-    "explorer.confirmDelete": false,
-    "editor.minimap.enabled": false,
-    "javascript.updateImportsOnFileMove.enabled": "always",
-    "gitlens.gitCommands.closeOnFocusOut": true,
-    "editor.formatOnSave": true,
-    "pasteImage.path": "${currentFileDir}/assets"
+  "git.autofetch": true,
+  "files.autoSave": "onWindowChange",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "explorer.confirmDelete": false,
+  "editor.minimap.enabled": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "gitlens.gitCommands.closeOnFocusOut": true,
+  "pasteImage.path": "${currentFileDir}/assets",
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
