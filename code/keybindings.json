@@ -2,5 +2,14 @@
   {
     "key": "cmd+s",
     "command": "workbench.action.files.saveAll"
-  }
+  },
+  {
+    "key": "ctrl+shift+alt+cmd+tab",
+    "command": "workbench.action.quickSwitchWindow"
+  },
+  {
+    "key": "ctrl+shift+alt+cmd+tab",
+    "command": "workbench.action.quickOpenNavigateNext",
+    "when": "inWindowsPicker"
+}
 ]

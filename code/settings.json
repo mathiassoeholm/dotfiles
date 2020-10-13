@@ -6,5 +6,6 @@
     "editor.minimap.enabled": false,
     "javascript.updateImportsOnFileMove.enabled": "always",
     "gitlens.gitCommands.closeOnFocusOut": true,
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "pasteImage.path": "${currentFileDir}/assets"
 }
