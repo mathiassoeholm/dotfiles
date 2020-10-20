@@ -94,6 +94,11 @@ export PATH="$PATH:$(yarn global bin)"
 
 # Show which libraries have been linked with yarn or npm
 alias showlinked="( ls -l node_modules ; ls -l node_modules/@* ) | grep ^l"
+unlinkall () {
+  if [[ $(showlinked | sed -E 's;.*yarn/link/(.*$);\1;' | xargs yarn unlink) ]]; then
+    yarn install --force;
+  fi
+}
 
 alias xcodeclean="rm -rf ~/library/Developer/Xcode/DerivedData/*"
 
