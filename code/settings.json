@@ -10,5 +10,6 @@
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "spellright.documentTypes": ["markdown", "latex", "plaintext"],
-  "spellright.language": ["en"]
+  "spellright.language": ["en"],
+  "gitlens.codeLens.enabled": false
 }
