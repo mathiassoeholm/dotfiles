@@ -11,5 +11,7 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "spellright.documentTypes": ["markdown", "latex", "plaintext"],
   "spellright.language": ["en"],
-  "gitlens.codeLens.enabled": false
+  "gitlens.codeLens.enabled": false,
+  "markdownLinkUpdater.exclude": ["**/node_modules/**", "**/Pods/**"],
+  "editor.tabSize": 2
 }
