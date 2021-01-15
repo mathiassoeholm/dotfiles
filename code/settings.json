@@ -13,5 +13,9 @@
   "spellright.language": ["en"],
   "gitlens.codeLens.enabled": false,
   "markdownLinkUpdater.exclude": ["**/node_modules/**", "**/Pods/**"],
-  "editor.tabSize": 2
+  "editor.tabSize": 2,
+  "window.zoomLevel": 0,
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust"
+  }
 }
