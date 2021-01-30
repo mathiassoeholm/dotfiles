@@ -79,6 +79,8 @@ export PATH="/usr/local/opt/ruby/bin:$PATH"
 
 export PATH="$PATH:$(yarn global bin)"
 
+export PATH="$PATH:Users/$(whoami)/.cargo/bin"
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
