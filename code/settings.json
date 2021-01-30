@@ -17,5 +17,11 @@
   "window.zoomLevel": 0,
   "[rust]": {
     "editor.defaultFormatter": "rust-lang.rust"
-  }
+  },
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["k", "j"],
+      "after": ["<Esc>"]
+    }
+  ]
 }

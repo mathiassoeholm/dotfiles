@@ -2,7 +2,7 @@
 	name = Mathias Soeholm
 	email = mathiassoeholm@gmail.com
 [core]
-	editor = nano
+	editor = vim
 
 # Override some settings for LEGO repositories
 [includeIf "gitdir:~/git/lego/"]
