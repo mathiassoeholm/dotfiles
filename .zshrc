@@ -68,7 +68,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git autojump zsh-syntax-highlighting zsh-autosuggestions asdf yarn)
+plugins=(git autojump zsh-syntax-highlighting zsh-autosuggestions yarn)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -93,6 +93,8 @@ export PATH="$PATH:Users/$(whoami)/.cargo/bin"
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
+
+. $HOME/.asdf/asdf.sh
 
 # Show which libraries have been linked with yarn or npm
 alias showlinked="( ls -l node_modules ; ls -l node_modules/@* ) | grep ^l"

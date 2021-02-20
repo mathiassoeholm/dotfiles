@@ -13,8 +13,8 @@
   "spellright.language": ["en"],
   "gitlens.codeLens.enabled": false,
   "markdownLinkUpdater.exclude": ["**/node_modules/**", "**/Pods/**"],
+  "markdownLinkUpdater.experimentalRenameHeadings": true,
   "editor.tabSize": 2,
-  "window.zoomLevel": 0,
   "[rust]": {
     "editor.defaultFormatter": "rust-lang.rust"
   },
@@ -23,5 +23,7 @@
       "before": ["k", "j"],
       "after": ["<Esc>"]
     }
-  ]
+  ],
+  "workbench.editor.wrapTabs": true,
+  "window.zoomLevel": 1
 }
