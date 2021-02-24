@@ -25,5 +25,6 @@
     }
   ],
   "workbench.editor.wrapTabs": true,
-  "window.zoomLevel": 1
+  "window.zoomLevel": 1,
+  "liveshare.authenticationProvider": "Microsoft"
 }
