@@ -7,7 +7,6 @@
   "javascript.updateImportsOnFileMove.enabled": "always",
   "gitlens.gitCommands.closeOnFocusOut": true,
   "pasteImage.path": "${currentFileDir}/assets",
-  "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "spellright.documentTypes": ["markdown", "latex", "plaintext"],
   "spellright.language": ["en"],
@@ -25,6 +24,7 @@
     }
   ],
   "workbench.editor.wrapTabs": true,
-  "window.zoomLevel": 1,
-  "liveshare.authenticationProvider": "Microsoft"
+  "liveshare.authenticationProvider": "Microsoft",
+  "editor.formatOnSave": true,
+  "window.zoomLevel": 1
 }
