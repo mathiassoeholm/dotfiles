@@ -12,7 +12,6 @@
   "spellright.language": ["en"],
   "gitlens.codeLens.enabled": false,
   "markdownLinkUpdater.exclude": ["**/node_modules/**", "**/Pods/**"],
-  "markdownLinkUpdater.experimentalRenameHeadings": true,
   "editor.tabSize": 2,
   "[rust]": {
     "editor.defaultFormatter": "rust-lang.rust"
@@ -24,7 +23,6 @@
     }
   ],
   "workbench.editor.wrapTabs": true,
-  "liveshare.authenticationProvider": "Microsoft",
   "editor.formatOnSave": true,
   "window.zoomLevel": 1
 }

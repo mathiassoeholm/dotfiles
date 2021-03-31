@@ -110,3 +110,5 @@ alias recentbranches="git for-each-ref --sort=-committerdate --format='%(committ
 
 # Open an Xcode workspace
 alias workspace="open *.xcworkspace"
+
+alias vim=nvim
