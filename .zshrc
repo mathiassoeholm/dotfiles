@@ -75,7 +75,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # Use Ruby from brew, since the default Ruby doesn't have the right permissions
-export PATH="/usr/local/opt/ruby/bin:$PATH"
+export PATH="/usr/local/opt/ruby@2.7/bin:$PATH"
 
 export PATH="$PATH:$(yarn global bin)"
 

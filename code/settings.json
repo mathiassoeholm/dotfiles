@@ -22,6 +22,7 @@
       "after": ["<Esc>"]
     }
   ],
+  "vim.useSystemClipboard": true,
   "workbench.editor.wrapTabs": true,
   "editor.formatOnSave": true,
   "window.zoomLevel": 1
