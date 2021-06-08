@@ -14,7 +14,7 @@
   "markdownLinkUpdater.exclude": ["**/node_modules/**", "**/Pods/**"],
   "editor.tabSize": 2,
   "[rust]": {
-    "editor.defaultFormatter": "rust-lang.rust"
+    "editor.defaultFormatter": "matklad.rust-analyzer"
   },
   "vim.insertModeKeyBindings": [
     {
@@ -22,8 +22,30 @@
       "after": ["<Esc>"]
     }
   ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": [">"],
+      "after": [">", "g", "v"]
+    },
+    {
+      "before": ["<"],
+      "after": ["<", "g", "v"]
+    }
+  ],
   "vim.useSystemClipboard": true,
   "workbench.editor.wrapTabs": true,
+  "window.zoomLevel": 1,
+  "workbench.editorAssociations": [
+    {
+      "viewType": "jupyter.notebook.ipynb",
+      "filenamePattern": "*.ipynb"
+    }
+  ],
   "editor.formatOnSave": true,
-  "window.zoomLevel": 1
+  "diffEditor.ignoreTrimWhitespace": false,
+  "liveshare.guestApprovalRequired": true,
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "tslint.ignoreDefinitionFiles": true
 }
