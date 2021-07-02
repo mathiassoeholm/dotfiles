@@ -1,0 +1,5 @@
+" esc in insert mode
+inoremap kj <esc>
+
+" use system clipboard
+set clipboard=unnamedplus
