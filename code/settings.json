@@ -34,12 +34,19 @@
   ],
   "vim.useSystemClipboard": true,
   "workbench.editor.wrapTabs": true,
-  "window.zoomLevel": 1,
   "editor.formatOnSave": true,
-  "diffEditor.ignoreTrimWhitespace": false,
   "liveshare.guestApprovalRequired": true,
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
-  "tslint.ignoreDefinitionFiles": true
+  "tslint.ignoreDefinitionFiles": true,
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  },
+  "window.zoomLevel": 1,
+  "editor.bracketPairColorization.enabled": true
 }
