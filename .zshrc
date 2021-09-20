@@ -106,7 +106,7 @@ unlinkall () {
 
 alias xcodeclean="rm -rf ~/library/Developer/Xcode/DerivedData/*"
 
-alias recentbranches="git for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname)' refs/heads refs/remotes --count=25"
+alias gci="~/git/rust-projects/git-checkout-interactive/target/release/git-checkout-interactive"
 
 # Open an Xcode workspace
 alias workspace="open *.xcworkspace"
