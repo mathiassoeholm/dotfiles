@@ -112,3 +112,5 @@ alias gci="~/git/rust-projects/git-checkout-interactive/target/release/git-check
 alias workspace="open *.xcworkspace"
 
 alias vim=nvim
+
+alias lg=lazygit
