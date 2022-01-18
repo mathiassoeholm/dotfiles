@@ -6,4 +6,4 @@ inoremap kj <esc>
 set directory^=$HOME/vimswap//
 
 " use system clipboard
-set clipboard=unnamedplus
+set clipboard+=unnamedplus

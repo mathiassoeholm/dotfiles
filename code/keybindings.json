@@ -11,5 +11,17 @@
     "key": "ctrl+shift+alt+cmd+tab",
     "command": "workbench.action.quickOpenNavigateNext",
     "when": "inWindowsPicker"
-}
+  },
+  {
+    "command": "vscode-neovim.compositeEscape2",
+    "key": "j",
+    "when": "neovim.mode == insert && editorTextFocus",
+    "args": "j"
+  },
+  {
+    "command": "vscode-neovim.compositeEscape1",
+    "key": "k",
+    "when": "neovim.mode == insert && editorTextFocus",
+    "args": "k"
+  }
 ]

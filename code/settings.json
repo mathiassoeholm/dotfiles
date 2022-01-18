@@ -16,23 +16,6 @@
   "[rust]": {
     "editor.defaultFormatter": "matklad.rust-analyzer"
   },
-  "vim.insertModeKeyBindings": [
-    {
-      "before": ["k", "j"],
-      "after": ["<Esc>"]
-    }
-  ],
-  "vim.visualModeKeyBindingsNonRecursive": [
-    {
-      "before": [">"],
-      "after": [">", "g", "v"]
-    },
-    {
-      "before": ["<"],
-      "after": ["<", "g", "v"]
-    }
-  ],
-  "vim.useSystemClipboard": true,
   "workbench.editor.wrapTabs": true,
   "editor.formatOnSave": true,
   "liveshare.guestApprovalRequired": true,
@@ -48,5 +31,6 @@
     "jupyter-notebook": "left"
   },
   "window.zoomLevel": 1,
-  "editor.bracketPairColorization.enabled": true
+  "editor.bracketPairColorization.enabled": true,
+  "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim"
 }
