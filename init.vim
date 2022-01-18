@@ -7,3 +7,9 @@ set directory^=$HOME/vimswap//
 
 " use system clipboard
 set clipboard+=unnamedplus
+
+" use CMD+/ to toggle comments
+nmap <D-/> gcc
+xmap <D-/> gc
+
+lua require('plugins')
