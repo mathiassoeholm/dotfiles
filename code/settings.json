@@ -30,7 +30,10 @@
     "default": "right",
     "jupyter-notebook": "left"
   },
-  "window.zoomLevel": 1,
   "editor.bracketPairColorization.enabled": true,
-  "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim"
+  "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
+  "[lua]": {
+    "editor.defaultFormatter": "yinfei.luahelper"
+  },
+  "window.zoomLevel": 1
 }

@@ -3,9 +3,8 @@ defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 
 # Link config files
 ln -s ~/git/dotfiles/.ideavimrc ~/.ideavimrc
-ln -s ~/git/dotfiles/init.vim ~/.config/nvim/init.vim
-mkdir ~/.config/nvim/lua
-ln -s ~/git/dotfiles/vim/plugins.lua ~/.config/nvim/lua/plugins.lua
+ln -s ~/git/dotfiles/vim/init.vim ~/.config/nvim/init.vim
+ln -s ~/git/dotfiles/vim/lua/ ~/.config/nvim
 
 # Install Packer
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\

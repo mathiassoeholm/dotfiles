@@ -12,4 +12,6 @@ set clipboard+=unnamedplus
 nmap <D-/> gcc
 xmap <D-/> gc
 
-lua require('plugins')
+lua << EOF
+require('plugins')
+EOF
