@@ -12,19 +12,6 @@
     "command": "workbench.action.quickOpenNavigateNext",
     "when": "inWindowsPicker"
   },
-  // Enable switching to normal mode with kj
-  {
-    "command": "vscode-neovim.compositeEscape2",
-    "key": "j",
-    "when": "neovim.mode == insert && editorTextFocus",
-    "args": "j"
-  },
-  {
-    "command": "vscode-neovim.compositeEscape1",
-    "key": "k",
-    "when": "neovim.mode == insert && editorTextFocus",
-    "args": "k"
-  },
   // Enable CMD+/ for commenting through neovim
   {
     "command": "vscode-neovim.send",
