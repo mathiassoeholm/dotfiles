@@ -5,6 +5,10 @@ defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 ln -s ~/git/dotfiles/.ideavimrc ~/.ideavimrc
 ln -s ~/git/dotfiles/vim/init.vim ~/.config/nvim/init.vim
 ln -s ~/git/dotfiles/vim/lua/ ~/.config/nvim
+# After linking this
+# 1. Open preferences in Karibener
+# 2. Enable modification in the Complex modifications tab
+ln -s ~/git/dotfiles/karabiner/custom-keys.json ~/.config/karabiner/assets/complex_modifications/custom-keys.json
 
 # Install Packer
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\

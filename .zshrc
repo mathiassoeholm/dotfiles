@@ -81,6 +81,9 @@ export PATH="$PATH:$(yarn global bin)"
 
 export PATH="$PATH:Users/$(whoami)/.cargo/bin"
 
+export PNPM_HOME="/Users/dkmasjso/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
