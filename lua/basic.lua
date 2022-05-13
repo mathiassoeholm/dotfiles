@@ -18,3 +18,7 @@ set.termguicolors = true
 
 -- Numbers
 set.relativenumber = true
+
+-- Enable global clipboard
+vim.o.clipboard = "unnamedplus"
+

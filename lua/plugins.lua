@@ -6,6 +6,13 @@ return require('packer').startup(function()
     use 'neovim/nvim-lspconfig'
     require('configs.lspconfig')
 
+    -- For better highlighting and file knowlage
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
+    }
+    require('configs.treesitter')
+
     -- Like Prettier but styling for Lua
     use({"ckipp01/stylua-nvim"})
     require('configs.stylua')
