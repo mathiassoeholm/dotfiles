@@ -74,6 +74,26 @@ _G.packer_plugins = {
     path = "/Users/mortenclaussen/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
     url = "https://github.com/akinsho/bufferline.nvim"
   },
+  ["gruvbox.nvim"] = {
+    loaded = true,
+    path = "/Users/mortenclaussen/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
+    url = "https://github.com/ellisonleao/gruvbox.nvim"
+  },
+  ["nvim-lsp-installer"] = {
+    loaded = true,
+    path = "/Users/mortenclaussen/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
+    url = "https://github.com/williamboman/nvim-lsp-installer"
+  },
+  ["nvim-lspconfig"] = {
+    loaded = true,
+    path = "/Users/mortenclaussen/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
+    url = "https://github.com/neovim/nvim-lspconfig"
+  },
+  ["nvim-treesitter"] = {
+    loaded = true,
+    path = "/Users/mortenclaussen/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/Users/mortenclaussen/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
@@ -83,6 +103,26 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/mortenclaussen/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
+  },
+  ["stylua-nvim"] = {
+    loaded = true,
+    path = "/Users/mortenclaussen/.local/share/nvim/site/pack/packer/start/stylua-nvim",
+    url = "https://github.com/ckipp01/stylua-nvim"
+  },
+  ["vim-commentary"] = {
+    loaded = true,
+    path = "/Users/mortenclaussen/.local/share/nvim/site/pack/packer/start/vim-commentary",
+    url = "https://github.com/tpope/vim-commentary"
+  },
+  ["vim-fugitive"] = {
+    loaded = true,
+    path = "/Users/mortenclaussen/.local/share/nvim/site/pack/packer/start/vim-fugitive",
+    url = "https://github.com/tpope/vim-fugitive"
+  },
+  ["vim-surround"] = {
+    loaded = true,
+    path = "/Users/mortenclaussen/.local/share/nvim/site/pack/packer/start/vim-surround",
+    url = "https://github.com/tpope/vim-surround"
   }
 }
 

@@ -1,3 +1,3 @@
-require('basic')
 require('plugins')
+require('basic')
 require('mappings')

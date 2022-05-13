@@ -3,7 +3,10 @@ return require('packer').startup(function()
 	use 'wbthomason/packer.nvim'
     
     -- For running different language servers
-    use 'neovim/nvim-lspconfig'
+    use {
+        "williamboman/nvim-lsp-installer",
+        "neovim/nvim-lspconfig",
+    }
     require('configs.lspconfig')
 
     -- For better highlighting and file knowlage
