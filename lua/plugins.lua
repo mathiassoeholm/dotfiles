@@ -20,6 +20,9 @@ return require('packer').startup(function()
     -- Themes
     use { "ellisonleao/gruvbox.nvim" }
 
+    -- comment out lines of code
+    use { "tpope/vim-commentary" }
+
     -- Tabs and Buffers
 	use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
     require('configs.bufferline')
