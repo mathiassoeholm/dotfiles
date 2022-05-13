@@ -22,6 +22,8 @@ return require('packer').startup(function()
 
     -- comment out lines of code
     use { "tpope/vim-commentary" }
+    use { "tpope/vim-fugitive" } 
+    require('configs.fugitive')
 
     -- Tabs and Buffers
 	use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}

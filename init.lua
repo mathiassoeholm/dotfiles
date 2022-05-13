@@ -1,4 +1,4 @@
-require('plugins')
 require('basic')
+require('plugins')
 require('mappings')
 
