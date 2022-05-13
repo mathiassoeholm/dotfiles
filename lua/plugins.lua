@@ -22,8 +22,10 @@ return require('packer').startup(function()
 
     -- comment out lines of code
     use { "tpope/vim-commentary" }
+    -- github implementation
     use { "tpope/vim-fugitive" } 
-    require('configs.fugitive')
+    -- surround, replace and add stuff with '"`{[( and tags
+    use { "tpope/vim-surround" }
 
     -- Tabs and Buffers
 	use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
