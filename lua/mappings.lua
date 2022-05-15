@@ -21,3 +21,8 @@ vim.keymap.set('n', '<C-Left>', ':vertical resize +3<CR>')
 vim.keymap.set('n', '<C-Right>', ':vertical resize -3<CR>')
 vim.keymap.set('n', '<C-Up>', ':resize +3<CR>')
 vim.keymap.set('n', '<C-Down>', ':resize -3<CR>')
+
+-- Move buffer
+vim.keymap.set('n', '<tab>', ':BufferLineCycleNext<CR>')
+vim.keymap.set('n', '<S-tab>', ':BufferLineCyclePrev<CR>')
+
