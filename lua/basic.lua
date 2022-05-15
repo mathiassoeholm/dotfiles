@@ -21,4 +21,8 @@ set.relativenumber = true
 
 -- Enable global clipboard
 vim.o.clipboard = "unnamedplus"
+
+-- Split new windows below and to the right
+set.splitbelow = true
+set.splitright = true
     
