@@ -10,7 +10,7 @@ require("bufferline").setup{
         left_trunc_marker = '',
         right_trunc_marker = '',        
         offsets = {{filetype = "NvimTree", text = "File Explorer", text_align = "left"}},
-        diagnostics = "coc",
+        diagnostics = "nvim_lsp",
         diagnostics_update_in_insert = false,
         diagnostics_indicator = function(count, level, diagnostics_dict, context)
             return "("..count..")"

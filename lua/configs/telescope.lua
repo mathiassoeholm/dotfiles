@@ -16,14 +16,7 @@ require('telescope').load_extension('fzf')
 
 
 -- Find files using Telescope command-line sugar.
-
-vim.keymap.set('n', '<leader>ff', '<cmd>Telescope find_files<CR>')
+vim.keymap.set('n', '<C-p>', '<cmd>Telescope find_files<CR>')
 vim.keymap.set('n', '<leader>fg', '<cmd>Telescope live_grep<CR>')
-
--- vim.keymap.set('n', '<leader>fh', '<cmd>Telescope help_tags<CR>')
-
--- nnoremap <leader>ff <cmd>Telescope find_files<cr>
--- nnoremap <leader>fg <cmd>Telescope live_grep<cr>
--- nnoremap <leader>fb <cmd>Telescope buffers<cr>
--- nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+vim.keymap.set('n', '<leader>fb', '<cmd>Telescope current_buffer_fuzzy_find<CR>')
 

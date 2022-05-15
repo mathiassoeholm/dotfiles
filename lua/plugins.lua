@@ -1,4 +1,4 @@
-return require('packer').startup(function()
+return require('packer').startup(function(use)
 	-- Packer can manage itself
 	use 'wbthomason/packer.nvim'
     
@@ -8,6 +8,12 @@ return require('packer').startup(function()
         "neovim/nvim-lspconfig",
     }
     require('configs.lspconfig')
+    
+    use { 
+        'vim-airline/vim-airline', 
+        'vim-airline/vim-airline-themes', 
+    }
+    require('configs.airline')
 
     -- For better highlighting and file knowlage
     use {
