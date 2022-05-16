@@ -41,6 +41,11 @@ return require("packer").startup(function(use)
 	})
 	require("configs.nvimtree")
 
+    use {
+      'lewis6991/gitsigns.nvim',
+    }
+	require("configs.gitsigns")
+
 	-- fuzzy finder for searhcing files and other stuff
 	use({
 		"nvim-telescope/telescope.nvim",
