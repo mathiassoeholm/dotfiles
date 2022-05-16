@@ -1,2 +1,2 @@
 
-vim.g.airline_theme = "molokai"
+vim.g.airline_theme = "gruvbox_material"

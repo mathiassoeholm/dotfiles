@@ -35,6 +35,7 @@ return require("packer").startup(function(use)
 
 	-- Themes
 	use({ "ellisonleao/gruvbox.nvim" })
+	use({ "sainnhe/gruvbox-material" })
 
 	-- comment out lines of code
 	use({ "tpope/vim-commentary" })
@@ -47,11 +48,12 @@ return require("packer").startup(function(use)
 	use({ "akinsho/bufferline.nvim", tag = "v2.*", requires = "kyazdani42/nvim-web-devicons" })
 	require("configs.bufferline")
 
-	-- install without yarn or npm
+    -- Run :MarkdownPreview to get a live preview in browser tab
 	use({
 		"iamcco/markdown-preview.nvim",
 		run = function()
 			vim.fn["mkdp#util#install"]()
 		end,
 	})
+
 end)
