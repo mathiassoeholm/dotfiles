@@ -15,6 +15,7 @@ return require("packer").startup(function(use)
 	-- })
 	-- require("configs.airline")
 
+	-- Statusline at the bottom
 	use({
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
@@ -28,10 +29,21 @@ return require("packer").startup(function(use)
 	})
 	require("configs.treesitter")
 
+    -- File explorer
+	use({
+		"kyazdani42/nvim-tree.lua",
+		requires = {
+			"kyazdani42/nvim-web-devicons", -- optional, for file icon
+		},
+	})
+    require("configs.nvimtree")
+
+	-- fuzzy finder for searhcing files and other stuff
 	use({
 		"nvim-telescope/telescope.nvim",
 		requires = { { "nvim-lua/plenary.nvim" } },
 	})
+	-- Use fzf for searching, Much faster searching
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 	require("configs.telescope")
 
