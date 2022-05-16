@@ -2,18 +2,13 @@ return require("packer").startup(function(use)
 	-- Packer can manage itself
 	use("wbthomason/packer.nvim")
 
-	-- For running different language servers
+	-- Native support for running different language servers
 	use({
 		"williamboman/nvim-lsp-installer",
 		"neovim/nvim-lspconfig",
 	})
 	require("configs.lspconfig")
 
-	-- use({
-	-- 	"vim-airline/vim-airline",
-	-- 	"vim-airline/vim-airline-themes",
-	-- })
-	-- require("configs.airline")
 
 	-- Statusline at the bottom
 	use({
