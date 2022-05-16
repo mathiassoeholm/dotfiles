@@ -9,11 +9,17 @@ return require("packer").startup(function(use)
 	})
 	require("configs.lspconfig")
 
+	-- use({
+	-- 	"vim-airline/vim-airline",
+	-- 	"vim-airline/vim-airline-themes",
+	-- })
+	-- require("configs.airline")
+
 	use({
-		"vim-airline/vim-airline",
-		"vim-airline/vim-airline-themes",
+		"nvim-lualine/lualine.nvim",
+		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 	})
-	require("configs.airline")
+	require("configs.lualine")
 
 	-- For better highlighting and file knowlage
 	use({
@@ -48,12 +54,11 @@ return require("packer").startup(function(use)
 	use({ "akinsho/bufferline.nvim", tag = "v2.*", requires = "kyazdani42/nvim-web-devicons" })
 	require("configs.bufferline")
 
-    -- Run :MarkdownPreview to get a live preview in browser tab
+	-- Run :MarkdownPreview to get a live preview in browser tab
 	use({
 		"iamcco/markdown-preview.nvim",
 		run = function()
 			vim.fn["mkdp#util#install"]()
 		end,
 	})
-
 end)
