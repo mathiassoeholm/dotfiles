@@ -19,11 +19,11 @@ return require("packer").startup(function(use)
 	require("configs.coc")
 
 	-- Statusline at the bottom
-	use({
-		"nvim-lualine/lualine.nvim",
-		requires = { "kyazdani42/nvim-web-devicons", opt = true },
-	})
-	require("configs.lualine")
+	-- use({
+	-- 	"nvim-lualine/lualine.nvim",
+	-- 	requires = { "kyazdani42/nvim-web-devicons", opt = true },
+	-- })
+	-- require("configs.lualine")
 
 	-- For better highlighting and file knowlage
 	use({
