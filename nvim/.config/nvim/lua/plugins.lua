@@ -2,13 +2,21 @@ return require("packer").startup(function(use)
 	-- Packer can manage itself
 	use("wbthomason/packer.nvim")
 
+	-- -----------------------
+	-- LSP WIP
+	-- -----------------------
 	-- Native support for running different language servers
-	use({
-		"williamboman/nvim-lsp-installer",
-		"neovim/nvim-lspconfig",
-	})
-	require("configs.lspconfig")
+	-- use({
+	-- 	"williamboman/nvim-lsp-installer",
+	-- 	"neovim/nvim-lspconfig",
+	-- })
+	-- require("configs.lspconfig")
 
+	-- -----------------------
+	-- CoC
+	-- -----------------------
+	use({ "neoclide/coc.nvim", branch = "release" })
+	require("configs.coc")
 
 	-- Statusline at the bottom
 	use({
@@ -24,14 +32,14 @@ return require("packer").startup(function(use)
 	})
 	require("configs.treesitter")
 
-    -- File explorer
+	-- File explorer
 	use({
 		"kyazdani42/nvim-tree.lua",
 		requires = {
 			"kyazdani42/nvim-web-devicons", -- optional, for file icon
 		},
 	})
-    require("configs.nvimtree")
+	require("configs.nvimtree")
 
 	-- fuzzy finder for searhcing files and other stuff
 	use({

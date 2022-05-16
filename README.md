@@ -12,5 +12,8 @@ Note, if you are running into errors with .DS_STORE etc, you might want to `stow
 For Lua formatting (like prettier for TS/JS)
 - run `brew install stylua`
 
+## Using CoC
+`:CocInstall coc-tsserver coc-json coc-html coc-css`
+
 ## TODO
 - At the moment I am just using https://github.com/ohmyzsh/ohmyzsh for a quick zsh setup.
