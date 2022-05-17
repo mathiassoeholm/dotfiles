@@ -58,6 +58,8 @@ return require("packer").startup(function(use)
     }
 	require("configs.gitsigns")
 
+    use 'ggandor/lightspeed.nvim'
+
 	-- fuzzy finder for searhcing files and other stuff
 	use({
 		"nvim-telescope/telescope.nvim",

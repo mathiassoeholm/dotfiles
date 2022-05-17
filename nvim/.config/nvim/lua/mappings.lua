@@ -27,7 +27,7 @@ vim.keymap.set("n", "<tab>", ":BufferLineCycleNext<CR>")
 vim.keymap.set("n", "<S-tab>", ":BufferLineCyclePrev<CR>")
 
 -- Keymap for LSP Formatting, targeting active language server
-vim.keymap.set("n", "<leader>m", ":Format<CR>")
+-- vim.keymap.set("n", "<leader>m", ":Format<CR>")
 
 -- File explorer
 vim.keymap.set("n", "<C-n>", ":NvimTreeFindFileToggle<CR>")
