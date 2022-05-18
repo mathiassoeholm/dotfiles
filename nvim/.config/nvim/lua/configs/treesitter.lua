@@ -3,7 +3,13 @@ require'nvim-treesitter.configs'.setup {
   ensure_installed = {"lua", "vim", "go", "typescript" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
-  sync_install = false,
+  sync_install = true,
+
+  -- For the plugin JoosepAlviste/nvim-ts-context-commentstring
+  context_commentstring = {
+    enable = true,
+    enable_autocmd = false,
+},
 
   -- List of parsers to ignore installing (for "all")
   highlight = {

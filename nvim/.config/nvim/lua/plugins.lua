@@ -16,7 +16,6 @@ return require("packer").startup(function(use)
 	-- CoC
 	-- -----------------------
 	use({ "neoclide/coc.nvim", branch = "release" })
-	require("configs.coc")
 
 	-- Statusline at the bottom
 	-- use({
@@ -30,7 +29,6 @@ return require("packer").startup(function(use)
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 	})
-	require("configs.treesitter")
 
 	-- File explorer
 	use({
@@ -39,7 +37,9 @@ return require("packer").startup(function(use)
 			"kyazdani42/nvim-web-devicons", -- optional, for file icon
 		},
 	})
-	require("configs.nvimtree")
+
+    -- For some pretty tab lines
+    use "lukas-reineke/indent-blankline.nvim"
 
     -- Setup Copilot
     use {"github/copilot.vim"}   
@@ -56,8 +56,8 @@ return require("packer").startup(function(use)
     use {
       'lewis6991/gitsigns.nvim',
     }
-	require("configs.gitsigns")
 
+    -- Jump around the buffer
     use 'ggandor/lightspeed.nvim'
 
 	-- fuzzy finder for searhcing files and other stuff
@@ -67,18 +67,21 @@ return require("packer").startup(function(use)
 	})
 	-- Use fzf for searching, Much faster searching
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-	require("configs.telescope")
 
 	-- Like Prettier but styling for Lua
 	use({ "ckipp01/stylua-nvim" })
-	require("configs.stylua")
 
 	-- Themes
 	use({ "ellisonleao/gruvbox.nvim" })
 	use({ "sainnhe/gruvbox-material" })
 
 	-- comment out lines of code
-	use({ "tpope/vim-commentary" })
+	-- use({ "tpope/vim-commentary" })
+    use "terrortylor/nvim-comment"
+    -- Reads type of code instead of file type. Helpful for files types with multiple languages in them, (tsx, vim, etc.)
+    use 'JoosepAlviste/nvim-ts-context-commentstring'
+    -- use({ "suy/vim-context-commentstring" })
+
 	-- github implementation
 	use({ "tpope/vim-fugitive" })
 	-- surround, replace and add stuff with '"`{[( and tags
@@ -86,7 +89,6 @@ return require("packer").startup(function(use)
 
 	-- Tabs and Buffers
 	use({ "akinsho/bufferline.nvim", tag = "v2.*", requires = "kyazdani42/nvim-web-devicons" })
-	require("configs.bufferline")
 
 	-- Run :MarkdownPreview to get a live preview in browser tab
 	use({
