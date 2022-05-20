@@ -1,0 +1,13 @@
+{
+  "eslint.autoFixOnSave": false,
+  "pairs.enableCharacters": ["(", "[", "{", "'", "\"", "`"],
+  "highlight.colorNames.enable": false,
+  "colors.filetypes": ["*"],
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"]
+    }
+  }
+}

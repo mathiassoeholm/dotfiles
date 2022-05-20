@@ -11,6 +11,10 @@ require'nvim-treesitter.configs'.setup {
     enable_autocmd = false,
 },
 
+    indent = {
+        enable = true,
+    },
+
   -- List of parsers to ignore installing (for "all")
   highlight = {
     -- `false` will disable the whole extension

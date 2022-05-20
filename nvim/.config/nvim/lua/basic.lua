@@ -3,6 +3,13 @@ local set = vim.opt
 -- Use space as a the leader key
 vim.g.mapleader = " "
 
+set.cursorline = true
+set.wrap = false
+set.scrolloff = 4
+set.numberwidth = 4
+set.signcolumn = "yes"
+set.mouse = "a"
+
 -- Set the behavior of tab
 set.autoindent = true
 set.smartindent = true
@@ -20,6 +27,11 @@ set.termguicolors = true
 
 -- Numbers
 set.relativenumber = true
+set.number = true
+
+--For searching 
+set.ignorecase = true
+set.hlsearch = true
 
 -- Set statusline to be global, instead of one for each buffer
 set.laststatus=3

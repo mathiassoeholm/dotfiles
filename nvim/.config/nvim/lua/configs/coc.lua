@@ -1,15 +1,15 @@
-
 vim.g.coc_global_extensions = {
      'coc-highlight',
      'coc-html',
      'coc-jest',
      'coc-prettier',
-     'coc-stylua',
      'coc-json',
+     'coc-lua',
      'coc-go',
      'coc-css',
      'coc-pairs',
      'coc-tsserver',
+     'coc-styled-components',
      'coc-eslint'
     }
 

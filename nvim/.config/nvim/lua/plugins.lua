@@ -1,3 +1,9 @@
+local fn = vim.fn
+local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+if fn.empty(fn.glob(install_path)) > 0 then
+  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+end
+
 return require("packer").startup(function(use)
 	-- Packer can manage itself
 	use("wbthomason/packer.nvim")
@@ -76,11 +82,9 @@ return require("packer").startup(function(use)
 	use({ "sainnhe/gruvbox-material" })
 
 	-- comment out lines of code
-	-- use({ "tpope/vim-commentary" })
     use "terrortylor/nvim-comment"
-    -- Reads type of code instead of file type. Helpful for files types with multiple languages in them, (tsx, vim, etc.)
+    -- Reads type of line instead of file type. Helpful for files types with multiple languages in them, (tsx, vim, html, etc.)
     use 'JoosepAlviste/nvim-ts-context-commentstring'
-    -- use({ "suy/vim-context-commentstring" })
 
 	-- github implementation
 	use({ "tpope/vim-fugitive" })
