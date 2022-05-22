@@ -49,3 +49,7 @@ vim.api.nvim_set_keymap("i", "<CR>", "pumvisible() ? coc#_select_confirm() : '<C
 -- Copilot
 vim.keymap.set("i", "<C-l>", 'copilot#Accept()', {silent = true, expr = true, script = true})
 vim.g.copilot_no_tab_map = 1
+
+-- Dashboard shortcuts for saving and loading sessions 
+vim.keymap.set('n', '<Leader>ss', ':<C-u>SessionSave<CR>')
+vim.keymap.set('n', '<Leader>sl', ':<C-u>SessionLoad<CR>')

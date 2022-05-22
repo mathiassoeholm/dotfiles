@@ -1,5 +1,6 @@
 require("configs.coc")
 require("configs.treesitter")
+require("configs.dashboard")
 require("configs.nvimtree")
 require("configs.gitsigns")
 require("configs.telescope")
