@@ -79,6 +79,8 @@ return require("packer").startup(function(use)
 	use({ "ellisonleao/gruvbox.nvim" })
 	use({ "sainnhe/gruvbox-material" })
 
+    use 'folke/tokyonight.nvim'
+
 	-- comment out lines of code
     use "terrortylor/nvim-comment"
     -- Reads type of line instead of file type. Helpful for files types with multiple languages in them, (tsx, vim, html, etc.)
