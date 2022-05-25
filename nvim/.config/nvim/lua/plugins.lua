@@ -20,11 +20,10 @@ return require("packer").startup(function(use)
 	use({ "neoclide/coc.nvim", branch = "release" })
 
 	-- Statusline at the bottom
-	-- use({
-	-- 	"nvim-lualine/lualine.nvim",
-	-- 	requires = { "kyazdani42/nvim-web-devicons", opt = true },
-	-- })
-	-- require("configs.lualine")
+	use({
+		"nvim-lualine/lualine.nvim",
+		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+	})
 
 	-- For better highlighting and file knowlage
 	use({

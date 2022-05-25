@@ -23,8 +23,8 @@ vim.keymap.set("n", "<C-Up>", ":resize +3<CR>")
 vim.keymap.set("n", "<C-Down>", ":resize -3<CR>")
 
 -- Move buffer
-vim.keymap.set("n", "<tab>", ":BufferLineCycleNext<CR>")
-vim.keymap.set("n", "<S-tab>", ":BufferLineCyclePrev<CR>")
+vim.keymap.set("n", "<S-l>", ":BufferLineCycleNext<CR>")
+vim.keymap.set("n", "<S-h>", ":BufferLineCyclePrev<CR>")
 
 -- Keymap for LSP Formatting, targeting active language server
 -- vim.keymap.set("n", "<leader>m", ":Format<CR>")
@@ -35,6 +35,8 @@ vim.keymap.set("n", "<C-n>", ":NvimTreeFindFileToggle<CR>")
 -- CoC specific bindings
 vim.api.nvim_set_keymap("n", "<leader>.", "<Plug>(coc-codeaction)", {})
 vim.api.nvim_set_keymap("n", "<leader>l", ":CocCommand eslint.executeAutofix<CR>", {})
+
+vim.api.nvim_set_keymap("n", "gr", "<Plug>(coc-references)", {silent = true})
 vim.api.nvim_set_keymap("n", "gd", "<Plug>(coc-definition)", {silent = true})
 vim.api.nvim_set_keymap("n", "<C-s>", "<Plug>(coc-range-select)", {silent = true})
 vim.api.nvim_set_keymap("x", "<C-s>", "<Plug>(coc-range-select)", {silent = true})
