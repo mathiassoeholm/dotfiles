@@ -29,6 +29,8 @@ vim.keymap.set("n", "<S-h>", ":BufferLineCyclePrev<CR>")
 -- Keymap for LSP Formatting, targeting active language server
 -- vim.keymap.set("n", "<leader>m", ":Format<CR>")
 
+vim.keymap.set("n", 's', "<Plug>Lightspeed_omni_s", { noremap = true, silent = true });
+
 -- File explorer
 vim.keymap.set("n", "<C-n>", ":NvimTreeFindFileToggle<CR>")
 

@@ -22,8 +22,10 @@ set.expandtab = true
 vim.g["gruvbox_material_background"] = "hard" -- hard medium soft
 vim.g["gruvbox_material_statusline_style"] = "mix"
 set.background = "dark" -- or "light" for light mode
-vim.cmd([[colorscheme gruvbox-material]])
+vim.cmd([[colorscheme catppuccin]])
 set.termguicolors = true
+
+vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
 
 -- Numbers
 set.relativenumber = true

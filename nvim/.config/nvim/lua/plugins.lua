@@ -79,6 +79,10 @@ return require("packer").startup(function(use)
 	use({ "sainnhe/gruvbox-material" })
 
     use 'folke/tokyonight.nvim'
+    use({
+        "catppuccin/nvim",
+        as = "catppuccin"
+    })
 
 	-- comment out lines of code
     use "terrortylor/nvim-comment"
