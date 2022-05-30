@@ -77,7 +77,6 @@ return require("packer").startup(function(use)
 	-- Themes
 	use({ "ellisonleao/gruvbox.nvim" })
 	use({ "sainnhe/gruvbox-material" })
-
     use 'folke/tokyonight.nvim'
     use({
         "catppuccin/nvim",
