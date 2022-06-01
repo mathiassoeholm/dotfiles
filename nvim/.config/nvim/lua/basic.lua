@@ -22,10 +22,11 @@ set.expandtab = true
 vim.g["gruvbox_material_background"] = "hard" -- hard medium soft
 vim.g["gruvbox_material_statusline_style"] = "mix"
 set.background = "dark" -- or "light" for light mode
+
+-- vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
 vim.cmd([[colorscheme catppuccin]])
 set.termguicolors = true
 
-vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
 
 -- Numbers
 set.relativenumber = true
@@ -44,3 +45,4 @@ vim.o.clipboard = "unnamedplus"
 -- Split new windows below and to the right
 set.splitbelow = true
 set.splitright = true
+

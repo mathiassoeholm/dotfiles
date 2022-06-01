@@ -57,3 +57,11 @@ vim.g.copilot_no_tab_map = 1
 -- Dashboard shortcuts for saving and loading sessions 
 vim.keymap.set('n', '<Leader>ss', ':<C-u>SessionSave<CR>')
 vim.keymap.set('n', '<Leader>sl', ':<C-u>SessionLoad<CR>')
+
+
+-- change current word (like ciw) but repeatable with dot . for the same next word
+-- nnoremap <silent> c<Tab> :let @/=expand('<cword>')<cr>cgn
+vim.api.nvim_set_keymap("n", "<Leader>rs", ":let @/=expand('<cword>')<cr>cgn", {silent = true})
+
+
+
