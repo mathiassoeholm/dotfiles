@@ -61,5 +61,3 @@ vim.keymap.set('n', '<Leader>sl', ':<C-u>SessionLoad<CR>')
 -- change current word (like ciw) but repeatable with dot . for the same next word
 vim.api.nvim_set_keymap("n", "<Leader>rs", ":let @/=expand('<cword>')<cr>cgn", {silent = true})
 
-
-
