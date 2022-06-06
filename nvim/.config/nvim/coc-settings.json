@@ -4,11 +4,14 @@
   "highlight.colorNames.enable": false,
   "colors.filetypes": ["*"],
   "snippets.userSnippetsDirectory": "~/.config/nvim/snippets",
+"sumneko-lua.enableNvimLuaDev": true,
   "languageserver": {
     "golang": {
       "command": "gopls",
       "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
       "filetypes": ["go"]
     }
-  }
+  },
+  "Lua.telemetry.enable": false
+
 }

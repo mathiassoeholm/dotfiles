@@ -1,5 +1,5 @@
 -- Keybing for toggleing favourite themes
-local currentTheme = 2; 
+local currentTheme = 2;
 function ToggleTheme()
     if currentTheme == 0 then
         vim.opt.background = "light"
