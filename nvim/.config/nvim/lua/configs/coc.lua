@@ -2,6 +2,7 @@ vim.g.coc_global_extensions = {
      'coc-highlight',
      'coc-html',
      'coc-jest',
+     'coc-snippets',
      'coc-prettier',
      'coc-json',
      'coc-lua',
