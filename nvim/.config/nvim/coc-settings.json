@@ -3,6 +3,7 @@
   "pairs.enableCharacters": ["(", "[", "{", "'", "\"", "`"],
   "highlight.colorNames.enable": false,
   "colors.filetypes": ["*"],
+  "snippets.userSnippetsDirectory": "~/.config/nvim/snippets",
   "languageserver": {
     "golang": {
       "command": "gopls",
