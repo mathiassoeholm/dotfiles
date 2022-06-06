@@ -1,5 +1,3 @@
-
-
 return require("packer").startup(function(use)
 	-- Packer can manage itself
 	use("wbthomason/packer.nvim")
@@ -31,7 +29,7 @@ return require("packer").startup(function(use)
 		run = ":TSUpdate",
 	})
 
-    use 'glepnir/dashboard-nvim';
+	use("glepnir/dashboard-nvim")
 
 	-- File explorer
 	use({
@@ -41,27 +39,27 @@ return require("packer").startup(function(use)
 		},
 	})
 
-    -- For some pretty tab lines
-    use "lukas-reineke/indent-blankline.nvim"
+	-- For some pretty tab lines
+	use("lukas-reineke/indent-blankline.nvim")
 
-    -- Setup Copilot
-    use {"github/copilot.vim"}   
-    use{
-        "zbirenbaum/copilot.lua",
-        event = {"VimEnter"},
-        config = function()
-            vim.defer_fn(function()
-                require("copilot").setup()
-            end, 100)
-        end,
-    }
+	-- Setup Copilot
+	use({ "github/copilot.vim" })
+	use({
+		"zbirenbaum/copilot.lua",
+		event = { "VimEnter" },
+		config = function()
+			vim.defer_fn(function()
+				require("copilot").setup()
+			end, 100)
+		end,
+	})
 
-    use {
-      'lewis6991/gitsigns.nvim',
-    }
+	use({
+		"lewis6991/gitsigns.nvim",
+	})
 
-    -- Jump around the buffer
-    use 'ggandor/lightspeed.nvim'
+	-- Jump around the buffer
+	use("ggandor/lightspeed.nvim")
 
 	-- fuzzy finder for searhcing files and other stuff
 	use({
@@ -72,21 +70,21 @@ return require("packer").startup(function(use)
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 
 	-- Like Prettier but styling for Lua
-	-- use({ "ckipp01/stylua-nvim" })
+	use({ "ckipp01/stylua-nvim" }) -- use({ "ckipp01/stylua-nvim" })
 
 	-- Themes
 	use({ "ellisonleao/gruvbox.nvim" })
 	use({ "sainnhe/gruvbox-material" })
-    use 'folke/tokyonight.nvim'
-    use({
-        "catppuccin/nvim",
-        as = "catppuccin"
-    })
+	use("folke/tokyonight.nvim")
+	use({
+		"catppuccin/nvim",
+		as = "catppuccin",
+	})
 
 	-- comment out lines of code
-    use "terrortylor/nvim-comment"
-    -- Reads type of line instead of file type. Helpful for files types with multiple languages in them, (tsx, vim, html, etc.)
-    use 'JoosepAlviste/nvim-ts-context-commentstring'
+	use("terrortylor/nvim-comment")
+	-- Reads type of line instead of file type. Helpful for files types with multiple languages in them, (tsx, vim, html, etc.)
+	use("JoosepAlviste/nvim-ts-context-commentstring")
 
 	-- github implementation
 	use({ "tpope/vim-fugitive" })

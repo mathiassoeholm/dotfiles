@@ -27,17 +27,16 @@ set.background = "dark" -- or "light" for light mode
 vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
 vim.cmd([[colorscheme catppuccin]])
 
-
 -- Numbers
 set.relativenumber = true
 set.number = true
 
---For searching 
+--For searching
 set.ignorecase = true
 set.hlsearch = true
 
 -- Set statusline to be global, instead of one for each buffer
-set.laststatus=3
+set.laststatus = 3
 
 -- Enable global clipboard
 vim.o.clipboard = "unnamedplus"
@@ -45,4 +44,3 @@ vim.o.clipboard = "unnamedplus"
 -- Split new windows below and to the right
 set.splitbelow = true
 set.splitright = true
-

@@ -74,6 +74,11 @@ _G.packer_plugins = {
     path = "/Users/mortenclaussen/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
     url = "https://github.com/akinsho/bufferline.nvim"
   },
+  catppuccin = {
+    loaded = true,
+    path = "/Users/mortenclaussen/.local/share/nvim/site/pack/packer/start/catppuccin",
+    url = "https://github.com/catppuccin/nvim"
+  },
   ["coc.nvim"] = {
     loaded = true,
     path = "/Users/mortenclaussen/.local/share/nvim/site/pack/packer/start/coc.nvim",
@@ -122,6 +127,11 @@ _G.packer_plugins = {
     path = "/Users/mortenclaussen/.local/share/nvim/site/pack/packer/start/lightspeed.nvim",
     url = "https://github.com/ggandor/lightspeed.nvim"
   },
+  ["lualine.nvim"] = {
+    loaded = true,
+    path = "/Users/mortenclaussen/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
   ["markdown-preview.nvim"] = {
     loaded = true,
     path = "/Users/mortenclaussen/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim",
@@ -162,11 +172,6 @@ _G.packer_plugins = {
     path = "/Users/mortenclaussen/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
-  ["stylua-nvim"] = {
-    loaded = true,
-    path = "/Users/mortenclaussen/.local/share/nvim/site/pack/packer/start/stylua-nvim",
-    url = "https://github.com/ckipp01/stylua-nvim"
-  },
   ["telescope-fzf-native.nvim"] = {
     loaded = true,
     path = "/Users/mortenclaussen/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
@@ -176,6 +181,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/mortenclaussen/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["tokyonight.nvim"] = {
+    loaded = true,
+    path = "/Users/mortenclaussen/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
+    url = "https://github.com/folke/tokyonight.nvim"
   },
   ["vim-fugitive"] = {
     loaded = true,

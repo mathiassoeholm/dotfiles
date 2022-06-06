@@ -1,3 +1,3 @@
-require'lightspeed'.setup {
-  ignore_case = true,
-}
+require("lightspeed").setup({
+	ignore_case = true,
+})
