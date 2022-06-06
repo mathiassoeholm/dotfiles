@@ -72,7 +72,7 @@ return require("packer").startup(function(use)
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 
 	-- Like Prettier but styling for Lua
-	use({ "ckipp01/stylua-nvim" })
+	-- use({ "ckipp01/stylua-nvim" })
 
 	-- Themes
 	use({ "ellisonleao/gruvbox.nvim" })
