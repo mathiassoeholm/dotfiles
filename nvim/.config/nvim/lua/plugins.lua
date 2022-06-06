@@ -54,6 +54,7 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	-- github visible feedback
 	use({
 		"lewis6991/gitsigns.nvim",
 	})
@@ -75,7 +76,6 @@ return require("packer").startup(function(use)
 	-- Themes
 	use({ "ellisonleao/gruvbox.nvim" })
 	use({ "sainnhe/gruvbox-material" })
-	use("folke/tokyonight.nvim")
 	use({
 		"catppuccin/nvim",
 		as = "catppuccin",
