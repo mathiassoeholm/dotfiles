@@ -1,6 +1,7 @@
 require("configs.coc")
 require("configs.contextstring")
 require("configs.treesitter")
+require("configs.treesitter-context")
 require("configs.catppuccin")
 require("configs.dashboard")
 require("configs.lightspeed")

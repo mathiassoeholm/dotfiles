@@ -62,6 +62,9 @@ return require("packer").startup(function(use)
 	-- Jump around the buffer
 	use("ggandor/lightspeed.nvim")
 
+    -- display cursors function, class and other context out of view
+    use 'nvim-treesitter/nvim-treesitter-context'
+
 	-- fuzzy finder for searhcing files and other stuff
 	use({
 		"nvim-telescope/telescope.nvim",
