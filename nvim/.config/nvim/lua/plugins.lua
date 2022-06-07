@@ -81,6 +81,8 @@ return require("packer").startup(function(use)
 		as = "catppuccin",
 	})
 
+    use({"p00f/nvim-ts-rainbow"})
+
 	-- comment out lines of code
 	use("terrortylor/nvim-comment")
 	-- Reads type of line instead of file type. Helpful for files types with multiple languages in them, (tsx, vim, html, etc.)

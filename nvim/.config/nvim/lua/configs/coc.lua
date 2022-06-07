@@ -6,6 +6,8 @@ vim.g.coc_global_extensions = {
 	"coc-prettier",
 	"coc-json",
 	"coc-sumneko-lua",
+	"coc-emmet",
+	"coc-spell-checker",
 	-- 'coc-lua',
 	"coc-go",
 	"coc-css",

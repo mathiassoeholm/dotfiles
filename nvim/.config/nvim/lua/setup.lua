@@ -1,6 +1,7 @@
 require("configs.coc")
 require("configs.contextstring")
 require("configs.treesitter")
+require("configs.catppuccin")
 require("configs.dashboard")
 require("configs.lightspeed")
 require("configs.nvimtree")

@@ -39,7 +39,7 @@ vim.api.nvim_set_keymap("n", "<leader>f", [[<cmd>lua require("stylua-nvim").form
 vim.keymap.set("n", "<C-n>", ":NvimTreeFindFileToggle<CR>")
 
 -- CoC specific bindings
-vim.api.nvim_set_keymap("n", "<leader>.", "<Plug>(coc-codeaction)", {})
+vim.api.nvim_set_keymap("n", "<leader>a", "<Plug>(coc-codeaction)", {})
 vim.api.nvim_set_keymap("n", "<leader>l", ":CocCommand eslint.executeAutofix<CR>", {})
 
 vim.api.nvim_set_keymap("n", "gr", "<Plug>(coc-references)", { silent = true })

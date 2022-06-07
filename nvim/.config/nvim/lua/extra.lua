@@ -1,6 +1,7 @@
 -- Keybing for toggleing favourite themes
-local currentTheme = 3
+local currentTheme = 2
 function ToggleTheme()
+	currentTheme = (currentTheme + 1) % 6
 	if currentTheme == 0 then
 		vim.opt.background = "light"
 		vim.cmd([[colorscheme gruvbox]])
@@ -24,7 +25,15 @@ function ToggleTheme()
 		vim.opt.background = "light"
 		vim.cmd([[colorscheme catppuccin]])
 	end
-	currentTheme = (currentTheme + 1) % 6
 end
 
 vim.api.nvim_set_keymap("n", "<C-T>", ":lua ToggleTheme()<CR>", { silent = true })
+
+-- Set default theme
+vim.opt.termguicolors = true
+vim.g["gruvbox_material_background"] = "hard" -- hard medium soft
+vim.g["gruvbox_material_statusline_style"] = "mix"
+vim.opt.background = "dark" -- or "light" for light mode
+
+vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
+vim.cmd([[colorscheme catppuccin]])

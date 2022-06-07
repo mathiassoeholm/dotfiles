@@ -12,6 +12,10 @@
       "filetypes": ["go"]
     }
   },
-  "Lua.telemetry.enable": false
+  "Lua.telemetry.enable": false,
+  "cSpell.userWords": [
+    "Renderable",
+    "renderables"
+  ]
 
 }
