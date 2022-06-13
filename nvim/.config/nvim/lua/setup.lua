@@ -1,5 +1,5 @@
 require("configs.coc")
-require("configs.contextstring")
+require("configs.nvimcomment")
 require("configs.treesitter")
 require("configs.treesitter-context")
 require("configs.catppuccin")

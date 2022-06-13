@@ -18,18 +18,27 @@ An always work in progress repo for my dotfiles.
 - follow the instructions on https://github.com/ohmyzsh/ohmyzsh
 
 ## Todos
-- Commenting `tsx` files, for some reason still doesnt work. 
-The packages `JoosepAlviste/nvim-ts-context-commentstring` and `terrortylor/nvim-comment` should be setup correctly. 
 - Changing colors themes `dark` to `light` does not update the cursor. `Kitty` (or what ever terminal) needs to also have its theme updated
 - A custom `ZSH` setup, not using `ohmyzsh`. But for now my main focus is on the `nvim`
 
 # Troubleshooting
 When having trouble always run `:healthcheck`
 
-Many features of Coc requires Python3 to be installed and pynvim as a provider for nvim. 
+#### pyx command not found
+Many features of CoC requires Python3 to be installed and pynvim as a provider for nvim. 
 If you are having trouble or errors with pyx command not found.
 - `brew install python`
 - `brew install pyvim` 
 - `python3 -m pip install pynvim --user`
+
+#### XCode errors while compiling treesitter
+If the console on compiling (first time) throws some XCode errors scanner.cc etc.
+You might have some symlink issues with `clang` and `gcc`. Treesitter uses `c` and `c++` to compile language parsers
+
+I have hardcoded the treesitter compiler to `gcc` (see line 4 in `treesitter.lua`)
+
+and linked gcc with higher priority to override apples symlink of clang:
+- `cd /usr/local/bin && ln -s ./gcc-11 gcc` 
+(have a look at this comment https://github.com/tree-sitter/tree-sitter-haskell/issues/34#issuecomment-892960976)
 
 
