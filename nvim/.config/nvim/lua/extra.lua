@@ -25,6 +25,16 @@ function ToggleTheme()
 		vim.opt.background = "light"
 		vim.cmd([[colorscheme catppuccin]])
 	end
+
+    -- TODO change kitty terminal color scheme as well to change the cursor
+    -- vim.loop.spawn('kitty', {
+    --     args = {
+    --         '@',
+    --         'set-colors',
+    --         '-c',
+    --         string.format(vim.env.HOME..'/base16-kitty/colors/%s.conf', name)
+    --     }
+    -- }, nil)
 end
 
 vim.api.nvim_set_keymap("n", "<C-T>", ":lua ToggleTheme()<CR>", { silent = true })

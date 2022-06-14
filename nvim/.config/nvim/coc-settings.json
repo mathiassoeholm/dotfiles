@@ -1,22 +1,39 @@
 {
-  "eslint.autoFixOnSave": false,
-  "pairs.enableCharacters": ["(", "[", "{", "'", "\"", "`"],
-  "highlight.colorNames.enable": false,
-  "colors.filetypes": ["*"],
-  "snippets.userSnippetsDirectory": "~/.config/nvim/snippets",
-"sumneko-lua.enableNvimLuaDev": true,
-  "languageserver": {
-    "golang": {
-      "command": "gopls",
-      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
-      "filetypes": ["go"]
-    }
-  },
-  "Lua.telemetry.enable": false,
-  "cSpell.userWords": [
-    "Attinder",
-    "Renderable",
-    "renderables"
-  ]
+	"eslint.autoFixOnSave": false,
+	"pairs.enableCharacters": ["(", "[", "{", "'", "\"", "`"],
+	"highlight.colorNames.enable": false,
+	"colors.filetypes": ["*"],
+	"snippets.userSnippetsDirectory": "~/.config/nvim/snippets",
+	"sumneko-lua.enableNvimLuaDev": true,
 
+	"prettier": {
+		"arrowParens": "avoid",
+		"bracketSpacing": true,
+		"embeddedLanguageFormatting": "auto",
+		"htmlWhitespaceSensitivity": "css",
+		"insertPragma": false,
+		"jsxBracketSameLine": false,
+		"jsxSingleQuote": true,
+		"proseWrap": "preserve",
+		"quoteProps": "as-needed",
+		"requirePragma": false,
+		"semi": true,
+		"singleQuote": true,
+		"trailingComma": "all",
+		"useTabs": true,
+		"vueIndentScriptAndStyle": false,
+		"printWidth": 120,
+		"tabWidth": 4,
+		"endOfLine": "auto"
+	},
+
+	"languageserver": {
+		"golang": {
+			"command": "gopls",
+			"rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+			"filetypes": ["go"]
+		}
+	},
+	"Lua.telemetry.enable": false,
+	"cSpell.userWords": ["Attinder", "Renderable", "renderables"]
 }
