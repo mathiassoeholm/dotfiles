@@ -35,5 +35,13 @@
 		}
 	},
 	"Lua.telemetry.enable": false,
-	"cSpell.userWords": ["Attinder", "Renderable", "renderables"]
+	"cSpell.userWords": [
+    "Attinder",
+    "Renderable",
+    "esotericsoftware",
+    "pixi",
+    "prebuild",
+    "renderables",
+    "tsbuildinfo"
+  ]
 }

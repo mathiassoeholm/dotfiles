@@ -39,6 +39,9 @@ return require("packer").startup(function(use)
 		},
 	})
 
+    -- Deletes buffers while retaining window layout
+	use("famiu/bufdelete.nvim")
+
 	-- For some pretty tab lines
 	use("lukas-reineke/indent-blankline.nvim")
 
@@ -62,8 +65,8 @@ return require("packer").startup(function(use)
 	-- Jump around the buffer
 	use("ggandor/lightspeed.nvim")
 
-    -- display cursors function, class and other context out of view
-    use 'nvim-treesitter/nvim-treesitter-context'
+	-- display cursors function, class and other context out of view
+	use("nvim-treesitter/nvim-treesitter-context")
 
 	-- fuzzy finder for searhcing files and other stuff
 	use({
@@ -84,7 +87,7 @@ return require("packer").startup(function(use)
 		as = "catppuccin",
 	})
 
-    use({"p00f/nvim-ts-rainbow"})
+	use({ "p00f/nvim-ts-rainbow" })
 
 	-- comment out lines of code
 	use("terrortylor/nvim-comment")
