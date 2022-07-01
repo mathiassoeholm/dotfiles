@@ -20,6 +20,7 @@ An always work in progress repo for my dotfiles.
 ## Todos
 - Changing colors themes `dark` to `light` does not update the cursor. `Kitty` (or what ever terminal) needs to also have its theme updated
 - A custom `ZSH` setup, not using `ohmyzsh`. But for now my main focus is on the `nvim`
+- Move to LSP over CoC
 
 # Troubleshooting
 When having trouble always run `:healthcheck`
