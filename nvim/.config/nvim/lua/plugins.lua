@@ -17,7 +17,6 @@ return require("packer").startup(function(use)
 	-- -----------------------
 	use({ "neoclide/coc.nvim", branch = "release" })
 
-	-- Statusline at the bottom
 	use({
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
@@ -39,7 +38,7 @@ return require("packer").startup(function(use)
 		},
 	})
 
-    -- Deletes buffers while retaining window layout
+	-- Deletes buffers while retaining window layout
 	use("famiu/bufdelete.nvim")
 
 	-- For some pretty tab lines
@@ -47,15 +46,6 @@ return require("packer").startup(function(use)
 
 	-- Setup Copilot
 	use({ "github/copilot.vim" })
-	use({
-		"zbirenbaum/copilot.lua",
-		event = { "VimEnter" },
-		config = function()
-			vim.defer_fn(function()
-				require("copilot").setup()
-			end, 100)
-		end,
-	})
 
 	-- github visible feedback
 	use({
