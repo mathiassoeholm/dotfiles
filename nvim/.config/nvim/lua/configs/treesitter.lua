@@ -22,12 +22,12 @@ require("nvim-treesitter.configs").setup({
 		"json5",
 		"yaml",
 		"kotlin",
-        "php",
-        "python",
-        "regex",
-        "svelte",
-        "toml",
-        "tsx",
+		"php",
+		"python",
+		"regex",
+		"svelte",
+		"toml",
+		"tsx",
 	},
 
 	-- Install parsers synchronously (only applied to `ensure_installed`)
@@ -68,5 +68,19 @@ require("nvim-treesitter.configs").setup({
 		-- Using this option may slow down your editor, and you may see some duplicate highlights.
 		-- Instead of true it can also be a list of languages
 		additional_vim_regex_highlighting = false,
+	},
+})
+
+require("nvim-treesitter.configs").setup({
+	textobjects = {
+		swap = {
+			enable = true,
+			swap_next = {
+				[">"] = {"@parameter.inner", "@function.inner"},
+			},
+			swap_previous = {
+				["<"] = {"@parameter.inner", "@function.inner"},
+			},
+		},
 	},
 })

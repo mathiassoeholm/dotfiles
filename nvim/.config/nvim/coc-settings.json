@@ -56,6 +56,7 @@
     "reakit",
     "renderables",
     "svgr",
+    "tickable",
     "tsbuildinfo",
     "typedoc",
     "vite",
