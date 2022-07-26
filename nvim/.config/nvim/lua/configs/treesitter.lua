@@ -8,6 +8,7 @@ require("nvim-treesitter.configs").setup({
 		"lua",
 		"vim",
 		"go",
+        "rust",
 		"typescript",
 		"javascript",
 		"jsdoc",

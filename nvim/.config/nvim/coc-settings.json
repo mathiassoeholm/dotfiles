@@ -37,10 +37,20 @@
 	"Lua.telemetry.enable": false,
 	"cSpell.userWords": [
     "Attinder",
+    "Behaviour",
+    "Codepads",
+    "Derender",
+    "Eledgable",
+    "Konami",
+    "Minigame",
+    "Persistant",
     "Renderable",
+    "Roundtable",
     "Teleporter",
     "Unspawned",
     "behaviours",
+    "dartpad",
+    "derendered",
     "dompurify",
     "esbuild",
     "esotericsoftware",
@@ -62,6 +72,7 @@
     "vite",
     "vitejs",
     "youtube",
+    "yoyo",
     "zustand"
   ]
 }
