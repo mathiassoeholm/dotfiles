@@ -81,8 +81,9 @@ export PATH="$PATH:$(yarn global bin)"
 
 export PATH="$PATH:Users/$(whoami)/.cargo/bin"
 
-export PNPM_HOME="/Users/dkmasjso/Library/pnpm"
+export PNPM_HOME="/Users/$(whoami)/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
+export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/14/bin" 
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -116,4 +117,5 @@ alias workspace="open *.xcworkspace"
 
 alias vim=nvim
 
-alias lg=lazygit
+# Command to make work in progress git commit and push
+alias gwip="git commit -m '🚧 This commit message will get squashed or reset later' && git push"

@@ -11,12 +11,5 @@
     "key": "ctrl+shift+alt+cmd+tab",
     "command": "workbench.action.quickOpenNavigateNext",
     "when": "inWindowsPicker"
-  },
-  // Enable CMD+/ for commenting through neovim
-  {
-    "command": "vscode-neovim.send",
-    "key": "cmd+/",
-    "when": "editorTextFocus && neovim.mode != insert",
-    "args": "<D-/>"
   }
 ]

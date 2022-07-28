@@ -35,19 +35,24 @@
   "[lua]": {
     "editor.defaultFormatter": "yinfei.luahelper"
   },
-  "window.zoomLevel": 1,
   "git.confirmSync": false,
   // Github copilot
   "editor.inlineSuggest.enabled": true,
   "github.copilot.enable": {
     "*": true,
-    "yaml": false,
+    "yaml": true,
     "plaintext": false,
     "markdown": false,
-    "go": true
+    "go": true,
+    "typescript": false
   },
   // Go
   "[go]": {
     "editor.defaultFormatter": "golang.go"
-  }
+  },
+  "[toml]": {
+    "editor.defaultFormatter": "be5invis.toml"
+  },
+  "go.toolsManagement.autoUpdate": true,
+  "window.zoomLevel": 1
 }
