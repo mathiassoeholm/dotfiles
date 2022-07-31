@@ -14,4 +14,3 @@ mkdir ~/vimswap/
 
 #---- Setup for Nvim
 # 1. Turn off Ctrl + arrow hotkeys for Mac in keyboard preferences
-# 2. Map option+j and option+k to esc+j and esc+k in the iTerm2 default profile
