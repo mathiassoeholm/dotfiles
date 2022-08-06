@@ -14,3 +14,7 @@ mkdir ~/vimswap/
 
 #---- Setup for Nvim
 # 1. Turn off Ctrl + arrow hotkeys for Mac in keyboard preferences
+# 2. Install the Hack nerd font
+brew tap homebrew/cask-fonts
+brew install --cask font-hack-nerd-font
+Change font to Hack in iTerm2 (Profiles -> Text -> Font)
