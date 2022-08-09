@@ -36,16 +36,6 @@
     "editor.defaultFormatter": "yinfei.luahelper"
   },
   "git.confirmSync": false,
-  // Github copilot
-  "editor.inlineSuggest.enabled": true,
-  "github.copilot.enable": {
-    "*": true,
-    "yaml": true,
-    "plaintext": false,
-    "markdown": false,
-    "go": true,
-    "typescript": false
-  },
   // Go
   "[go]": {
     "editor.defaultFormatter": "golang.go"
@@ -54,5 +44,7 @@
     "editor.defaultFormatter": "be5invis.toml"
   },
   "go.toolsManagement.autoUpdate": true,
-  "window.zoomLevel": 1
+  "window.zoomLevel": 1,
+  // Disable searching in the explorer (for Neovim navigation to work)
+  "workbench.list.automaticKeyboardNavigation": false
 }
