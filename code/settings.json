@@ -22,7 +22,6 @@
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
-  "tslint.ignoreDefinitionFiles": true,
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook"
   },
