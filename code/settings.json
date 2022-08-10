@@ -43,7 +43,7 @@
     "editor.defaultFormatter": "be5invis.toml"
   },
   "go.toolsManagement.autoUpdate": true,
-  "window.zoomLevel": 1,
   // Disable searching in the explorer (for Neovim navigation to work)
-  "workbench.list.automaticKeyboardNavigation": false
+  "workbench.list.automaticKeyboardNavigation": false,
+  "window.zoomLevel": 1
 }
