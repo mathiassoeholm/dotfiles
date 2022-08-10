@@ -51,14 +51,14 @@ vim.api.nvim_set_keymap("i", "<C-Space>", "coc#refresh()", { silent = true, expr
 vim.api.nvim_set_keymap(
 	"i",
 	"<TAB>",
-	"pumvisible() ? '<C-n>' : '<TAB>'",
+	"coc#pum#visible() ? '<C-n>' : '<TAB>'",
 	{ noremap = true, silent = true, expr = true }
 )
-vim.api.nvim_set_keymap("i", "<S-TAB>", "pumvisible() ? '<C-p>' : '<C-h>'", { noremap = true, expr = true })
+vim.api.nvim_set_keymap("i", "<S-TAB>", "coc#pum#visible() ? '<C-p>' : '<C-h>'", { noremap = true, expr = true })
 vim.api.nvim_set_keymap(
 	"i",
 	"<CR>",
-	"pumvisible() ? coc#_select_confirm() : '<C-G>u<CR><C-R>=coc#on_enter()<CR>'",
+	"coc#pum#visible() ? coc#pum#confirm() : '<C-G>u<CR><C-R>=coc#on_enter()<CR>'",
 	{ silent = true, expr = true, noremap = true }
 )
 

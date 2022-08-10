@@ -87,8 +87,17 @@ return require("packer").startup(function(use)
 
 	-- github implementation
 	use({ "tpope/vim-fugitive" })
+
 	-- surround, replace and add stuff with '"`{[( and tags
-	use({ "tpope/vim-surround" })
+	-- use({ "tpope/vim-surround" })
+	use({
+		"kylechui/nvim-surround",
+		config = function()
+			require("nvim-surround").setup({
+				-- Configuration here, or leave empty to use defaults
+			})
+		end,
+	})
 
 	-- Tabs and Buffers
 	use({ "akinsho/bufferline.nvim", tag = "v2.*", requires = "kyazdani42/nvim-web-devicons" })
