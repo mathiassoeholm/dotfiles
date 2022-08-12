@@ -12,15 +12,5 @@
     "key": "ctrl+k",
     "command": "workbench.action.focusActiveEditorGroup",
     "when": "terminalFocus"
-  },
-  {
-    "key": "s",
-    "command": "git.stage",
-    "when": "workbench.scm.active"
-  },
-  {
-    "key": "u",
-    "command": "git.unstage",
-    "when": "workbench.scm.active"
   }
 ]
