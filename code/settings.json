@@ -250,6 +250,13 @@
       "args": ":noh<CR>"
     },
     {
+      "key": "j",
+      "name": "jump",
+      "type": "command",
+      "command": "vscode-neovim.send",
+      "args": ":HopChar2<CR>"
+    },
+    {
       "key": "s",
       "name": "Search...",
       "type": "bindings",
