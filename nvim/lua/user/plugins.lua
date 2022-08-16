@@ -42,44 +42,16 @@ local function is_not_vscode()
     return not vim.g.vscode
 end
 
-print(is_not_vscode())
-
 -- Install your plugins here
 return packer.startup(function(use)
-    function nvimPlugin(name)
-        use {
-            name,
-            cond = is_not_vscode
-        }
-    end
-    function vscodePlugin(name)
-        use {
-            name,
-            cond = is_vscode
-        }
-    end
-
     use "wbthomason/packer.nvim" -- Have packer manage itsel
 
-    vscodePlugin "asvetliakov/vim-easymotion"
+    use {
+        'phaazon/hop.nvim',
+        branch = 'v2'
+    }
 
-    -- Many plugins rely on these two plugins, so they are just here if needed
-    nvimPlugin "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
-    nvimPlugin "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
-
-    -- Colorschemes 
-    nvimPlugin "lunarvim/darkplus.nvim"
-
-    -- cmp plugins
-    nvimPlugin "hrsh7th/nvim-cmp" -- The completion plugin
-    nvimPlugin "hrsh7th/cmp-buffer" -- buffer completions
-    nvimPlugin "hrsh7th/cmp-path" -- path completions
-    nvimPlugin "hrsh7th/cmp-cmdline" -- cmdline completions
-    nvimPlugin "saadparwaiz1/cmp_luasnip" -- snippet completions
-
-    -- snippets
-    nvimPlugin "L3MON4D3/LuaSnip" -- snippet engine
-    nvimPlugin "rafamadriz/friendly-snippets" -- a bunch of snippets to use use "lunarvim/darkplus.nvim"
+    use {"lunarvim/darkplus.nvim"}
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
