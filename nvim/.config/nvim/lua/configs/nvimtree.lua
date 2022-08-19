@@ -8,10 +8,13 @@ require("nvim-tree").setup({
 			},
 		},
 	},
+    git = {
+        ignore = false,
+    },
 	renderer = {
 		group_empty = true,
 	},
 	filters = {
-		dotfiles = true,
-	},
+        custom = { "node_modules", ".DS_STORE" },
+    },
 })
