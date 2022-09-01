@@ -422,6 +422,5 @@
       "command": "workbench.action.toggleZenMode"
     }
   ],
-  "window.zoomLevel": 1,
   "git.mergeEditor": false
 }

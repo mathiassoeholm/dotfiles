@@ -9,6 +9,9 @@ ln -s ~/git/dotfiles/.gitconfig ~/.gitconfig
 ln -s ~/git/dotfiles/code/settings.json ~/Library/Application\ Support/Code/User/settings.json
 ln -s ~/git/dotfiles/code/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
 
+# Afterwards rules needs to be enabled in the Karabiner UI
+ln -s ~/git/dotfiles/karabiner.json ~/.config/karabiner/assets/complex_modifications/karabiner.json
+
 # After linking this
 # 1. Open preferences in Karibener
 # 2. Enable modification in the Complex modifications tab
