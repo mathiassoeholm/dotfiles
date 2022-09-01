@@ -5,5 +5,5 @@
 	editor = nvim
 
 # Override some settings for LEGO repositories
-[includeIf "gitdir:~/git/lego/"]
-  path = ~/git/lego/.gitconfig
+[includeIf "gitdir:~/git/setsnail/"]
+  path = ~/git/setsnail/.gitconfig

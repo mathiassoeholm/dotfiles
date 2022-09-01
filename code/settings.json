@@ -30,7 +30,7 @@
     "jupyter-notebook": "left"
   },
   "editor.bracketPairColorization.enabled": true,
-  "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
+  "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
   "[lua]": {
     "editor.defaultFormatter": "yinfei.luahelper"
   },

@@ -74,16 +74,12 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# Use Ruby from brew, since the default Ruby doesn't have the right permissions
-export PATH="/usr/local/opt/ruby@2.7/bin:$PATH"
-
 export PATH="$PATH:$(yarn global bin)"
 
 export PATH="$PATH:Users/$(whoami)/.cargo/bin"
 
 export PNPM_HOME="/Users/$(whoami)/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
-export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/14/bin" 
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -97,8 +93,6 @@ export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/14/bin"
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
-
-. $HOME/.asdf/asdf.sh
 
 # Show which libraries have been linked with yarn or npm
 alias showlinked="( ls -l node_modules ; ls -l node_modules/@* ) | grep ^l"

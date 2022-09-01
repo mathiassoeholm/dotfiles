@@ -4,6 +4,11 @@ defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 # Link config files
 ln -s ~/git/dotfiles/.ideavimrc ~/.ideavimrc
 ln -s ~/git/dotfiles/nvim/ ~/.config
+ln -s ~/git/dotfiles/.zshrc ~/.zshrc
+ln -s ~/git/dotfiles/.gitconfig ~/.gitconfig
+ln -s ~/git/dotfiles/code/settings.json ~/Library/Application\ Support/Code/User/settings.json
+ln -s ~/git/dotfiles/code/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
+
 # After linking this
 # 1. Open preferences in Karibener
 # 2. Enable modification in the Complex modifications tab
