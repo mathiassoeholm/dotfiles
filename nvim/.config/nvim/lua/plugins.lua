@@ -39,6 +39,9 @@ return require("packer").startup(function(use)
 		},
 	})
 
+    -- used for jest testing
+	use("David-Kunz/jester")
+
 	-- Deletes buffers while retaining window layout
 	use("famiu/bufdelete.nvim")
 
