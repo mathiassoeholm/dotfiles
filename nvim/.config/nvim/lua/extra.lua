@@ -24,41 +24,65 @@ local function setColorMode(mode)
 	-- end)
 end
 
-function ToggleTheme()
-	currentTheme = (currentTheme + 1) % 2
-	if currentTheme == 0 then
-		setColorMode("light")
-		vim.cmd([[colorscheme gruvbox]])
-	elseif currentTheme == 1 then
-		setColorMode("dark")
-		vim.cmd([[colorscheme gruvbox]])
-	elseif currentTheme == 2 then
-		setColorMode("dark")
-		vim.g.catppuccin_flavour = "mocha"
-		vim.cmd([[colorscheme catppuccin]])
-	elseif currentTheme == 3 then
-		setColorMode("dark")
-		vim.g.catppuccin_flavour = "macchiato"
-		vim.cmd([[colorscheme catppuccin]])
-	elseif currentTheme == 4 then
-		setColorMode("dark")
-		vim.g.catppuccin_flavour = "frappe"
-		vim.cmd([[colorscheme catppuccin]])
-	elseif currentTheme == 5 then
-		setColorMode("light")
-		vim.g.catppuccin_flavour = "latte"
-		vim.cmd([[colorscheme catppuccin]])
+local themes = {
+	{
+		mode = "dark",
+		colorscheme = "gruvbox",
+	},
+	{
+		mode = "light",
+		colorscheme = "gruvbox",
+	},
+	{
+		mode = "dark",
+		colorscheme = "catppuccin",
+		global = {
+			catppuccin_flavour = "mocha",
+		},
+	},
+	{
+		mode = "light",
+		colorscheme = "catppuccin",
+		global = {
+			catppuccin_flavour = "latte",
+		},
+	},
+	{
+		mode = "dark",
+		colorscheme = "everforest",
+		global = {
+			everforest_background = "hard",
+		},
+	},
+	{
+		mode = "light",
+		colorscheme = "everforest",
+		global = {
+			everforest_background = "soft",
+		},
+	},
+}
+
+function toggleTheme()
+	currentTheme = currentTheme + 1
+	if currentTheme > #themes then
+		currentTheme = 1
 	end
 
+	local theme = themes[currentTheme]
+	setColorMode(theme.mode)
+	if theme.global then
+		for key, value in pairs(theme.global) do
+			vim.g[key] = value
+		end
+	end
+
+	vim.cmd("colorscheme " .. theme.colorscheme)
 end
 
-vim.api.nvim_set_keymap("n", "<C-T>", ":lua ToggleTheme()<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<C-T>", ":lua toggleTheme()<CR>", { silent = true })
 
--- Set default theme
 vim.opt.termguicolors = true
-vim.g["gruvbox_material_background"] = "hard" -- hard medium soft
-vim.g["gruvbox_material_statusline_style"] = "mix"
-vim.opt.background = "dark" -- or "light" for light mode
 
--- vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
-vim.cmd([[colorscheme gruvbox]])
+currentTheme = 4
+toggleTheme()

@@ -39,7 +39,7 @@ return require("packer").startup(function(use)
 		},
 	})
 
-    -- used for jest testing
+	-- used for jest testing
 	use("David-Kunz/jester")
 
 	-- Deletes buffers while retaining window layout
@@ -74,6 +74,7 @@ return require("packer").startup(function(use)
 	use({ "ckipp01/stylua-nvim" }) -- use({ "ckipp01/stylua-nvim" })
 
 	-- Themes
+	use({ "sainnhe/everforest" })
 	use({ "ellisonleao/gruvbox.nvim" })
 	use({ "sainnhe/gruvbox-material" })
 	use({
