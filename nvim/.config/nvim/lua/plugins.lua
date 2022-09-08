@@ -81,7 +81,7 @@ return require("packer").startup(function(use)
 		as = "catppuccin",
 	})
 
-	use({ "p00f/nvim-ts-rainbow" })
+	-- use({ "p00f/nvim-ts-rainbow" })
 
 	-- comment out lines of code
 	use("terrortylor/nvim-comment")
