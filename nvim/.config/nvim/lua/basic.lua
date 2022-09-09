@@ -16,7 +16,7 @@ set.smartindent = true
 set.tabstop = 4
 set.shiftwidth = 4
 set.softtabstop = 4
-set.expandtab = true
+set.expandtab = false -- Tabs over spaces
 
 -- Numbers
 set.relativenumber = true
@@ -35,3 +35,4 @@ vim.o.clipboard = "unnamedplus"
 -- Split new windows below and to the right
 set.splitbelow = true
 set.splitright = true
+set.fillchars = "eob: "

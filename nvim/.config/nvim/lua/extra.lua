@@ -52,6 +52,7 @@ local themes = {
 		colorscheme = "everforest",
 		global = {
 			everforest_background = "hard",
+			everforest_enable_italic = 1,
 		},
 	},
 	{
@@ -59,6 +60,7 @@ local themes = {
 		colorscheme = "everforest",
 		global = {
 			everforest_background = "soft",
+			everforest_enable_italic = 1,
 		},
 	},
 }
