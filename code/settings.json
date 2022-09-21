@@ -422,5 +422,10 @@
       "command": "workbench.action.toggleZenMode"
     }
   ],
-  "git.mergeEditor": false
+  "git.mergeEditor": false,
+  "files.saveConflictResolution": "overwriteFileOnDisk",
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+  "window.zoomLevel": 1
 }

@@ -3,7 +3,3 @@
 	email = mathiassoeholm@gmail.com
 [core]
 	editor = nvim
-
-# Override some settings for LEGO repositories
-[includeIf "gitdir:~/git/setsnail/"]
-  path = ~/git/setsnail/.gitconfig
