@@ -1,5 +1,5 @@
 require("plugins")
 require("basic")
-require("setup")
 require("default-mappings")
+
 require("theming")

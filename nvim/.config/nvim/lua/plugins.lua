@@ -54,6 +54,9 @@ return require("packer").startup(function(use)
 		print("Missing implementation")
 	end
 
+	-- -----------------------
+	-- Setup plugins
+	-- -----------------------
 	for _, package in ipairs(configs) do
 		if package.Compile ~= nil then
 			package.Compile(use)
