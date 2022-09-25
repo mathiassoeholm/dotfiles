@@ -1,28 +1,3 @@
-local currentTheme = 1
-local function setColorMode(mode)
-	vim.opt.background = mode
-
-	-- TODO change kitty terminal color scheme as well to change the cursor
-	-- local themePath
-	-- if mode == "dark" then
-	-- 	themePath = string.format(vim.env.HOME .. "/.config/kitty/catpuccino-theme.conf")
-	-- else
-	-- 	themePath = string.format(vim.env.HOME .. "/.config/kitty/catpuccino-theme-light.conf")
-	-- end
-	--
-	-- handle = vim.loop.spawn("kitty", {
-	-- 	args = {
-	-- 		"@",
-	-- 		"set-colors",
-	-- 		"-c",
-	-- 		themePath,
-	-- 	},
-	-- }, function()
-	-- 	print("DOCUMENT CONVERSION COMPLETE")
-	-- 	handle:close()
-	-- end)
-end
-
 local themes = {
 	{
 		mode = "dark",
@@ -63,6 +38,32 @@ local themes = {
 		},
 	},
 }
+
+local currentTheme = 1
+local function setColorMode(mode)
+	vim.opt.background = mode
+
+	-- TODO change kitty terminal color scheme as well to change the cursor
+	-- local themePath
+	-- if mode == "dark" then
+	-- 	themePath = string.format(vim.env.HOME .. "/.config/kitty/catpuccino-theme.conf")
+	-- else
+	-- 	themePath = string.format(vim.env.HOME .. "/.config/kitty/catpuccino-theme-light.conf")
+	-- end
+	--
+	-- handle = vim.loop.spawn("kitty", {
+	-- 	args = {
+	-- 		"@",
+	-- 		"set-colors",
+	-- 		"-c",
+	-- 		themePath,
+	-- 	},
+	-- }, function()
+	-- 	print("DOCUMENT CONVERSION COMPLETE")
+	-- 	handle:close()
+	-- end)
+end
+
 
 local function setColorTheme(index)
 	local theme = themes[index]
