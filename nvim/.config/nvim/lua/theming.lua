@@ -1,16 +1,15 @@
--- Keybing for toggleing favourite themes
 local currentTheme = 1
 local function setColorMode(mode)
 	vim.opt.background = mode
 
-	local themePath
-	if mode == "dark" then
-		themePath = string.format(vim.env.HOME .. "/.config/kitty/catpuccino-theme.conf")
-	else
-		themePath = string.format(vim.env.HOME .. "/.config/kitty/catpuccino-theme-light.conf")
-	end
-
 	-- TODO change kitty terminal color scheme as well to change the cursor
+	-- local themePath
+	-- if mode == "dark" then
+	-- 	themePath = string.format(vim.env.HOME .. "/.config/kitty/catpuccino-theme.conf")
+	-- else
+	-- 	themePath = string.format(vim.env.HOME .. "/.config/kitty/catpuccino-theme-light.conf")
+	-- end
+	--
 	-- handle = vim.loop.spawn("kitty", {
 	-- 	args = {
 	-- 		"@",
@@ -65,13 +64,8 @@ local themes = {
 	},
 }
 
-function toggleTheme()
-	currentTheme = currentTheme + 1
-	if currentTheme > #themes then
-		currentTheme = 1
-	end
-
-	local theme = themes[currentTheme]
+local function setColorTheme(index)
+	local theme = themes[index]
 	setColorMode(theme.mode)
 	if theme.global then
 		for key, value in pairs(theme.global) do
@@ -82,9 +76,17 @@ function toggleTheme()
 	vim.cmd("colorscheme " .. theme.colorscheme)
 end
 
-vim.api.nvim_set_keymap("n", "<C-T>", ":lua toggleTheme()<CR>", { silent = true })
+function NextTheme()
+	currentTheme = currentTheme + 1
+	if currentTheme > #themes then
+		currentTheme = 1
+	end
+
+	setColorTheme(currentTheme)
+end
 
 vim.opt.termguicolors = true
+vim.api.nvim_set_keymap("n", "<C-T>", ":lua NextTheme()<CR>", { silent = true })
 
-currentTheme = 4
-toggleTheme()
+-- Set default start theme
+setColorTheme(5)

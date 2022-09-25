@@ -113,3 +113,4 @@ export NVM_DIR="$HOME/.nvm"
 
 # Enable vim mode
 set -o vi
+export PATH=$PATH:/Users/mortenclaussen/.spicetify

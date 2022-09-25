@@ -5,8 +5,8 @@ require("bufferline").setup({
 		right_mouse_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
 		left_mouse_command = "buffer %d", -- can be a string | function, see "Mouse actions"
 		indicator = {
-			-- icon = "▎", -- this should be omitted if indicator style is not 'icon'
-			style = "none",
+			icon = "▎", -- this should be omitted if indicator style is not 'icon'
+			-- style = "none",
 		},
         separator_style = "thin", -- thin | slant | padded_slant | thick
 		buffer_close_icon = "",
