@@ -35,4 +35,6 @@ vim.o.clipboard = "unnamedplus"
 -- Split new windows below and to the right
 set.splitbelow = true
 set.splitright = true
+
+-- Set end of buffer characters to be a space, instead of the default tilde.
 set.fillchars = "eob: "
