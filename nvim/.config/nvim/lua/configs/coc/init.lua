@@ -1,3 +1,5 @@
+print("Settup CoC")
+
 vim.g.coc_global_extensions = {
 	"coc-highlight",
 	"coc-html",
