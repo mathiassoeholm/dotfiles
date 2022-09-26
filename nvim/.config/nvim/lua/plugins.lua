@@ -38,7 +38,6 @@ local configs = {
 }
 
 return require("packer").startup(function(use)
-	print("Installing plugins...")
 	-- Packer can manage itself
 	use("wbthomason/packer.nvim")
 
@@ -46,7 +45,6 @@ return require("packer").startup(function(use)
 	-- Setup languageServer
 	-- -----------------------
 	if languageServer == "CoC" then
-		print("Using CoC")
 		use({
 			"neoclide/coc.nvim",
 			branch = "release",
