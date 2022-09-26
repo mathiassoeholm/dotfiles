@@ -16,11 +16,6 @@ vim.g.coc_global_extensions = {
 	"coc-eslint",
 }
 
-vim.o.hidden = true
-vim.o.backup = false
-vim.o.writebackup = false
-vim.o.updatetime = 300
-
 -- Mapping
 vim.api.nvim_set_keymap("n", "<leader>a", "<Plug>(coc-codeaction)", {})
 vim.api.nvim_set_keymap("n", "<leader>l", ":CocCommand eslint.executeAutofix<CR>", {})

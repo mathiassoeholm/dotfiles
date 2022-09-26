@@ -38,3 +38,9 @@ set.splitright = true
 
 -- Set end of buffer characters to be a space, instead of the default tilde.
 set.fillchars = "eob: "
+
+-- Backup and swapfile settings
+set.hidden = true
+set.backup = false
+set.writebackup = false
+set.updatetime = 300
