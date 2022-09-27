@@ -44,3 +44,14 @@ vim.api.nvim_set_keymap(
 
 local opts = { noremap = true, silent = true }
 vim.api.nvim_set_keymap("n", "<leader>f", [[<cmd>lua require("stylua-nvim").format_file()<CR>]], opts)
+
+local function Compile(packerUse)
+	packerUse({
+		"neoclide/coc.nvim",
+		branch = "release",
+	})
+end
+
+return {
+	Compile = Compile,
+}
