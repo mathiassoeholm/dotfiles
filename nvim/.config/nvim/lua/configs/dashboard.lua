@@ -1,42 +1,47 @@
-vim.g.dashboard_default_executive = "telescope"
-vim.g.dashboard_custom_header = {
-	"                                       ███",
-	"                                      ████ ███",
-	"                                   ██████████",
-	"                  ███████████     ███   ████",
-	"                █████     █████  ███     ███",
-	"               ███▌   ██    ████         ███",
-	"              ████    ████   ███        ████",
-	"               ███     ███   ███        ███",
-	"        ████    ████  ████   ███       ███",
-	"      ████████   ████████   ███      ████",
-	"     ████  █████         █████     █████",
-	" ██████      ███████████████    █████",
-	"███              ███████       ██",
-	"",
-}
+local M = {}
 
--- Alernative NooB snail
--- vim.g.dashboard_custom_header = {
---     '     .----.   @   @',
---     '    / .-"-.`.  \\v/',
---     "    | | '\\ \\ \\_/ )",
---     "  ,-\\ `-.' /.'  /",
---     " '---`----'----'"
--- }
+M.Added = function()
+	vim.g.dashboard_default_executive = "telescope"
+	vim.g.dashboard_custom_header = {
+		"                                       ███",
+		"                                      ████ ███",
+		"                                   ██████████",
+		"                  ███████████     ███   ████",
+		"                █████     █████  ███     ███",
+		"               ███▌   ██    ████         ███",
+		"              ████    ████   ███        ████",
+		"               ███     ███   ███        ███",
+		"        ████    ████  ████   ███       ███",
+		"      ████████   ████████   ███      ████",
+		"     ████  █████         █████     █████",
+		" ██████      ███████████████    █████",
+		"███              ███████       ██",
+		"",
+	}
 
--- disable the indenLine while dashboard is open
-vim.g.indentLine_fileTypeExclude = { "dashboard" }
+	-- Alernative NooB snail
+	-- vim.g.dashboard_custom_header = {
+	--     '     .----.   @   @',
+	--     '    / .-"-.`.  \\v/',
+	--     "    | | '\\ \\ \\_/ )",
+	--     "  ,-\\ `-.' /.'  /",
+	--     " '---`----'----'"
+	-- }
 
-vim.g.dashboard_custom_footer = {
-	"Serious Code, Silly Games",
-}
+	-- disable the indenLine while dashboard is open
+	vim.g.indentLine_fileTypeExclude = { "dashboard" }
 
--- Dashboard shortcuts for saving and loading sessions
-vim.keymap.set("n", "<Leader>ss", ":<C-u>SessionSave<CR>")
-vim.keymap.set("n", "<Leader>sl", ":<C-u>SessionLoad<CR>")
+	vim.g.dashboard_custom_footer = {
+		"Serious Code, Silly Games",
+	}
 
-local function Compile(packerUse)
+	-- Dashboard shortcuts for saving and loading sessions
+	vim.keymap.set("n", "<Leader>ss", ":<C-u>SessionSave<CR>")
+	vim.keymap.set("n", "<Leader>sl", ":<C-u>SessionLoad<CR>")
+end
+
+M.Compile = function(packerUse)
 	packerUse("glepnir/dashboard-nvim")
 end
-return { Compile = Compile }
+
+return M

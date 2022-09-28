@@ -1,4 +1,6 @@
-local function Compile(packerUse)
+local M = {}
+
+M.Compile = function(packerUse)
 	packerUse({
 		"iamcco/markdown-preview.nvim",
 		run = function()
@@ -7,4 +9,4 @@ local function Compile(packerUse)
 	})
 end
 
-return { Compile = Compile }
+return M

@@ -43,7 +43,8 @@ local configs = {
 	require("configs.nvimcomment"),
 }
 
-return require("packer").startup(function(use)
+-- Remember to run :PackerCompile after adding or editing a plugin
+local spartup = require("packer").startup(function(use)
 	-- Packer can manage itself
 	use("wbthomason/packer.nvim")
 
@@ -55,4 +56,14 @@ return require("packer").startup(function(use)
 			use(package)
 		end
 	end
+
 end)
+
+-- Call added to all wrapped plugins
+for _, package in ipairs(configs) do
+	if package.Added ~= nil then
+		package.Added()
+	end
+end
+
+return spartup

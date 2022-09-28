@@ -1,10 +1,14 @@
--- Find files using Telescope command-line sugar.
-vim.keymap.set("n", "<C-p>", "<cmd>Telescope find_files<CR>")
-vim.keymap.set("n", "<C-b>", "<cmd>Telescope resume<CR>")
-vim.keymap.set("n", "<S-f>", "<cmd>Telescope live_grep<CR>")
-vim.keymap.set("n", "<C-f>", "<cmd>Telescope current_buffer_fuzzy_find<CR>")
+local M = {}
 
-local function Compile(packerUse)
+M.Added = function()
+	-- Find files using Telescope command-line sugar.
+	vim.keymap.set("n", "<C-p>", "<cmd>Telescope find_files<CR>")
+	vim.keymap.set("n", "<C-b>", "<cmd>Telescope resume<CR>")
+	vim.keymap.set("n", "<S-f>", "<cmd>Telescope live_grep<CR>")
+	vim.keymap.set("n", "<C-f>", "<cmd>Telescope current_buffer_fuzzy_find<CR>")
+end
+
+M.Compile = function(packerUse)
 	packerUse({
 		"nvim-telescope/telescope.nvim",
 		requires = {
@@ -36,4 +40,4 @@ local function Compile(packerUse)
 	})
 end
 
-return { Compile = Compile }
+return M

@@ -1,4 +1,6 @@
-local function Compile(packerUse)
+local M ={}
+
+M.Compile = function (packerUse)
 	packerUse({
 		"nvim-treesitter/nvim-treesitter-context",
 		requires = { "nvim-treesitter/nvim-treesitter" },
@@ -43,4 +45,4 @@ local function Compile(packerUse)
 	})
 end
 
-return { Compile = Compile }
+return M

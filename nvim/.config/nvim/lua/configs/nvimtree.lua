@@ -1,6 +1,6 @@
-vim.keymap.set("n", "<C-n>", ":NvimTreeFindFileToggle<CR>")
+local M = {}
 
-local function Compile(packerUse)
+M.Compile = function(packerUse)
 	packerUse({
 		"kyazdani42/nvim-tree.lua",
 		requires = {
@@ -31,4 +31,9 @@ local function Compile(packerUse)
 	})
 end
 
-return { Compile = Compile }
+M.Added = function()
+	print("nvim-tree.lua added")
+	vim.keymap.set("n", "<C-n>", ":NvimTreeFindFileToggle<CR>")
+end
+
+return M

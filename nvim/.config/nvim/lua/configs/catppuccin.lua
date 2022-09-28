@@ -1,4 +1,6 @@
-local function Compile(packerUse)
+local M = {}
+
+M.Compile = function(packerUse)
 	packerUse({
 		"catppuccin/nvim",
 		as = "catppuccin",
@@ -39,4 +41,4 @@ local function Compile(packerUse)
 	})
 end
 
-return { Compile = Compile }
+return M

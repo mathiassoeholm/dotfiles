@@ -1,6 +1,11 @@
-vim.keymap.set("n", "<leader>j", ':lua require"jester".run()<CR>')
+local M = {}
 
-local function Compile(packerUse)
+M.Compile = function(packerUse)
 	packerUse("David-Kunz/jester")
 end
-return { Compile = Compile }
+
+M.Added = function()
+	vim.keymap.set("n", "<leader>j", ':lua require"jester".run()<CR>')
+end
+
+return M

@@ -1,4 +1,6 @@
-local function Compile(packerUse)
+local M = {}
+
+M.Compile = function(packerUse)
 	packerUse({
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
@@ -26,4 +28,4 @@ local function Compile(packerUse)
 	})
 end
 
-return { Compile = Compile }
+return M
