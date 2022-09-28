@@ -43,6 +43,19 @@ local configs = {
 	require("configs.nvimcomment"),
 }
 
+-- For boopstraping
+local ensure_packer = function()
+	local fn = vim.fn
+	local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+	if fn.empty(fn.glob(install_path)) > 0 then
+		fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+		vim.cmd([[packadd packer.nvim]])
+		return true
+	end
+	return false
+end
+local packer_bootstrap = ensure_packer()
+
 -- Remember to run :PackerCompile after adding or editing a plugin
 local spartup = require("packer").startup(function(use)
 	-- Packer can manage itself
@@ -57,6 +70,10 @@ local spartup = require("packer").startup(function(use)
 		end
 	end
 
+	-- Automatically set up your configuration after cloning packer.nvim
+	if packer_bootstrap then
+		require("packer").sync()
+	end
 end)
 
 -- Call added to all wrapped plugins
