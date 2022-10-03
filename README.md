@@ -3,6 +3,9 @@ An always work in progress repo for my dotfiles.
 
 ## Setup
 
+####
+- Make sure that you have neovim 8.0+ installed
+
 #### Formatting and editing nvim lua
  - Follow the installation steps at https://github.com/JohnnyMorganz/StyLua
 
@@ -23,6 +26,8 @@ An always work in progress repo for my dotfiles.
 - Move to LSP over CoC
 
 ## Troubleshooting
+
+#### Make sure that you have neovim 8.0 installed
 
 #### Reminders 
 - When having trouble always run `:healthcheck`

@@ -32,7 +32,6 @@ M.Compile = function(packerUse)
 end
 
 M.Added = function()
-	print("nvim-tree.lua added")
 	vim.keymap.set("n", "<C-n>", ":NvimTreeFindFileToggle<CR>")
 end
 
