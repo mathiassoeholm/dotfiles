@@ -15,25 +15,23 @@ M.Compile = function(packerUse)
 
 	packerUse({
 		"hrsh7th/cmp-nvim-lsp",
-		config = function()
-
-		end
+		config = function() end,
 	})
 
 	packerUse({
-		"glepnir/lspsaga.nvim", branch = "main",
+		"glepnir/lspsaga.nvim",
+		branch = "main",
 		config = function()
-			local saga = require('lspsaga')
+			local saga = require("lspsaga")
 			saga.init_lsp_saga({
 				finder_action_keys = {
-					open = "<CR>"
+					open = "<CR>",
 				},
 				definition_action_keys = {
-					edit = "<CR>"
-				}
+					edit = "<CR>",
+				},
 			})
-		end
-		
+		end,
 	})
 
 	packerUse({
@@ -41,13 +39,12 @@ M.Compile = function(packerUse)
 	})
 end
 
-M.Added = function() 
-
+M.Added = function()
 	local lspconfig = require("lspconfig")
 	local capabilities = require("cmp_nvim_lsp").default_capabilities()
 	local keybinds = require("configs.lsp.keymaps").on_attach
 
-	local cmp = require('cmp')
+	local cmp = require("cmp")
 	cmp.setup({
 		snippet = {
 			expand = function(args)
@@ -60,21 +57,25 @@ M.Added = function()
 			["<C-Space>"] = cmp.mapping.complete(),
 			["<C-e>"] = cmp.mapping.abort(),
 			["<CR>"] = cmp.mapping.confirm({
+				-- for copilot
+				behavior = cmp.ConfirmBehavior.Replace,
 				select = true,
 			}),
 		}),
 		sources = cmp.config.sources({
+			{ name = "copilot" },
 			{ name = "luasnip" },
 			{ name = "path" },
 			{ name = "buffer" },
 			{ name = "nvim_lsp" },
 		}),
-		formatting ={
+		formatting = {
 			format = require("lspkind").cmp_format({
 				maxwidth = 50,
+				symbol_map = { Copilot = "" },
 				ellipsis_char = "...",
 			}),
-		}
+		},
 	})
 
 	lspconfig["html"].setup({
@@ -107,10 +108,9 @@ M.Added = function()
 						[vim.fn.expand("$VIMRUNTIME/lua")] = true,
 					},
 				},
-			}
-		}
+			},
+		},
 	})
-			
 end
 
 return M

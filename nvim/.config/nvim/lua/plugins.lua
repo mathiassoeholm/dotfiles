@@ -36,14 +36,13 @@ local configs = {
 	-- "fannheyward/telescope-coc.nvim",
 
 	-- Showing nice popups and cmd line messages now that cmdheight is 0
-	-- Try again with LSP instead of CoC
-	-- require("configs.noice"),
+	require("configs.noice"),
 
 	-- Deletes buffers while retaining window layout
 	"famiu/bufdelete.nvim",
 
 	-- Git
-	"github/copilot.vim",
+	require("configs.copilot"),
 	require("configs.gitsigns"),
 	"tpope/vim-fugitive",
 

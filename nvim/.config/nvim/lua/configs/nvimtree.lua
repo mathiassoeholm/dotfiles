@@ -32,7 +32,8 @@ M.Compile = function(packerUse)
 end
 
 M.Added = function()
-	vim.keymap.set("n", "<C-n>", ":NvimTreeFindFileToggle<CR>")
+	local opts = { noremap = true, silent = true }
+	vim.keymap.set("n", "<C-n>", ":NvimTreeFindFileToggle<CR>", opts)
 end
 
 return M
