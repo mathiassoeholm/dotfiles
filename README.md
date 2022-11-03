@@ -24,7 +24,7 @@ An always work in progress repo for my dotfiles.
 ## TODO's
 - Changing colors themes `dark` to `light` does not update the cursor. `Kitty` (or what ever terminal) needs to also have its theme updated
 - A custom `ZSH` setup, not using `ohmyzsh`. But for now my main focus is on `nvim`
-- Move to LSP over CoC
+- Clean up the lsp mess and remove CoC entirely
 
 ## Troubleshooting
 
