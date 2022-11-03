@@ -11,6 +11,7 @@ An always work in progress repo for my dotfiles.
 
 #### Nvim
 - open `nvim` and run `:PackerSync`
+- open `nvim` and run `:Mason`
 
 #### For Symlinking
 - run `brew install stow`
