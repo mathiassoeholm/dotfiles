@@ -6,6 +6,9 @@ M.Added = function()
 	vim.keymap.set("n", "<C-b>", "<cmd>Telescope resume<CR>")
 	vim.keymap.set("n", "<S-f>", "<cmd>Telescope live_grep<CR>")
 	vim.keymap.set("n", "<C-f>", "<cmd>Telescope current_buffer_fuzzy_find<CR>")
+
+
+
 end
 
 M.Compile = function(packerUse)
@@ -36,6 +39,7 @@ M.Compile = function(packerUse)
 			-- To get fzf loaded and working with telescope, you need to call
 			-- load_extension, somewhere after setup function:
 			require("telescope").load_extension("fzf")
+			require("telescope").load_extension("coc")
 		end,
 	})
 end

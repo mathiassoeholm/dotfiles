@@ -25,8 +25,8 @@ vim.keymap.set("n", "<S-l>", ":BufferLineCycleNext<CR>")
 vim.keymap.set("n", "<S-h>", ":BufferLineCyclePrev<CR>")
 
 -- Copilot
-vim.keymap.set("i", "<C-e>", "copilot#Accept()", { silent = true, expr = true, script = true })
-vim.g.copilot_no_tab_map = 1
+-- vim.keymap.set("i", "<C-e>", 'copilot#Accept()', { silent = true, expr = true, script = true })
+-- vim.g.copilot_no_tab_map = true
 
 -- change current word (like ciw) but repeatable with dot . for the same next word
 vim.api.nvim_set_keymap("n", "<Leader>rs", ":let @/=expand('<cword>')<cr>cgn", { silent = true })

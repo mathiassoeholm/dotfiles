@@ -12,8 +12,16 @@ local configs = {
 	require("configs.bufferline"),
 	require("configs.lualine"),
 	require("configs.dashboard"),
+	require("configs.blankline"),
+
+	"kyazdani42/nvim-web-devicons", -- optional, for file icon
 	require("configs.nvimtree"),
 	require("configs.telescope"),
+	"fannheyward/telescope-coc.nvim",
+
+	-- Showing nice popups and cmd line messages now that cmdheight is 0
+	-- Try again with LSP instead of CoC
+	-- require("configs.noice"),
 
 	-- Deletes buffers while retaining window layout
 	"famiu/bufdelete.nvim",

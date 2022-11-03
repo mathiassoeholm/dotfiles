@@ -5,7 +5,8 @@ M.Compile = function(packerUse)
 end
 
 M.Added = function()
-	vim.keymap.set("n", "<leader>j", ':lua require"jester".run()<CR>')
+	vim.keymap.set("n", "<leader>ja", ':lua require"jester".run_file()<CR>')
+	vim.keymap.set("n", "<leader>jf", ':lua require"jester".run()<CR>')
 end
 
 return M
