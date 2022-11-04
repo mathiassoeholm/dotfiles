@@ -1,4 +1,3 @@
-
 local M = {}
 
 M.Compile = function(packerUse)
@@ -7,7 +6,7 @@ M.Compile = function(packerUse)
 		config = function()
 			-- load friendly-snippets
 			require("luasnip/loaders/from_vscode").lazy_load()
-		end
+		end,
 	})
 
 	packerUse({
@@ -17,7 +16,6 @@ M.Compile = function(packerUse)
 	packerUse({
 		"rafamadriz/friendly-snippets",
 	})
-
 end
 
 M.Added = function()

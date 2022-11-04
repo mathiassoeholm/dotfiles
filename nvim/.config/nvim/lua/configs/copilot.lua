@@ -3,18 +3,30 @@ local M = {}
 M.Compile = function(packerUse)
 	packerUse({
 		"zbirenbaum/copilot.lua",
-		event = "InsertEnter",
+		event = "VimEnter",
 		config = function()
-			vim.schedule(function()
-				require("copilot").setup()
-			end)
+			vim.defer_fn(function()
+				require("copilot").setup({
+					-- suggestion = {
+					-- 	auto_trigger = true,
+					-- },
+					suggestion = {
+						auto_trigger = true,
+						keymap = {
+							accept = "<C-e>",
+						},
+					},
+				})
+			end, 100)
 		end,
 	})
 	packerUse({
 		"zbirenbaum/copilot-cmp",
 		after = { "copilot.lua" },
 		config = function()
-			require("copilot_cmp").setup()
+			require("copilot_cmp").setup({
+				-- method = "getPanelCompletions",
+			})
 		end,
 	})
 end

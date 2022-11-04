@@ -4,7 +4,7 @@ M.Compile = function(packerUse)
 	packerUse({
 		"williamboman/mason-lspconfig",
 		config = {
-			require('mason-lspconfig').setup({
+			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"tsserver",
 					"html",
@@ -17,11 +17,10 @@ M.Compile = function(packerUse)
 					"eslint",
 					"marksman",
 					"taplo",
-					"yamlls"
-				}, 
-				
-			})
-		}
+					"yamlls",
+				},
+			}),
+		},
 	})
 end
 

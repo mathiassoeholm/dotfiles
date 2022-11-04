@@ -4,23 +4,21 @@ M.Compile = function(packerUse)
 	packerUse({
 		"williamboman/mason.nvim",
 		config = {
-			require('mason').setup({
-			})
-
-		}
+			require("mason").setup({}),
+		},
 	})
 
 	packerUse({
 		"jayp0521/mason-null-ls.nvim",
 		config = {
-			require('mason-null-ls').setup({
+			require("mason-null-ls").setup({
 				ensure_installed = {
 					"stylua",
 					"prettierd",
 					"spell",
 				},
-			})
-		}
+			}),
+		},
 	})
 end
 
