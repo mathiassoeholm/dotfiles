@@ -7,10 +7,6 @@ M.Compile = function(packerUse)
 end
 
 M.Added = function()
-	local lspconfig = require("lspconfig")
-	local capabilities = require("cmp_nvim_lsp").default_capabilities()
-	local keybinds = require("configs.lsp.lsp-mappings").on_attach
-
 	local cmp = require("cmp")
 	cmp.setup({
 		snippet = {
@@ -45,6 +41,10 @@ M.Added = function()
 		},
 	})
 
+	-- Setup servers
+	local lspconfig = require("lspconfig")
+	local capabilities = require("cmp_nvim_lsp").default_capabilities()
+	local keybinds = require("configs.lsp.lsp-mappings").on_attach
 	lspconfig["html"].setup({
 		capabilities = capabilities,
 		on_attach = keybinds,
