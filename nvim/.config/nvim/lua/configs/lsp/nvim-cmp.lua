@@ -4,44 +4,12 @@ M.Compile = function(packerUse)
 	packerUse({
 		"hrsh7th/nvim-cmp",
 	})
-
-	packerUse({
-		"hrsh7th/cmp-buffer",
-	})
-
-	packerUse({
-		"hrsh7th/cmp-path",
-	})
-
-	packerUse({
-		"hrsh7th/cmp-nvim-lsp",
-	})
-
-	packerUse({
-		"glepnir/lspsaga.nvim",
-		branch = "main",
-		config = function()
-			local saga = require("lspsaga")
-			saga.init_lsp_saga({
-				finder_action_keys = {
-					open = "<CR>",
-				},
-				definition_action_keys = {
-					edit = "<CR>",
-				},
-			})
-		end,
-	})
-
-	packerUse({
-		"onsails/lspkind.nvim",
-	})
 end
 
 M.Added = function()
 	local lspconfig = require("lspconfig")
 	local capabilities = require("cmp_nvim_lsp").default_capabilities()
-	local keybinds = require("configs.lsp.keymaps").on_attach
+	local keybinds = require("configs.lsp.lsp-mappings").on_attach
 
 	local cmp = require("cmp")
 	cmp.setup({

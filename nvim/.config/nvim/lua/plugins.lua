@@ -11,7 +11,13 @@ local configs = {
 	require("configs.lsp.null-ls"),
 
 	-- auto completion
+	"onsails/lspkind.nvim",
+	"hrsh7th/cmp-buffer",
+	"hrsh7th/cmp-path",
+	"hrsh7th/cmp-nvim-lsp",
 	require("configs.lsp.nvim-cmp"),
+	require("configs.lsp.lspsaga"),
+
 	require("configs.lsp.typescript"),
 
 	-- snippets
