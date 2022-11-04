@@ -5,12 +5,10 @@ local configs = {
 	-- LSP setup
 	-- managing and installing lsp servers
 	require("configs.lsp.mason"),
-	require("configs.lsp.mason-lspconfig"),
-	
 
 	-- configuring lsp servers
 	require("configs.lsp.nvim-lspconfig"),
-	require('configs.lsp.null-ls'),
+	require("configs.lsp.null-ls"),
 
 	-- auto completion
 	require("configs.lsp.nvim-cmp"),
@@ -31,9 +29,6 @@ local configs = {
 	"kyazdani42/nvim-web-devicons", -- optional, for file icon
 	require("configs.nvimtree"),
 	require("configs.telescope"),
-
-	-- only used for CoC
-	-- "fannheyward/telescope-coc.nvim",
 
 	-- Showing nice popups and cmd line messages now that cmdheight is 0
 	require("configs.noice"),

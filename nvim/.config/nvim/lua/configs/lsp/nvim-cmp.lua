@@ -15,7 +15,6 @@ M.Compile = function(packerUse)
 
 	packerUse({
 		"hrsh7th/cmp-nvim-lsp",
-		config = function() end,
 	})
 
 	packerUse({
