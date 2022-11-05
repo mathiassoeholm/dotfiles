@@ -6,9 +6,9 @@ vim.keymap.set("n", "<leader>z", ":wa<CR>", opts)
 vim.keymap.set("n", "<leader>q", ":Bdelete<CR>", opts)
 
 -- Fugitive bindings
-vim.keymap.set("n", "<leader>gs", ":G<CR>", opts)
-vim.keymap.set("n", "<leader>gh", ":diffget //2<CR>", opts)
-vim.keymap.set("n", "<leader>gl", ":diffget //3<CR>", opts)
+-- vim.keymap.set("n", "<leader>gs", ":G<CR>", opts)
+-- vim.keymap.set("n", "<leader>gh", ":diffget //2<CR>", opts)
+-- vim.keymap.set("n", "<leader>gl", ":diffget //3<CR>", opts)
 
 -- Move around to buffers
 vim.keymap.set("n", "<C-h>", "<C-w>h", opts)

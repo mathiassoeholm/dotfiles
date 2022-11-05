@@ -24,6 +24,9 @@ M.on_attach = function(client, bufnr)
 	client.server_capabilities.documentFormattingProvider = false
 	keymap.set("n", "<leader>f", "<cmd>lua vim.lsp.buf.format {async=true}<CR>", opts) -- format buffer
 
+	keymap.set("n", "<leader>gs", "<cmd>Lspsaga open_floaterm<CR>", { silent = true })
+	keymap.set("t", "<C-q>", [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]], { silent = true })
+
 	-- typescript specific keymaps (e.g. rename file and update imports)
 	if client.name == "tsserver" then
 		keymap.set("n", "<leader>rf", ":TypescriptRenameFile<CR>") -- rename file and update imports
