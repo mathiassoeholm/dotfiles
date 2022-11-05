@@ -90,4 +90,4 @@ vim.opt.termguicolors = true
 vim.api.nvim_set_keymap("n", "<C-T>", ":lua NextTheme()<CR>", { silent = true })
 
 -- Set default start theme
-setColorTheme(5)
+setColorTheme(3)

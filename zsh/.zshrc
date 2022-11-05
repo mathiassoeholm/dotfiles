@@ -97,6 +97,7 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
+alias gitui="gitui -t catpuccino.ron"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
@@ -120,3 +121,4 @@ if [ -f '/Users/mortenclaussen/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/mortenclaussen/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/mortenclaussen/google-cloud-sdk/completion.zsh.inc'; fi
+qa
