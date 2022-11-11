@@ -51,7 +51,7 @@ local configs = {
 	require("configs.lightspeed"),
 
 	"ckipp01/stylua-nvim",
-	require("configs.jester"),
+	-- require("configs.jester"),
 	require("configs.markdown-preview"),
 
 	-- Color themes

@@ -5,11 +5,14 @@ vim.g.mapleader = " "
 
 set.cursorline = true
 set.wrap = false
-set.scrolloff = 4
+set.scrolloff = 6
 set.numberwidth = 4
 set.signcolumn = "yes"
 set.mouse = "a"
 set.cmdheight = 0
+
+set.noswapfile = true
+set.nobackup = true
 
 -- Set the behavior of tab
 set.autoindent = true

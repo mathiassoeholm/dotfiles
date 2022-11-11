@@ -1,4 +1,3 @@
-
 local M = {}
 
 M.Compile = function(packerUse)
@@ -9,6 +8,9 @@ M.Compile = function(packerUse)
 			local saga = require("lspsaga")
 			saga.init_lsp_saga({
 				border_style = "rounded",
+				code_action_lightbulb = {
+					enable = false,
+				},
 				finder_action_keys = {
 					open = "<CR>",
 				},
@@ -19,6 +21,5 @@ M.Compile = function(packerUse)
 		end,
 	})
 end
-
 
 return M
