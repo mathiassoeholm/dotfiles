@@ -11,9 +11,6 @@ set.signcolumn = "yes"
 set.mouse = "a"
 set.cmdheight = 0
 
-set.noswapfile = true
-set.nobackup = true
-
 -- Set the behavior of tab
 set.autoindent = true
 set.smartindent = true
