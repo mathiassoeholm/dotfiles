@@ -55,6 +55,11 @@ M.Added = function()
 		on_attach = keybinds,
 	})
 
+	lspconfig["jsonls"].setup({
+		capabilities = capabilities,
+		on_attach = keybinds,
+	})
+
 	require("typescript").setup({
 		server = {
 			capabilities = capabilities,

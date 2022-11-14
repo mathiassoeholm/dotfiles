@@ -37,7 +37,6 @@ M.Added = function()
 	vim.api.nvim_set_keymap("x", "<C-s>", "<Plug>(coc-range-select)", { silent = true })
 	vim.api.nvim_set_keymap("n", "K", ":call CocActionAsync('doHover')<CR>", { silent = true, noremap = true })
 	vim.api.nvim_set_keymap("n", "<leader>rn", "<Plug>(coc-rename)", {})
-	vim.api.nvim_set_keymap("n", "<leader>m", ":CocCommand prettier.formatFile<CR>", { noremap = true })
 	vim.api.nvim_set_keymap("i", "<C-Space>", "coc#refresh()", { silent = true, expr = true })
 	vim.api.nvim_set_keymap(
 		"i",
