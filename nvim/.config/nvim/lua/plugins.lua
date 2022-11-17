@@ -42,6 +42,9 @@ local configs = {
 	-- Deletes buffers while retaining window layout
 	"famiu/bufdelete.nvim",
 
+	-- Auto pairs
+	require("configs.auto-pairs"),
+
 	-- Git
 	require("configs.copilot"),
 	require("configs.gitsigns"),
