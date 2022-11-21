@@ -23,6 +23,7 @@ M.Compile = function(packerUse)
 					lualine_y = {},
 					lualine_z = {},
 				},
+				extensions = { "nvim-tree" },
 			})
 		end,
 	})
