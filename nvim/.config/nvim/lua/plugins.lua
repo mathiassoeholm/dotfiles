@@ -59,6 +59,8 @@ local configs = {
 
 	-- Color themes
 	require("configs.catppuccin"),
+	"folke/tokyonight.nvim",
+
 	"sainnhe/everforest",
 	"ellisonleao/gruvbox.nvim",
 	"sainnhe/gruvbox-material",

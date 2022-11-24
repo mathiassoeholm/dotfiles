@@ -7,6 +7,7 @@ local themes = {
 		mode = "light",
 		colorscheme = "gruvbox",
 	},
+
 	{
 		mode = "dark",
 		colorscheme = "catppuccin",
@@ -21,7 +22,18 @@ local themes = {
 			catppuccin_flavour = "latte",
 		},
 	},
+
 	{
+		mode = "dark",
+		colorscheme = "tokyonight-moon",
+	},
+	{
+		mode = "light",
+		colorscheme = "tokyonight-day",
+	},
+
+	{
+
 		mode = "dark",
 		colorscheme = "everforest",
 		global = {
@@ -39,7 +51,8 @@ local themes = {
 	},
 }
 
-local currentTheme = 1
+-- Set default start theme
+local currentTheme = 5
 local function setColorMode(mode)
 	vim.opt.background = mode
 
@@ -63,7 +76,6 @@ local function setColorMode(mode)
 	-- 	handle:close()
 	-- end)
 end
-
 
 local function setColorTheme(index)
 	local theme = themes[index]
@@ -90,4 +102,4 @@ vim.opt.termguicolors = true
 vim.api.nvim_set_keymap("n", "<C-T>", ":lua NextTheme()<CR>", { silent = true })
 
 -- Set default start theme
-setColorTheme(3)
+setColorTheme(currentTheme)
