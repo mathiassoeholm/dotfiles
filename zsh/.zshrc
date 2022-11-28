@@ -98,6 +98,8 @@ source $ZSH/oh-my-zsh.sh
 #
 # Example aliases
 alias gitui="gitui -t catpuccino.ron"
+alias vim="nvim"
+
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
