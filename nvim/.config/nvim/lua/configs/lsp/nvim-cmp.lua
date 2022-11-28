@@ -41,48 +41,6 @@ M.Added = function()
 		},
 	})
 
-	-- Setup servers
-	local lspconfig = require("lspconfig")
-	local capabilities = require("cmp_nvim_lsp").default_capabilities()
-	local keybinds = require("configs.lsp.lsp-mappings").on_attach
-	lspconfig["html"].setup({
-		capabilities = capabilities,
-		on_attach = keybinds,
-	})
-
-	lspconfig["cssls"].setup({
-		capabilities = capabilities,
-		on_attach = keybinds,
-	})
-
-	lspconfig["jsonls"].setup({
-		capabilities = capabilities,
-		on_attach = keybinds,
-	})
-
-	require("typescript").setup({
-		server = {
-			capabilities = capabilities,
-			on_attach = keybinds,
-		},
-	})
-
-	lspconfig["sumneko_lua"].setup({
-		capabilities = capabilities,
-		on_attach = keybinds,
-		settings = {
-			Lua = {
-				diagnostics = {
-					globals = { "vim" },
-				},
-				workspace = {
-					library = {
-						[vim.fn.expand("$VIMRUNTIME/lua")] = true,
-					},
-				},
-			},
-		},
-	})
 end
 
 return M
