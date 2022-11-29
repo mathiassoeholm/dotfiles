@@ -28,3 +28,5 @@ vim.keymap.set("n", "<S-h>", ":BufferLineCyclePrev<CR>", opts)
 
 -- change current word (like ciw) but repeatable with dot . for the same next word
 vim.api.nvim_set_keymap("n", "<Leader>rs", ":let @/=expand('<cword>')<cr>cgn", { silent = true })
+
+vim.keymap.set("n", "<leader>b", "<cmd>CellularAutomaton make_it_rain<CR>")

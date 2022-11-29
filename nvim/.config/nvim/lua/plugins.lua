@@ -26,6 +26,7 @@ local configs = {
 	require("configs.treesitter"),
 	require("configs.treesitter-context"),
 	"nvim-treesitter/nvim-treesitter-textobjects",
+	"eandrju/cellular-automaton.nvim",
 
 	require("configs.bufferline"),
 	require("configs.lualine"),
