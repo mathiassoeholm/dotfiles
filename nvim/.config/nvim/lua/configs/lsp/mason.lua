@@ -37,6 +37,7 @@ M.Compile = function(packerUse)
 				ensure_installed = {
 					"stylua",
 					"prettierd",
+					"gofumpt",
 					"spell",
 				},
 			}),
@@ -51,7 +52,6 @@ M.Added = function()
 		"cssls",
 		"jsonls",
 		"bashls",
-		"gopls",
 		"dockerls",
 		"eslint",
 		"marksman",
@@ -69,6 +69,16 @@ M.Added = function()
 		})
 	end
 
+	lspconfig["gopls"].setup({
+		on_attach = keybinds,
+		capabilities = capabilities,
+		settings = {
+			gopls = {
+				gofumpt = true,
+			},
+		},
+	})
+
 	-- custom setup
 	require("typescript").setup({
 		server = {
@@ -76,7 +86,6 @@ M.Added = function()
 			on_attach = keybinds,
 		},
 	})
-
 
 	lspconfig["sumneko_lua"].setup({
 		capabilities = capabilities,

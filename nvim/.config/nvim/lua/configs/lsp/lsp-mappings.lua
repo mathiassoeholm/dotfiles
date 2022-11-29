@@ -1,7 +1,6 @@
 local M = {}
 -- enable keybinds only for when lsp server available
 M.on_attach = function(client, bufnr)
-
 	-- keybind options
 	local opts = { noremap = true, silent = true, buffer = bufnr }
 	local keymap = vim.keymap
@@ -32,6 +31,12 @@ M.on_attach = function(client, bufnr)
 		keymap.set("n", "<leader>rf", ":TypescriptRenameFile<CR>") -- rename file and update imports
 		keymap.set("n", "<leader>oi", ":TypescriptOrganizeImports<CR>") -- organize imports (not in youtube nvim video)
 		keymap.set("n", "<leader>ru", ":TypescriptRemoveUnused<CR>") -- remove unused variables (not in youtube nvim video)
+	end
+
+	if client.name == "gopls" then
+		-- use the gopls formatting, 
+		-- see the lsp setup using 'gofumpt'
+		client.server_capabilities.documentFormattingProvider = true
 	end
 end
 
