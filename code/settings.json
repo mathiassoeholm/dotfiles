@@ -144,6 +144,12 @@
       "command": "workbench.action.toggleSidebarVisibility"
     },
     {
+      "key": "u",
+      "name": "Usages",
+      "type": "command",
+      "command": "references-view.findReferences"
+    },
+    {
       "key": "f",
       "name": "Find & Replace...",
       "type": "bindings",
@@ -334,7 +340,7 @@
       "key": "v",
       "name": "Split Vertical",
       "type": "command",
-      "command": "workbench.action.splitEditor"
+      "command": "workbench.action.moveEditorToNextGroup"
     },
     {
       "key": "w",
@@ -427,5 +433,6 @@
   "editor.quickSuggestions": {
     "strings": "on"
   },
+  "editor.inlineSuggest.enabled": true,
   "window.zoomLevel": 1
 }
