@@ -5,7 +5,11 @@ M.Compile = function(packerUse)
 	packerUse({
 		"folke/noice.nvim",
 		config = function()
-			require("noice").setup()
+			require("noice").setup({
+				messages = {
+					enabled = false, -- enables the Noice popupmenu UI
+				},
+			})
 		end,
 		requires = {
 			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries

@@ -13,9 +13,11 @@ M.Compile = function(packerUse)
 				},
 				finder_action_keys = {
 					open = "<CR>",
+					quit = "<ESC>",
 				},
 				definition_action_keys = {
 					edit = "<CR>",
+					quit = "<ESC>",
 				},
 			})
 		end,
