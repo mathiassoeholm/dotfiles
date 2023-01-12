@@ -11,6 +11,9 @@ set.signcolumn = "yes"
 set.mouse = "a"
 set.cmdheight = 0
 
+-- disable swap files
+vim.cmd("noswapfile")
+
 -- Set the behavior of tab
 set.autoindent = true
 set.smartindent = true

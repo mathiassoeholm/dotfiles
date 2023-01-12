@@ -56,6 +56,7 @@ M.Added = function()
 		"dockerls",
 		"eslint",
 		"dotls",
+		"svelte",
 		"marksman",
 		"taplo",
 		"yamlls",

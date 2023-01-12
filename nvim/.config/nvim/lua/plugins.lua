@@ -1,7 +1,4 @@
 local configs = {
-	-- CoC setup
-	-- require("configs.coc"),
-
 	-- LSP setup
 	-- managing and installing lsp servers
 	require("configs.lsp.mason"),
@@ -55,18 +52,18 @@ local configs = {
 	require("configs.lightspeed"),
 
 	"ckipp01/stylua-nvim",
-	-- require("configs.jester"),
 	require("configs.markdown-preview"),
 
 	-- Color themes
 	require("configs.catppuccin"),
 	"folke/tokyonight.nvim",
-
 	"sainnhe/everforest",
 	"ellisonleao/gruvbox.nvim",
 	"sainnhe/gruvbox-material",
 
 	require("configs.nvim-surround"),
+
+	require("configs.todo-comments"),
 
 	"JoosepAlviste/nvim-ts-context-commentstring",
 	-- Comment out lines of code
