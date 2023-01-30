@@ -17,7 +17,7 @@ local configs = {
 
 	require("configs.lsp.typescript"),
 
-	-- snippets
+	-- -- snippets
 	require("configs.lsp.luasnip"),
 
 	require("configs.treesitter"),
@@ -27,42 +27,45 @@ local configs = {
 
 	require("configs.bufferline"),
 	require("configs.lualine"),
-	require("configs.dashboard"),
+	-- require("configs.dashboard"),
 	require("configs.blankline"),
 
 	"kyazdani42/nvim-web-devicons", -- optional, for file icon
 	require("configs.nvimtree"),
 	require("configs.telescope"),
 
-	-- Showing nice popups and cmd line messages now that cmdheight is 0
+	-- -- Showing nice popups and cmd line messages now that cmdheight is 0
 	require("configs.noice"),
 
-	-- Deletes buffers while retaining window layout
+	-- -- Deletes buffers while retaining window layout
 	"famiu/bufdelete.nvim",
 
-	-- Auto pairs
+	-- -- Auto pairs
 	require("configs.auto-pairs"),
 
-	-- Git
+	-- -- Git
 	require("configs.copilot"),
 	require("configs.gitsigns"),
-	"tpope/vim-fugitive",
+	-- "tpope/vim-fugitive",
 
-	-- Motion
+	-- -- Motion
 	require("configs.lightspeed"),
 
-	"ckipp01/stylua-nvim",
+	-- "ckipp01/stylua-nvim",
 	require("configs.markdown-preview"),
 
-	-- Color themes
+	-- -- Color themes
 	require("configs.catppuccin"),
 	"folke/tokyonight.nvim",
 	"sainnhe/everforest",
 	"ellisonleao/gruvbox.nvim",
 	"sainnhe/gruvbox-material",
 
-	require("configs.nvim-surround"),
+	-- Disabled beacause it currently does not work with cmdheight = 0
+	-- Waiting for a fix from the developers
+	-- require("configs.zen-mode"),
 
+	require("configs.nvim-surround"),
 	require("configs.todo-comments"),
 
 	"JoosepAlviste/nvim-ts-context-commentstring",

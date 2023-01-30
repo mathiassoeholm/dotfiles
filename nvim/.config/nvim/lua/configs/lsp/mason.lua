@@ -3,15 +3,24 @@ local M = {}
 M.Compile = function(packerUse)
 	packerUse({
 		"williamboman/mason.nvim",
-		config = {
-			require("mason").setup({}),
-		},
+		config = function()
+			local setup, package = pcall(require, "mason-lspconfig")
+			if not setup then
+				return
+			end
+			require("mason").setup({})
+		end
 	})
 
 	packerUse({
 		"williamboman/mason-lspconfig",
-		config = {
-			require("mason-lspconfig").setup({
+		config = function()
+			local setup, package = pcall(require, "mason-lspconfig")
+			if not setup then
+				return
+			end
+
+			package.setup({
 				ensure_installed = {
 					"tsserver",
 					"html",
@@ -27,22 +36,19 @@ M.Compile = function(packerUse)
 					"taplo",
 					"yamlls",
 				},
-			}),
-		},
+			})
+		end,
 	})
 
 	packerUse({
 		"jayp0521/mason-null-ls.nvim",
-		config = {
-			require("mason-null-ls").setup({
-				ensure_installed = {
-					"stylua",
-					"prettierd",
-					"gofumpt",
-					"spell",
-				},
-			}),
-		},
+		config = function()
+			local setup, package = pcall(require, "mason-lspconfig")
+			if not setup then
+				return
+			end
+			package.setup({})
+		end,
 	})
 end
 

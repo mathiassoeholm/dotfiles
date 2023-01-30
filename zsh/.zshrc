@@ -117,10 +117,3 @@ export NVM_DIR="$HOME/.nvm"
 # Enable vim mode
 set -o vi
 export PATH=$PATH:/Users/mortenclaussen/.spicetify
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/mortenclaussen/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/mortenclaussen/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/mortenclaussen/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/mortenclaussen/google-cloud-sdk/completion.zsh.inc'; fi
-qa

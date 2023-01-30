@@ -8,7 +8,7 @@ M.Compile = function(packerUse)
 			-- Forcing compiler to use gcc. This fixed an issue I had on my machine.
 			-- Togehter with a symlink fix that was really anoying.
 			-- Read more on the solution here: https://github.com/tree-sitter/tree-sitter-haskell/issues/34#issuecomment-892960976
-			require("nvim-treesitter.install").compilers = { "gcc" }
+			-- require("nvim-treesitter.install").compilers = { "gcc" }
 			require("nvim-treesitter.configs").setup({
 				-- A list of :checkhealth nvim_treesitter parser names, or "all"
 				ensure_installed = {
