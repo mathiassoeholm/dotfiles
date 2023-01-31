@@ -24,7 +24,7 @@ local themes = {
 
 	{
 		mode = "dark",
-		colorscheme = "tokyonight-moon",
+		colorscheme = "tokyonight-night",
 	},
 	{
 		mode = "light",
@@ -56,7 +56,7 @@ local themes = {
 }
 
 -- Set default start theme
-local currentTheme = 9
+local currentTheme = 5
 local function setColorMode(mode)
 	vim.opt.background = mode
 
