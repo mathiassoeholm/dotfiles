@@ -60,6 +60,7 @@ local configs = {
 	"sainnhe/everforest",
 	"ellisonleao/gruvbox.nvim",
 	"sainnhe/gruvbox-material",
+	"cocopon/iceberg.vim",
 
 	-- Disabled beacause it currently does not work with cmdheight = 0
 	-- Waiting for a fix from the developers
