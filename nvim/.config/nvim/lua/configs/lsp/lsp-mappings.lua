@@ -22,8 +22,6 @@ M.on_attach = function(client, bufnr)
 
 	keymap.set("n", "<leader>f", "<cmd>lua vim.lsp.buf.format {async=true}<CR>", opts) -- format buffer
 
-	keymap.set({ "n", "t" }, "<C-t>", "<cmd>Lspsaga term_toggle<CR>", { silent = true })
-
 	-- Eriks seje keybindings --
 	keymap.set("i", "C-k", "<Up>", opts) -- Bind the up key to Ctrl+k
 	keymap.set("i", "C-j", "<Down>", opts) -- Bind the up key to Ctrl+k
