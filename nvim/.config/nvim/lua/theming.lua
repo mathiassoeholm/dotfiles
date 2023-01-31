@@ -99,7 +99,7 @@ function NextTheme()
 end
 
 vim.opt.termguicolors = true
-vim.api.nvim_set_keymap("n", "<C-T>", ":lua NextTheme()<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<C-a>", ":lua NextTheme()<CR>", { silent = true })
 
 -- Set default start theme
 setColorTheme(currentTheme)
