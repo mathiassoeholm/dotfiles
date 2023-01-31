@@ -7,7 +7,6 @@ local themes = {
 		mode = "light",
 		colorscheme = "gruvbox",
 	},
-
 	{
 		mode = "dark",
 		colorscheme = "catppuccin",
@@ -49,10 +48,15 @@ local themes = {
 			everforest_enable_italic = 1,
 		},
 	},
+	{
+		mode = "dark",
+		colorscheme = "iceberg",
+	},
+
 }
 
 -- Set default start theme
-local currentTheme = 5
+local currentTheme = 9
 local function setColorMode(mode)
 	vim.opt.background = mode
 
