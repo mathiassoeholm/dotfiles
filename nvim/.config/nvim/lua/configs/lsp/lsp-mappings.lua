@@ -25,6 +25,10 @@ M.on_attach = function(client, bufnr)
 	keymap.set("n", "<leader>gs", "<cmd>Lspsaga open_floaterm<CR>", { silent = true })
 	keymap.set("t", "<C-q>", [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]], { silent = true })
 
+	-- Eriks seje keybindings --
+	keymap.set("i", "C-k", "<Up>", opts) -- Bind the up key to Ctrl+k
+	keymap.set("i", "C-j", "<Down>", opts) -- Bind the up key to Ctrl+k
+
 	-- typescript specific keymaps (e.g. rename file and update imports)
 	if client.name == "tsserver" then
 		client.server_capabilities.documentFormattingProvider = false
