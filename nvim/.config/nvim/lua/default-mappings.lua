@@ -30,3 +30,6 @@ vim.keymap.set("n", "<S-h>", ":BufferLineCyclePrev<CR>", opts)
 vim.api.nvim_set_keymap("n", "<Leader>rs", ":let @/=expand('<cword>')<cr>cgn", { silent = true })
 
 vim.keymap.set("n", "<leader>b", "<cmd>CellularAutomaton make_it_rain<CR>")
+
+-- Open a terminal in a floating window
+vim.keymap.set({ "n", "t" }, "<C-t>", "<cmd>Lspsaga term_toggle<CR>", { silent = true })
