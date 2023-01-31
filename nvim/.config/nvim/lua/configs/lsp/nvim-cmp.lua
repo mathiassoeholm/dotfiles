@@ -9,6 +9,16 @@ end
 M.Added = function()
 	local cmp = require("cmp")
 	cmp.setup({
+		window = {
+			completion = { -- rounded border; thin-style scrollbar
+				border = "rounded",
+				scrollbar = "║",
+			},
+			documentation = {
+				border = "rounded",
+				scrollbar = "║",
+			},
+		},
 		snippet = {
 			expand = function(args)
 				require("luasnip").lsp_expand(args.body)
@@ -40,7 +50,6 @@ M.Added = function()
 			}),
 		},
 	})
-
 end
 
 return M
