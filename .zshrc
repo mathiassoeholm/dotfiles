@@ -113,3 +113,9 @@ alias vim=nvim
 
 # Command to make work in progress git commit and push
 alias gwip="git commit -m '🚧 This commit message will get squashed or reset later' && git push"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/mathias/tools/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/mathias/tools/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/mathias/tools/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/mathias/tools/google-cloud-sdk/completion.zsh.inc'; fi
