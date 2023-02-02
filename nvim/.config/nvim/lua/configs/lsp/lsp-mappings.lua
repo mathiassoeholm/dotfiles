@@ -24,7 +24,7 @@ M.on_attach = function(client, bufnr)
 
 	-- Eriks seje keybindings --
 	keymap.set("i", "C-k", "<Up>", opts) -- Bind the up key to Ctrl+k
-	keymap.set("i", "C-j", "<Down>", opts) -- Bind the up key to Ctrl+k
+	keymap.set("i", "C-j", "<Down>", opts) -- Bind the up key to Ctrl+j
 
 	-- typescript specific keymaps (e.g. rename file and update imports)
 	if client.name == "tsserver" then
