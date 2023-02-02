@@ -11,6 +11,9 @@ M.Compile = function(packerUse)
 				code_action_lightbulb = {
 					enable = false,
 				},
+				lightbulb = {
+					enable = false,
+				},
 				code_action = {
 					keys = {
 						quit = "<ESC>",
