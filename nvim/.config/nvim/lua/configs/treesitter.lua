@@ -36,6 +36,7 @@ M.Compile = function(packerUse)
 					"svelte",
 					"toml",
 					"tsx",
+					"markdown",
 				},
 
 				-- Install parsers synchronously (only applied to `ensure_installed`)
