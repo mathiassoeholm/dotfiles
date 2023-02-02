@@ -1,4 +1,4 @@
-- Automatically reload buffers when they change on disks, currently it only happens when NVIM loses and regains focus.
+- <del>Automatically reload buffers when they change on disks, currently it only happens when NVIM loses and regains focus.</del>
 - In insert mode, there's a weird hotkey on S-c that fucks up the cursor.
 - Figure out how to search for mappings to keys.
 - Add and try out [ trouble.nvim ](https://github.com/folke/trouble.nvim)
