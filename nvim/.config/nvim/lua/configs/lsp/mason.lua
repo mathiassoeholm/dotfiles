@@ -35,10 +35,6 @@ M.Compile = function(packerUse)
 					"marksman",
 					"taplo",
 					"yamlls",
-					"rust-analyzer",
-					"prettierd",
-					"eslint_d",
-					"gofumpt",
 				},
 			})
 		end,
