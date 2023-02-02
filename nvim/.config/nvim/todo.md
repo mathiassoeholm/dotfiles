@@ -4,5 +4,5 @@
 - Figure out how to search for mappings to keys.
 - Add and try out [ trouble.nvim ](https://github.com/folke/trouble.nvim)
 - Fix JSDoc completion and newline
-- Fix order of code actions
-
+- Fix order of code action
+- Make Github Copilot auto-complete not require two keypresses when the auto-complete prompt is open.
