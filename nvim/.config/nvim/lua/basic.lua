@@ -22,6 +22,8 @@ set.shiftwidth = 4
 set.softtabstop = 4
 set.expandtab = false -- Tabs over spaces
 
+set.swapfile = false
+
 -- Numbers
 set.relativenumber = true
 set.number = true
