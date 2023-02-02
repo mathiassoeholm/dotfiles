@@ -8,6 +8,7 @@ end
 
 M.Added = function()
 	local cmp = require("cmp")
+	local compare = cmp.config.compare
 	cmp.setup({
 		window = {
 			completion = { -- rounded border; thin-style scrollbar
@@ -24,6 +25,18 @@ M.Added = function()
 				require("luasnip").lsp_expand(args.body)
 			end,
 		},
+
+		sorting = {
+			-- for sorting we can also add a priority to the sources down below. `{name = "luasnip", priority = 3}` as an example
+			comparators = {
+				compare.locality,
+				compare.recently_used,
+				compare.score, -- based on :  score = score + ((#sources - (source_index - 1)) * sorting.priority_weight)
+				compare.offset,
+				compare.order,
+			},
+		},
+
 		mapping = cmp.mapping.preset.insert({
 			["<C-k>"] = cmp.mapping.select_prev_item(),
 			["<C-j>"] = cmp.mapping.select_next_item(),
