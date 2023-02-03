@@ -52,7 +52,7 @@ M.Added = function()
 			{ name = "copilot" },
 			{ name = "luasnip" },
 			{ name = "path" },
-			{ name = "buffer" },
+			-- { name = "buffer" },
 			{ name = "nvim_lsp" },
 		}),
 		formatting = {
