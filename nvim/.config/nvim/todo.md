@@ -1,9 +1,4 @@
-- <del>Automatically reload buffers when they change on disks, currently it only happens when NVIM loses and regains focus.</del>
 - In insert mode, there's a weird hotkey on S-c that fucks up the cursor.
-- Figure out how to search for mappings to keys.
-- Add and try out [ trouble.nvim ](https://github.com/folke/trouble.nvim)
 - Fix JSDoc completion and newline
-- Fix order of code action
 - Make Github Copilot auto-complete not require two keypresses when the auto-complete prompt is open.
 - Make a command/keybinding to quickly source and compile any changes to the vim config.
-- Add NVIM Obsession for session management.
