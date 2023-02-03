@@ -19,6 +19,9 @@ M.Compile = function(packerUse)
 						quit = "<ESC>",
 					},
 				},
+				rename = {
+					quit = "<ESC>",
+				},
 				finder_action_keys = {
 					open = "<CR>",
 					quit = "<ESC>",

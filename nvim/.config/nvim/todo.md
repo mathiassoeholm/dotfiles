@@ -5,3 +5,5 @@
 - Fix JSDoc completion and newline
 - Fix order of code action
 - Make Github Copilot auto-complete not require two keypresses when the auto-complete prompt is open.
+- Make a command/keybinding to quickly source and compile any changes to the vim config.
+- Add NVIM Obsession for session management.
