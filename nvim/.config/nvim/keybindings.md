@@ -22,12 +22,13 @@ All <leader> references are the same as `s`.
 - C-n - Open File Explorer
   - k|j - Navigate up/down
   - o - Open selection
-  - a - New file
+  - a - New file, or directory if ending with /
   - c - Copy
   - x - Cut
   - p - Paste
   - d - Delete
   - r - Rename
+  - Tab - Preview
 
 ## Search
 
