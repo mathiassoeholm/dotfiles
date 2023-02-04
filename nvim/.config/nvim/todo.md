@@ -3,3 +3,4 @@
 - Make Github Copilot auto-complete not require two keypresses when the auto-complete prompt is open.
 - Make a command/keybinding to quickly source and compile any changes to the vim config.
 - Fix the Eslint LSP server failing to refresh properly when you rename something.
+- Write a Telescope extension that allows us to type-check/eslint the entire project and show errors in a popup.

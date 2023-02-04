@@ -73,6 +73,10 @@ All <leader> references are the same as `s`.
 - <leader>d - show error for current line.
 - ( or ) jump to previous or next diagnostic in current buffer.
 
+## Telescope
+- C-x - Go to file selection as a horizontal split
+- C-v - Go to file selection as a vertical split
+
 ## Special
 
 - C-t - Toggle terminal
