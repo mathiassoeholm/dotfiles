@@ -75,6 +75,7 @@ All <leader> references are the same as `s`.
 - ( or ) jump to previous or next diagnostic in current buffer.
 
 ## Telescope
+
 - C-x - Go to file selection as a horizontal split
 - C-v - Go to file selection as a vertical split
 
@@ -90,6 +91,7 @@ mod2 ctrl + option + shift
 And defines the following commands, mostly a mapping to xmonad key combinations.
 
 Default Shortcut Description
+
 - mod1 + space Cycle layout forward
 - mod2 + space Cycle layout backwards
 - mod1 + h Shrink the main pane
@@ -147,6 +149,7 @@ Default Shortcut Description
 - `:mkdir`(<F7>) - create a new directory
 
 ##### Many/Most of the classic vim bindings work perfectly with vifm
+
 - `/` for searching and `n|s-n` for jumping between results
 - v - enter visual mode for selecting files/folders
 - yy - copy file(s)/folder(s)

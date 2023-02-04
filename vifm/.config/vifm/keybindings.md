@@ -13,6 +13,7 @@
 - `:mkdir`(<F7>) - create a new directory
 
 ##### Many/Most of the classic vim bindings work perfectly with vifm
+
 - `/` for searching and `n|s-n` for jumping between results
 - v - enter visual mode for selecting files/folders
 - yy - copy file(s)/folder(s)
