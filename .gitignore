@@ -1,2 +1,3 @@
 .DS_STORE
 nvim/.config/nvim/plugin/packer_compiled.lua
+.env
