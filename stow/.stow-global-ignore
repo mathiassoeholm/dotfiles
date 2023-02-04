@@ -2,5 +2,5 @@
 .git
 .gitignore
 .stow-local-ignore
-scripts
+stow-ignore
 README.*
