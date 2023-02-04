@@ -75,6 +75,8 @@ local configs = {
 	"JoosepAlviste/nvim-ts-context-commentstring",
 	-- Comment out lines of code
 	require("configs.nvimcomment"),
+
+	require("configs.trouble"),
 }
 
 -- For boopstraping

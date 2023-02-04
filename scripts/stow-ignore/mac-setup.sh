@@ -45,3 +45,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 # Install the latest version of node
 nvm install node 
+
+# Install global NPM packages that are used by the dotfiles
+npm install -g yarn
+yarn global add @aivenio/tsc-output-parser
