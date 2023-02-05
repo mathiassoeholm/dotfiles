@@ -43,8 +43,8 @@ brew install --cask kitty
 # Install Oh My Zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# Install the latest version of node
-nvm install node 
+# Install the latest LTS version of node
+nvm install --lts
 
 # Install global NPM packages that are used by the dotfiles
 npm install -g yarn
