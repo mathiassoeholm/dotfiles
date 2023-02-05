@@ -23,8 +23,8 @@ M.on_attach = function(client, bufnr)
 	keymap.set("n", "<leader>f", "<cmd>lua vim.lsp.buf.format {async=true}<CR>", opts) -- format buffer
 
 	-- Eriks seje keybindings --
-	keymap.set("i", "C-k", "<Up>", opts) -- Bind the up key to Ctrl+k
-	keymap.set("i", "C-j", "<Down>", opts) -- Bind the up key to Ctrl+j
+	keymap.set("i", "<C-k>", "<Up>", opts) -- Bind the up key to Ctrl+k
+	keymap.set("i", "<C-j>", "<Down>", opts) -- Bind the up key to Ctrl+j
 
 	-- typescript specific keymaps (e.g. rename file and update imports)
 	if client.name == "tsserver" then
