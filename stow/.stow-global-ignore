@@ -1,7 +1,3 @@
-.env
-.DS_Store
-.git
-.gitignore
-.stow-local-ignore
+\.DS_Store
+\.stow-local-ignore
 stow-ignore
-README.*
