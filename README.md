@@ -14,9 +14,10 @@ An always work in progress repo for my dotfiles.
 - open `nvim` and run `:Mason`
 
 #### For Symlinking
-- run `brew install stow`
-- run `stow stow/` setup stow ignore before anything else, to make sure we ignore .DS_STORE etc.
-- run `stow */` to symlink everything else
+1. Run `brew install stow`
+2. Run `stow stow/` setup stow ignore before anything else, to make sure we ignore .DS_STORE etc.
+3. Try running `stow */ --verbose=2 --simulate` to see what will happen, before running the next command
+4. Run `stow */` to symlink everything else
 
 #### For ZSH
 - follow the instructions on https://github.com/ohmyzsh/ohmyzsh
