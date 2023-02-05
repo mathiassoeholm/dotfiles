@@ -2,3 +2,4 @@
 - Make Github Copilot auto-complete not require two keypresses when the auto-complete prompt is open.
 - Make a command/keybinding to quickly source and compile any changes to the vim config.
 - Fix the Eslint LSP server failing to refresh properly when you rename something.
+- Set `vim.opt.splitkeep = "screen"` when NVIM `0.9.0` comes out.

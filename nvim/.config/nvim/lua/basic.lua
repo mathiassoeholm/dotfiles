@@ -48,6 +48,10 @@ vim.o.clipboard = "unnamedplus"
 set.splitbelow = true
 set.splitright = true
 
+-- Avoid the cursor jumping when splitting windows horizontally.
+-- This option is currently not available in 0.8.x. It will be available in 0.9.x.
+-- set.splitkeep = "screen"
+
 -- Set end of buffer characters to be a space, instead of the default tilde.
 set.fillchars = "eob: "
 
