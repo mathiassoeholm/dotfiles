@@ -54,9 +54,6 @@ local configs = {
 	-- "ckipp01/stylua-nvim",
 	require("configs.markdown-preview"),
 
-	-- Automatically save and restore sessions based on the current directory
-	require("configs.auto-session"),
-
 	-- -- Color themes
 	require("configs.catppuccin"),
 	"folke/tokyonight.nvim",
