@@ -48,4 +48,6 @@ nvm install --lts
 
 # Install global NPM packages that are used by the dotfiles
 npm install -g yarn
+
+# Used by the `Trouble tsc` command in NVIM
 yarn global add @aivenio/tsc-output-parser
