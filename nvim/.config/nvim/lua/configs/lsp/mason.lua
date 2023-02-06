@@ -9,7 +9,7 @@ M.Compile = function(packerUse)
 				return
 			end
 			require("mason").setup({})
-		end
+		end,
 	})
 
 	packerUse({
@@ -35,6 +35,7 @@ M.Compile = function(packerUse)
 					"marksman",
 					"taplo",
 					"yamlls",
+					"tailwindcss",
 				},
 			})
 		end,
@@ -66,6 +67,7 @@ M.Added = function()
 		"marksman",
 		"taplo",
 		"yamlls",
+		"tailwindcss",
 	}
 
 	local lspconfig = require("lspconfig")
