@@ -12,7 +12,7 @@ defaults write com.apple.dock autohide -bool true
 
 killall Dock
 
-if [ $MOUSE_ACCELERATION = "true" ]
+if [ $MOUSE_ACCELERATION == "true" ]
 then
 	echo "Enabled mouse acceleration"
 	defaults write .GlobalPreferences com.apple.mouse.scaling 1
