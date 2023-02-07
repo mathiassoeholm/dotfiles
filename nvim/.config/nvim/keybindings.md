@@ -52,6 +52,7 @@ All <leader> references are the same as `s`.
 - :tabnew - Make a new tab
 - :tabclose - Close the tab
 - gt - Switch tabs
+- C-w = - equalize width and height of all splits 
 
 ## Code actions
 
