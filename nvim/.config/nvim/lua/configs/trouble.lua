@@ -2,12 +2,10 @@ local M = {}
 
 M.Compile = function(packerUse)
 	packerUse({
-		"erikhoj/trouble.nvim",
+		"folke/trouble.nvim",
 		requires = "nvim-tree/nvim-web-devicons",
 		config = function()
-			require("trouble").setup({
-				mode = "tsc",
-			})
+			require("trouble").setup({})
 		end,
 	})
 end
