@@ -3,7 +3,6 @@
 - Make a command/keybinding to quickly source and compile any changes to the vim config.
 - Fix the Eslint LSP server failing to refresh properly when you rename something.
 - Set `vim.opt.splitkeep = "screen"` when NVIM `0.9.0` comes out.
-- Make Telescope search for files in hidden folders, it should only use .gitignore to filter out files
 - Format on save
 - Make comments color more visible. Make the Github Copilot suggestion color different from the comment color.
 - Fix `Trouble tsc` and `Trouble eslint` only working if the config files are in the root.
