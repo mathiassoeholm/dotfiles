@@ -6,6 +6,5 @@
 - Make Telescope search for files in hidden folders, it should only use .gitignore to filter out files
 - Format on save
 - Make comments color more visible. Make the Github Copilot suggestion color different from the comment color.
-- Fix `Trouble tsc` and `Trouble eslint` only working if the config files are in the root.
 - Figure out why `gitui` is so slow when updating after making changes to files.
-- Figure out if we can write something in the Trouble window when it's empty. Or close it if its empty.
+- Make `nvim-tree` open up the file when you create a new one.
