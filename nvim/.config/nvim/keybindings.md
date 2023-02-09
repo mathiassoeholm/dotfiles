@@ -63,6 +63,8 @@ All <leader> references are the same as `s`.
 - <leader>ru - Remove unused
 - <leader>a - Show code actions for hover
 - <leader>rn - Smart rename at cursor
+- gcc - Toggle comment on current line
+- gc - Toggle comment on selection
 
 ## Code navigation
 
