@@ -7,3 +7,4 @@
 - Make comments color more visible. Make the Github Copilot suggestion color different from the comment color.
 - Figure out why `gitui` is so slow when updating after making changes to files.
 - Make `nvim-tree` open up the file when you create a new one.
+- Telescope does not list untracked files

@@ -100,6 +100,10 @@ source $ZSH/oh-my-zsh.sh
 alias gitui="gitui -t catpuccino.ron"
 alias vim="nvim"
 
+# Interactive checkout tool, can be cloned from here and built from source with: cargo build --release
+# https://github.com/mathiassoeholm/rust-projects
+alias gci="~/git/rust-projects/git-checkout-interactive/target/release/git-checkout-interactive"
+
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
