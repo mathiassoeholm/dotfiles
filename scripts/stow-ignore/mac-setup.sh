@@ -67,6 +67,7 @@ brew install --cask amethyst
 brew install --cask kitty
 brew install --cask karabiner-elements
 brew install --cask brave-browser
+brew install --cask discord
 
 # Install the latest LTS version of node
 nvm install --lts
