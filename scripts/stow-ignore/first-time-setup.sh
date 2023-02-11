@@ -19,4 +19,4 @@ git clone git@github.com:DeepPlateMC/dotfiles.git ~/dotfiles
 mv ~/Desktop/save-me/.env ~/dotfiles/
 
 # Run the mac-setup.sh script
-
+~/dotfiles/scripts/stow-ignore/mac-setup.sh

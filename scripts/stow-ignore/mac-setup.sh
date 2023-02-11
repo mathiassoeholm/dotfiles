@@ -8,16 +8,18 @@ export $(grep -v '^#' ~/dotfiles/.env | xargs)
 git config --global user.name "$GIT_NAME"
 git config --global user.email "$GIT_EMAIL"
 
-# Disable the dock animation, to make it show/hide instantly
-defaults write com.apple.dock autohide-time-modifier -int 0;
+# Set the strategy to reconcile divergent branches for Git to rebase.
+git config --global pull.rebase true
 
 # Automatically hide and show the Dock
+# Disable the dock animation, to make it show/hide instantly
 defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock autohide-time-modifier -int 0;
+defaults write com.apple.dock tilesize -int $DOCK_ICON_SIZE;
+killall Dock
 
 # Automatically hide the menu bar.
 defaults write NSGlobalDomain _HIHideMenuBar -bool true
-
-killall Dock
 
 if [ $MOUSE_ACCELERATION == "true" ]
 then
@@ -34,10 +36,10 @@ brew update
 brew install stow
 
 # Symlink the .stow-ignore.
-stow ~/dotfiles/stow/
+cd ~/dotfiles && stow stow/
 
 # Symlink all directories inside the dotfiles directory.
-stow ~/dotfiles/*/
+cd ~/dotfiles && stow */
 
 # Install all the brew packages
 brew install neovim
