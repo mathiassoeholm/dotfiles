@@ -57,11 +57,11 @@ brew install --cask kitty
 brew install --cask karabiner-elements
 brew install --cask brave-browser
 
-# Install Oh My Zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --keep-zshrc
-
 # Install the latest LTS version of node
 nvm install --lts
 
 # Install global NPM packages that are used by the dotfiles
 npm install -g yarn
+
+# Install Oh My Zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --keep-zshrc

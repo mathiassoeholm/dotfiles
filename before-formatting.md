@@ -1,5 +1,7 @@
 # Things to do before formatting your system
 
+- Make sure you have backed up your browser settings.
+  - For Brave, you can use their Syncing.
 - Save the following files on an USB stick
   - Your private and public SSH keys used for things like Github.
     - `mkdir -p ~/save-me/.ssh/ && cp ~/.ssh/id* ~/save-me/.ssh/`
