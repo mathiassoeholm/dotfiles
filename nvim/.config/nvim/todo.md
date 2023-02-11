@@ -8,3 +8,5 @@
 - Figure out why `gitui` is so slow when updating after making changes to files.
 - Make `nvim-tree` open up the file when you create a new one.
 - Telescope does not list untracked files
+- Figure out how to feed trouble `tsc` and `eslint` diagnostics without it running on edit and file save.
+- Create a command to open our keybindings file in a buffer, like when you write `:h`.
