@@ -1,3 +1,5 @@
+export $(grep -v '^#' ~/dotfiles/.env | xargs)
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -124,4 +126,7 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="${PATH}:$(yarn global bin)"
 
 # Enable vim mode
-set -o vi
+if [ $DOTFILES_VIM_IN_KITTY = "true" ]
+then
+  set -o vi
+fi

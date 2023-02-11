@@ -5,8 +5,8 @@ sudo -v
 export $(grep -v '^#' ~/dotfiles/.env | xargs)
 
 # Set the name and email inside the global git config.
-git config --global user.name "$GIT_NAME"
-git config --global user.email "$GIT_EMAIL"
+git config --global user.name "$DOTFILES_GIT_NAME"
+git config --global user.email "$DOTFILES_GIT_EMAIL"
 
 # Set the strategy to reconcile divergent branches for Git to rebase.
 git config --global pull.rebase true
@@ -15,13 +15,13 @@ git config --global pull.rebase true
 # Disable the dock animation, to make it show/hide instantly
 defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock autohide-time-modifier -int 0;
-defaults write com.apple.dock tilesize -int $DOCK_ICON_SIZE;
+defaults write com.apple.dock tilesize -int $DOTFILES_DOCK_ICON_SIZE;
 killall Dock
 
 # Automatically hide the menu bar.
 defaults write NSGlobalDomain _HIHideMenuBar -bool true
 
-if [ $MOUSE_ACCELERATION == "true" ]
+if [ $DOTFILES_MOUSE_ACCELERATION == "true" ]
 then
 	echo "Enabled mouse acceleration"
 	defaults write .GlobalPreferences com.apple.mouse.scaling 1
@@ -62,6 +62,7 @@ brew install git
 brew install gitui
 
 brew install nvm
+brew install go
 brew install --cask amethyst
 brew install --cask kitty
 brew install --cask karabiner-elements
