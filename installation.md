@@ -11,6 +11,7 @@
 
 ### Keyboard
 - Open all your mac spaces and setup the keybindings from System preferences.
+- Change repeat delay and interval to the smallest values
 
 ### Nvim
 - open `nvim` and run `:PackerSync`
