@@ -121,7 +121,7 @@ export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # Make global yarn packages work.
-export PATH="${PATH}:$(yarn global bin)"
+# export PATH="${PATH}:$(yarn global bin)"
 
 # Enable vim mode
 set -o vi
