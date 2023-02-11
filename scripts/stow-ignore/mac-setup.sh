@@ -30,6 +30,7 @@ else
 	defaults write .GlobalPreferences com.apple.mouse.scaling -1
 fi
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
 brew update
 
 # Install stow, which is our symlinker.
@@ -38,6 +39,7 @@ brew install stow
 # Symlink the .stow-ignore.
 # Symlink all directories inside the dotfiles directory.
 cd ~/dotfiles && stow stow/ && stow */ && cd -
+source ~/.zshrc
 
 # Install all the brew packages
 brew install neovim
