@@ -1,0 +1,4 @@
+- Copy the `save-me` folder from the USB to your desktop.
+  - `cp -r ~/Volumes/$VOLUME/save-me ~/Desktop/save-me/`
+- Run the `mac-setup.sh`
+- Clone the git repository `git@github.com:DeepPlateMC/dotfiles.git` to `~/dotfiles`

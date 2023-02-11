@@ -9,6 +9,10 @@
   - Save any personal files you have on your PC. If you have any, you should probably get rid of the habit of storing important files on your computer.
   - Push all local branches in all of your git repositories.
     - `git push --all origin`
+  - Copy the installation.md file to the USB. `cp ~/dotfiles/installation.md ~/save-me/`
+  - Copy the `mac-setup.sh` script.
+	- `cp ~/dotfiles/scripts/stow-ignore/mac-setup.sh ~/save-me/`
+  - Move the `~/save-me/` to your USB stick.
 
 ## To start formatting
 - Follow the guide [here](https://support.apple.com/guide/mac-help/erase-your-mac-mchl7676b710/13.0/mac/13.0)
