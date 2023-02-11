@@ -1,3 +1,6 @@
+echo "Ask for the administrator password for the duration of this script"
+sudo -v
+
 # Load the .env file and export all the environment variables
 export $(grep -v '^#' ~/dotfiles/.env | xargs)
 
