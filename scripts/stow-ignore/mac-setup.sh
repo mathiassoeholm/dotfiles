@@ -4,6 +4,10 @@ sudo -v
 # Load the .env file and export all the environment variables
 export $(grep -v '^#' ~/dotfiles/.env | xargs)
 
+# Set the name and email inside the global git config.
+git config --global user.name "$GIT_NAME"
+git config --global user.email "$GIT_EMAIL"
+
 # Disable the dock animation, to make it show/hide instantly
 defaults write com.apple.dock autohide-time-modifier -int 0;
 
