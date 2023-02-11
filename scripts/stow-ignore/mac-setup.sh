@@ -39,7 +39,9 @@ brew install stow
 # Symlink the .stow-ignore.
 # Symlink all directories inside the dotfiles directory.
 cd ~/dotfiles && stow stow/ && stow */ && cd -
-source ~/.zshrc
+
+# Install Oh My Zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --keep-zshrc
 
 # Install all the brew packages
 brew install neovim
@@ -64,6 +66,3 @@ nvm install --lts
 
 # Install global NPM packages that are used by the dotfiles
 npm install -g yarn
-
-# Install Oh My Zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --keep-zshrc
