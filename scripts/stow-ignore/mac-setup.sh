@@ -42,6 +42,7 @@ cd ~/dotfiles && stow stow/ && stow */ && cd -
 
 # Install Oh My Zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --keep-zshrc --unattended
+source ~/.zshrc
 
 # Install all the brew packages
 brew install neovim
