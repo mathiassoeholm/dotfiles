@@ -1,5 +1,5 @@
 local M = {}
 
-M.build = "yarn grim push:code:wait"
+M.build_command = "yarn grim push:code:wait"
 
 return M
