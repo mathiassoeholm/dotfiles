@@ -27,6 +27,15 @@ M.get_active_project = function()
 		result.build = function()
 			util.run_job_with_notification({
 				command = active_project.build_command,
+				title = function(state)
+					if state == "success" then
+						return "Successfully built"
+					elseif state == "failure" then
+						return "Build Failed"
+					end
+
+					return "Building"
+				end
 			})
 		end
 	else

@@ -10,18 +10,18 @@ M.run_job_with_notification = function(options)
 	local spinner_frames = { "⣾", "⣽", "⣻", "⢿", "⡿", "⣟", "⣯", "⣷" }
 	local function get_notify_config()
 		if state == "running" then
-			return { type = "info", title = "Building", icon = spinner_frames[spinner_index] }
+			return { type = "info", icon = spinner_frames[spinner_index] }
 		elseif state == "success" then
-			return { type = "info", title = "Successfully Built", icon = "" }
+			return { type = "info", icon = "" }
 		elseif state == "failure" then
-			return { type = "error", title = "Build Failed", icon = "", body = error, timeout = 5000 }
+			return { type = "error", icon = "", body = error, timeout = 5000 }
 		end
 	end
 
 	local function update_notification()
 		local config = get_notify_config()
 		notification = vim.notify(config.body or "", config.type, {
-			title = config.title,
+			title = options.title(state),
 			timeout = config.timeout or 1000,
 			icon = config.icon,
 			replace = notification,
@@ -46,7 +46,7 @@ M.run_job_with_notification = function(options)
 				state = "failure"
 			end
 
-			if options.calback then
+			if options.callback then
 				options.callback(output, error)
 			end
 		end,
