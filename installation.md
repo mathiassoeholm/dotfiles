@@ -24,3 +24,7 @@ Install these packages manually with `Mason` in `nvim`:
 - `eslint_d`
 - `gofumpt`
 - `stylua`
+
+### Other applications
+- [Height](https://height.app/download)
+
