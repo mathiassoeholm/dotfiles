@@ -25,6 +25,9 @@ Install these packages manually with `Mason` in `nvim`:
 - `gofumpt`
 - `stylua`
 
+### Github Copilot
+- Run the `CopilotAuth` command in `nvim`
+
 ### Other applications
 - [Height](https://height.app/download)
 
