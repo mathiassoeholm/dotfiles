@@ -1,3 +1,5 @@
+local util = require("util")
+
 local M = {}
 
 local projects = {}
@@ -23,48 +25,8 @@ M.get_active_project = function()
 
 	if active_project ~= nil then
 		result.build = function()
-			local notification
-			local state = "running"
-			local spinner_index = 1
-			local error = ""
-
-			local spinner_frames = { "⣾", "⣽", "⣻", "⢿", "⡿", "⣟", "⣯", "⣷" }
-			local function get_notify_config()
-				if state == "running" then
-					return { type = "info", title = "Building", icon = spinner_frames[spinner_index] }
-				elseif state == "success" then
-					return { type = "info", title = "Successfully Built", icon = "" }
-				elseif state == "failure" then
-					return { type = "error", title = "Build Failed", icon = "", body = error, timeout = 5000 }
-				end
-			end
-
-			local function update_notification()
-				local config = get_notify_config()
-				notification = vim.notify(config.body or "", config.type, {
-					title = config.title,
-					timeout = config.timeout or 1000,
-					icon = config.icon,
-					replace = notification,
-				})
-
-				spinner_index = (spinner_index + 1) % #spinner_frames
-
-				if state == "running" then
-					vim.defer_fn(update_notification, 100)
-				end
-			end
-
-			update_notification()
-
-			vim.fn.jobstart(active_project.build_command, {
-				on_exit = function(_, code)
-					state = code == 0 and "success" or "failure"
-				end,
-				stdout_buffered = true,
-				on_stderr = function(_, data)
-					error = error .. table.concat(data, "\n")
-				end,
+			util.run_job_with_notification({
+				command = active_project.build_command,
 			})
 		end
 	else
