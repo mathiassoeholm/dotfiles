@@ -24,7 +24,7 @@ M.Compile = function(packerUse)
 				ensure_installed = {
 					"tsserver",
 					"html",
-					"sumneko_lua",
+					"lua_ls",
 					"cssls",
 					"jsonls",
 					"bashls",
@@ -98,7 +98,7 @@ M.Added = function()
 		},
 	})
 
-	lspconfig["sumneko_lua"].setup({
+	lspconfig["lua_ls"].setup({
 		capabilities = capabilities,
 		on_attach = keybinds,
 		settings = {
