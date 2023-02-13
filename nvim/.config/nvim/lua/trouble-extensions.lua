@@ -17,6 +17,7 @@ local function gather_tsc_results(results, callback)
 
 	util.run_job_with_notification({
 		command = command,
+		ignore_error = true,
 
 		callback = function(output)
 			local rawItems = vim.json.decode(output)
@@ -66,6 +67,7 @@ local function gather_eslint_results(results, callback)
 
 	util.run_job_with_notification({
 		command = command,
+		ignore_error = true,
 
 		callback = function(output)
 			local files = vim.json.decode(output)
