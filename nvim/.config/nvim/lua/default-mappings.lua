@@ -6,9 +6,9 @@ vim.keymap.set("n", "<leader>z", ":wa<CR>", opts)
 vim.keymap.set("n", "<leader>q", ":Bdelete<CR>", opts)
 
 -- Fugitive bindings
--- vim.keymap.set("n", "<leader>gs", ":G<CR>", opts)
--- vim.keymap.set("n", "<leader>gh", ":diffget //2<CR>", opts)
--- vim.keymap.set("n", "<leader>gl", ":diffget //3<CR>", opts)
+vim.keymap.set("n", "<leader>gs", ":G<CR>", opts)
+vim.keymap.set("n", "<leader>gh", ":diffget //2<CR>", opts)
+vim.keymap.set("n", "<leader>gl", ":diffget //3<CR>", opts)
 
 -- Move around to buffers
 vim.keymap.set("n", "<C-h>", "<C-w>h", opts)
@@ -30,7 +30,6 @@ vim.keymap.set("n", "<S-h>", ":BufferLineCyclePrev<CR>", opts)
 vim.api.nvim_set_keymap("n", "<Leader>rs", ":let @/=expand('<cword>')<cr>cgn", { silent = true })
 
 vim.keymap.set("n", "<leader>b", "<cmd>CellularAutomaton make_it_rain<CR>")
-
 
 -- Open a terminal in a floating window
 vim.keymap.set({ "n", "t" }, "<C-t>", "<cmd>Lspsaga term_toggle<CR>", { silent = true })

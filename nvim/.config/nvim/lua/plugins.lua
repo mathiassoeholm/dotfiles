@@ -46,7 +46,7 @@ local configs = {
 	-- -- Git
 	require("configs.copilot"),
 	require("configs.gitsigns"),
-	-- "tpope/vim-fugitive",
+	"tpope/vim-fugitive",
 
 	-- -- Motion
 	require("configs.lightspeed"),
