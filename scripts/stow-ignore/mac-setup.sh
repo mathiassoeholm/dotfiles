@@ -75,3 +75,6 @@ nvm install --lts
 
 # Install global NPM packages that are used by the dotfiles
 npm install -g yarn
+
+# Install rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path

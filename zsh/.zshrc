@@ -125,6 +125,9 @@ export NVM_DIR="$HOME/.nvm"
 # Make global yarn packages work.
 export PATH="${PATH}:$(yarn global bin)"
 
+# Add Rust toolchain to PATH
+source "$HOME/.cargo/env"
+
 # Enable vim mode
 if [ $DOTFILES_VIM_IN_KITTY = "true" ]
 then
