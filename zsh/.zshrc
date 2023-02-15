@@ -101,6 +101,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 alias gitui="gitui -t catpuccino.ron"
 alias vim="nvim"
+alias icat="kitty +kitten icat"
 
 # Interactive checkout tool, can be cloned from here and built from source with: cargo build --release
 # https://github.com/mathiassoeholm/rust-projects
