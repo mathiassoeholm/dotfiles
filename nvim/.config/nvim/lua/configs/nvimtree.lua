@@ -15,6 +15,7 @@ M.Compile = function(packerUse)
 					mappings = {
 						list = {
 							{ key = "u", action = "dir_up" },
+							{ key = "<C-t>", action = "" },
 						},
 					},
 				},

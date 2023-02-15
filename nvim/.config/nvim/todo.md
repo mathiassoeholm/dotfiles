@@ -11,3 +11,4 @@
 - Figure out how to feed trouble `tsc` and `eslint` diagnostics without it running on edit and file save.
 - Create a command to open our keybindings file in a buffer, like when you write `:h`.
 - Move the toasts to the bottom-right corner.
+- Sometimes the formatter breaks after having syntax errors. Even after fixing the errors, it refuses to format the file when `<leader>f` is clicked.

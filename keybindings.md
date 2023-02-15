@@ -151,6 +151,10 @@ Default Shortcut Description
 - gt - goto new tab
 - `:mkdir`(<F7>) - create a new directory
 
+## Fugitive
+- Changing branch:
+   - Run `:G branch`, select the branch you want to checkout, then push `coo`.
+
 ##### Many/Most of the classic vim bindings work perfectly with vifm
 
 - `/` for searching and `n|s-n` for jumping between results
