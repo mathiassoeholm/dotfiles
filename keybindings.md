@@ -17,6 +17,11 @@ All <leader> references are the same as `s`.
 - S" - Surround selection with "
 - zz - Center on cursor
 
+## Vim Fugitive
+
+- :G (any git command)
+- :G(edit|split) HEAD~3:% - Load current file as it existed 3 commits ago
+
 ## File Navigation
 
 - C-n - Open File Explorer
@@ -52,7 +57,7 @@ All <leader> references are the same as `s`.
 - :tabnew - Make a new tab
 - :tabclose - Close the tab
 - gt - Switch tabs
-- C-w = - equalize width and height of all splits 
+- C-w = - equalize width and height of all splits
 
 ## Code actions
 
