@@ -231,11 +231,12 @@ filetype {*.o},<application/x-object> nm %f | less
 filetype {*.[1-8]},<text/troff> man ./%c
 fileviewer {*.[1-8]},<text/troff> man ./%c | col -b
 
-" Image
-filetype {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
-       \ open -a Preview.app,
-fileviewer {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
-         \ identify %f
+" Pictures
+filetype *.bmp,*.jpg,*.jpeg,*.png,*.xpm open -a Preview %f &
+fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.xpm
+    \ kitty +kitten icat --transfer-mode=file --place=%pwx%ph@%pxx%py %c %N
+    \ %pc
+    \ kitty +kitten icat --transfer-mode=file --place=%pwx%ph@%pxx%py --clear %N
 
 " MD5
 filetype *.md5

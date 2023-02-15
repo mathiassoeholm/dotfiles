@@ -54,7 +54,10 @@ brew install neovim
 brew install wget
 brew install ripgrep
 
+
 brew install vifm
+# For veiwing images in Kitty (and vifm)
+brew install imagemagick
 
 brew tap homebrew/cask-fonts
 brew install font-hack-nerd-font
