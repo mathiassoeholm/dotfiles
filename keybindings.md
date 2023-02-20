@@ -16,6 +16,7 @@ All <leader> references are the same as `s`.
   - , - Jump to previous occurence
 - S" - Surround selection with "
 - zz - Center on cursor
+- 56G - Go to line 56
 
 ## Vim Fugitive
 
@@ -157,8 +158,9 @@ Default Shortcut Description
 - `:mkdir`(<F7>) - create a new directory
 
 ## Fugitive
+
 - Changing branch:
-   - Run `:G branch`, select the branch you want to checkout, then push `coo`.
+  - Run `:G branch`, select the branch you want to checkout, then push `coo`.
 
 ##### Many/Most of the classic vim bindings work perfectly with vifm
 
