@@ -20,6 +20,7 @@
 ### Other Mac settings
 
 - Change Spaces slide animation to fade: System settings -> Search "Reduce motion" -> Enable Reduce motion
+- Disable "Automatically rearrange spaces": System settings -> Desktop & Dock -> Mission Control
 
 ### Nvim
 
