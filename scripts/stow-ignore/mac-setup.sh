@@ -63,6 +63,7 @@ brew install font-hack-nerd-font
 brew install git
 brew install gitui
 brew install git-lfs
+brew install remotemobprogramming/brew/mob
 
 brew install nvm
 brew install go
