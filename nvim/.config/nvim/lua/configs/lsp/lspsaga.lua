@@ -30,6 +30,9 @@ M.Compile = function(packerUse)
 					edit = "<CR>",
 					quit = "<ESC>",
 				},
+				symbol_in_winbar = {
+					enable = false,
+				},
 			})
 		end,
 	})
