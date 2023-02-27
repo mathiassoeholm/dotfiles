@@ -28,6 +28,9 @@ M.Compile = function(packerUse)
 				filters = {
 					custom = { "node_modules", ".DS_STORE" },
 				},
+				notify = {
+					threshold = vim.log.levels.ERROR,
+				},
 			})
 		end,
 	})

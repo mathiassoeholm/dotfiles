@@ -30,6 +30,14 @@ M.Compile = function(packerUse)
 					edit = "<CR>",
 					quit = "<ESC>",
 				},
+				symbol_in_winbar = {
+					enable = true,
+					hide_keyword = true,
+					respect_root = true,
+					show_file = true,
+					separator = "  ",
+					ignore_patterns = { ".*" },
+				},
 			})
 		end,
 	})

@@ -55,7 +55,6 @@ brew install neovim
 brew install wget
 brew install ripgrep
 
-
 brew install vifm
 # For veiwing images in Kitty (and vifm)
 brew install imagemagick
@@ -64,6 +63,8 @@ brew tap homebrew/cask-fonts
 brew install font-hack-nerd-font
 brew install git
 brew install gitui
+brew install git-lfs
+brew install remotemobprogramming/brew/mob
 
 brew install nvm
 brew install go
@@ -73,6 +74,15 @@ brew install --cask karabiner-elements
 brew install --cask brave-browser
 brew install --cask discord
 brew install --cask docker
+brew install --cask bitwarden
+
+# Install the Google Cloud SDK, and any components that are needed.
+brew install --cask google-cloud-sdk
+source ~/.zshrc
+gcloud components install kubectl
+gcloud components install gke-gcloud-auth-plugin
+gcloud auth login
+gcloud auth configure-docker
 
 # Install the latest LTS version of node
 nvm install --lts
@@ -80,5 +90,7 @@ nvm install --lts
 # Install global NPM packages that are used by the dotfiles
 npm install -g yarn
 
+yarn global add @aivenio/tsc-output-parser
+
 # Install rust
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path -y
