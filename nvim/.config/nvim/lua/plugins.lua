@@ -29,7 +29,6 @@ local configs = {
 	require("configs.lualine"),
 	-- require("configs.dashboard"),
 	require("configs.blankline"),
-	require("configs.winbar"),
 
 	"kyazdani42/nvim-web-devicons", -- optional, for file icon
 	require("configs.nvimtree"),

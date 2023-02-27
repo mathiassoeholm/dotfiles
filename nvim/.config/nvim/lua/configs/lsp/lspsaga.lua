@@ -31,7 +31,12 @@ M.Compile = function(packerUse)
 					quit = "<ESC>",
 				},
 				symbol_in_winbar = {
-					enable = false,
+					enable = true,
+					hide_keyword = true,
+					respect_root = true,
+					show_file = true,
+					separator = "  ",
+					ignore_patterns = { ".*" },
 				},
 			})
 		end,
