@@ -13,3 +13,4 @@
 - Move notify notifications to the bottom-right.
 - Show full breadcrumb in the top
 - Figure out how to cap the file size that we lint. At the moment, opening large files lags and freezes.
+- Make `gd` closeable with `esc`
