@@ -32,3 +32,5 @@ vim.keymap.set({ "n", "t" }, "<C-t>", "<cmd>Lspsaga term_toggle<CR>", { silent =
 -- Center screen to the cursor when scrolling
 vim.keymap.set("n", "<C-u>", "<C-u>zz", opts)
 vim.keymap.set("n", "<C-d>", "<C-d>zz", opts)
+
+vim.keymap.set("n", "U", ":UndotreeToggle<CR>", opts)

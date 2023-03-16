@@ -43,10 +43,13 @@ local configs = {
 	-- -- Auto pairs
 	require("configs.auto-pairs"),
 
+	"mbbill/undotree",
+
 	-- -- Git
 	require("configs.copilot"),
 	require("configs.gitsigns"),
 	require("configs.fugitive"),
+	require("configs.diffview"),
 
 	-- -- Motion
 	require("configs.lightspeed"),
