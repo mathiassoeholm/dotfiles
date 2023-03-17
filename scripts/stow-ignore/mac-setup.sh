@@ -77,6 +77,8 @@ brew install --cask bitwarden
 
 # Install the Google Cloud SDK, and any components that are needed.
 brew install --cask google-cloud-sdk
+brew install helm
+
 source ~/.zshrc
 gcloud components install kubectl
 gcloud components install gke-gcloud-auth-plugin
