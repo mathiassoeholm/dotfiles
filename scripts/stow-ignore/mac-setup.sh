@@ -14,6 +14,7 @@ git config --global pull.rebase true
 # Automatically hide and show the Dock
 # Disable the dock animation, to make it show/hide instantly
 defaults write com.apple.dock autohide -bool true
+defaults write com.apple.Dock autohide-delay -float 0
 defaults write com.apple.dock autohide-time-modifier -int 0;
 defaults write com.apple.dock tilesize -int $DOTFILES_DOCK_ICON_SIZE;
 killall Dock

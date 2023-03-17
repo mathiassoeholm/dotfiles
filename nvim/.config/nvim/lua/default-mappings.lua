@@ -28,3 +28,9 @@ vim.keymap.set("n", "<leader>b", "<cmd>CellularAutomaton make_it_rain<CR>")
 
 -- Open a terminal in a floating window
 vim.keymap.set({ "n", "t" }, "<C-t>", "<cmd>Lspsaga term_toggle<CR>", { silent = true })
+
+-- Center screen to the cursor when scrolling
+vim.keymap.set("n", "<C-u>", "<C-u>zz", opts)
+vim.keymap.set("n", "<C-d>", "<C-d>zz", opts)
+
+vim.keymap.set("n", "U", ":UndotreeToggle<CR>", opts)

@@ -22,6 +22,11 @@ M.Compile = function(packerUse)
 				-- 		theme = "ivy",
 				-- 	},
 				-- },
+				defaults = {
+					preview = {
+						filesize_limit = 0.1,
+					},
+				},
 				extensions = {
 					fzf = {
 						fuzzy = true, -- false will only do exact matching
