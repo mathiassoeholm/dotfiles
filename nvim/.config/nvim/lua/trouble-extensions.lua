@@ -13,11 +13,12 @@ local function gather_tsc_results(results, callback)
 		return
 	end
 
-	local command = "yarn --silent tsc --noEmit --pretty false --project " .. M.ts_config_path .. " | tsc-output-parser"
+	local directory = vim.fn.fnamemodify(M.ts_config_path, ":h")
+	local command = "yarn --cwd " .. directory .. " --silent tsc --noEmit --pretty false | tsc-output-parser"
 
 	util.run_job_with_notification({
 		command = command,
-		ignore_error = false,
+		ignore_error = true,
 		callback = function(output)
 			local rawItems = vim.json.decode(output)
 			for _, error in ipairs(rawItems) do
@@ -65,7 +66,7 @@ local function gather_eslint_results(results, callback)
 
 	util.run_job_with_notification({
 		command = command,
-		ignore_error = true,
+		ignore_error = false,
 		callback = function(output)
 			local files = vim.json.decode(output)
 

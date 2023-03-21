@@ -11,6 +11,9 @@ git config --global user.email "$DOTFILES_GIT_EMAIL"
 # Set the strategy to reconcile divergent branches for Git to rebase.
 git config --global pull.rebase true
 
+# Allow git pull on a dirty working tree.
+git config --global rebase.autoStash true
+
 # Automatically hide and show the Dock
 # Disable the dock animation, to make it show/hide instantly
 defaults write com.apple.dock autohide -bool true
@@ -54,20 +57,18 @@ source ~/.zshrc
 brew install neovim
 brew install wget
 brew install ripgrep
-
 brew install vifm
 # For veiwing images in Kitty (and vifm)
 brew install imagemagick
-
 brew tap homebrew/cask-fonts
 brew install font-hack-nerd-font
 brew install git
 brew install gitui
 brew install git-lfs
 brew install remotemobprogramming/brew/mob
-
 brew install nvm
 brew install go
+brew install minikube
 brew install --cask amethyst
 brew install --cask kitty
 brew install --cask karabiner-elements
@@ -78,6 +79,8 @@ brew install --cask bitwarden
 
 # Install the Google Cloud SDK, and any components that are needed.
 brew install --cask google-cloud-sdk
+brew install helm
+
 source ~/.zshrc
 gcloud components install kubectl
 gcloud components install gke-gcloud-auth-plugin
