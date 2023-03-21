@@ -27,7 +27,7 @@ local configs = {
 
 	require("configs.bufferline"),
 	require("configs.lualine"),
-	-- require("configs.dashboard"),
+	require("configs.dashboard"),
 	require("configs.blankline"),
 
 	"kyazdani42/nvim-web-devicons", -- optional, for file icon
