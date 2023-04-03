@@ -3,6 +3,8 @@ local M = {}
 M.Compile = function(packerUse)
 	packerUse({
 		"glepnir/lspsaga.nvim",
+		opt = true,
+		event = "LspAttach",
 		branch = "main",
 		config = function()
 			local saga = require("lspsaga")

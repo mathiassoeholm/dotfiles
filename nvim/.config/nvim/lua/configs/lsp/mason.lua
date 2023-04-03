@@ -21,22 +21,22 @@ M.Compile = function(packerUse)
 			end
 
 			package.setup({
-				ensure_installed = {
-					"tsserver",
-					"html",
-					"lua_ls",
-					"cssls",
-					"jsonls",
-					"bashls",
-					"dotls",
-					"gopls",
-					"dockerls",
-					"eslint",
-					"marksman",
-					"taplo",
-					"yamlls",
-					"tailwindcss",
-				},
+				-- ensure_installed = {
+				-- 	"tsserver",
+				-- 	"html",
+				-- 	"lua_ls",
+				-- 	"cssls",
+				-- 	"jsonls",
+				-- 	"bashls",
+				-- 	"dotls",
+				-- 	"gopls",
+				-- 	"dockerls",
+				-- 	"eslint",
+				-- 	"marksman",
+				-- 	"taplo",
+				-- 	"yamlls",
+				-- 	"tailwindcss",
+				-- },
 			})
 		end,
 	})

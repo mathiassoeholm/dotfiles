@@ -1,10 +1,8 @@
-local M = {}
-
-M.Compile = function(packerUse)
-	packerUse({
+return {
+	{
 		"kyazdani42/nvim-tree.lua",
-		requires = {
-			"kyazdani42/nvim-web-devicons", -- optional, for file icon
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
 		},
 		config = function()
 			require("nvim-tree").setup({
@@ -32,13 +30,9 @@ M.Compile = function(packerUse)
 					threshold = vim.log.levels.ERROR,
 				},
 			})
+
+			local opts = { noremap = true, silent = true }
+			vim.keymap.set("n", "<C-n>", ":NvimTreeFindFileToggle<CR>", opts)
 		end,
-	})
-end
-
-M.Added = function()
-	local opts = { noremap = true, silent = true }
-	vim.keymap.set("n", "<C-n>", ":NvimTreeFindFileToggle<CR>", opts)
-end
-
-return M
+	},
+}
