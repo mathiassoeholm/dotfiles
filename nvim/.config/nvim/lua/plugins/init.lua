@@ -1,4 +1,5 @@
 return {
+	{ "mbbill/undotree" },
 	{ "famiu/bufdelete.nvim" },
 	{
 		"kylechui/nvim-surround",

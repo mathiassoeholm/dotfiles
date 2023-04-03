@@ -1,4 +1,8 @@
 return {
+	"onsails/lspkind.nvim",
+	"hrsh7th/cmp-buffer",
+	"hrsh7th/cmp-path",
+	"hrsh7th/cmp-nvim-lsp",
 	{
 		"hrsh7th/nvim-cmp",
 		config = function()
@@ -16,11 +20,11 @@ return {
 						scrollbar = "║",
 					},
 				},
-				-- snippet = {
-				-- 	expand = function(args)
-				-- 		require("luasnip").lsp_expand(args.body)
-				-- 	end,
-				-- },
+				snippet = {
+					expand = function(args)
+						require("luasnip").lsp_expand(args.body)
+					end,
+				},
 				sorting = {
 					-- for sorting we can also add a priority to the sources down below. `{name = "luasnip", priority = 3}` as an example
 					comparators = {
@@ -49,13 +53,13 @@ return {
 					-- { name = "buffer" },
 					{ name = "nvim_lsp" },
 				}),
-				-- formatting = {
-				-- 	format = require("lspkind").cmp_format({
-				-- 		maxwidth = 50,
-				-- 		symbol_map = { Copilot = "" },
-				-- 		ellipsis_char = "...",
-				-- 	}),
-				-- },
+				formatting = {
+					format = require("lspkind").cmp_format({
+						maxwidth = 50,
+						symbol_map = { Copilot = "" },
+						ellipsis_char = "...",
+					}),
+				},
 			})
 		end,
 	},
