@@ -1,9 +1,28 @@
 return {
 	{
+		"neovim/nvim-lspconfig",
+	},
+	{
 		"williamboman/mason.nvim",
 		build = ":MasonUpdate", -- :MasonUpdate updates registry contents
 		config = function()
 			require("mason").setup({})
+		end,
+	},
+	{
+		"jose-elias-alvarez/typescript.nvim",
+		dependencies = { "neovim/nvim-lspconfig" },
+		config = function()
+			-- local lspconfig = require("lspconfig")
+			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+			local keybinds = require("configs.lsp.lsp-mappings").on_attach
+			-- custom setup
+			require("typescript").setup({
+				server = {
+					capabilities = capabilities,
+					on_attach = keybinds,
+				},
+			})
 		end,
 	},
 	{
@@ -12,11 +31,11 @@ return {
 			"williamboman/mason.nvim",
 		},
 		config = function()
-			mason_lspconfig = require("mason-lspconfig")
+			local mason_lspconfig = require("mason-lspconfig")
 			require("mason-lspconfig").setup({})
 			mason_lspconfig.setup_handlers({
 				function(server_name)
-					require("lspconfig")[server_name].setup({
+					local serverConfig = {
 						on_attach = function(client, bufnr)
 							-- keybind options
 							local opts = { noremap = true, silent = true, buffer = bufnr }
@@ -24,7 +43,7 @@ return {
 
 							-- set keybinds
 							-- keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", { silent = true })
-							keymap.set("n", "gr", "<cmd>Lspsaga lsp_finder<CR>", opts) -- show definition, references
+							keymap.set("n", "gr", "<cmd>Lspsaga lsp_finder<CR>", opts)    -- show definition, references
 							keymap.set("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts) -- got to declaration
 							keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts) -- see definition and make edits in window
 							keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts) -- go to implementation
@@ -34,7 +53,7 @@ return {
 							keymap.set("n", "<leader>d", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts) -- show diagnostics for cursor
 							keymap.set("n", "(", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts) -- jump to previous diagnostic in buffer
 							keymap.set("n", ")", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts) -- jump to next diagnostic in buffer
-							keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts) -- show documentation for what is under cursor
+							keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)      -- show documentation for what is under cursor
 							keymap.set("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", opts) -- see outline on right hand side
 
 							keymap.set("n", "<leader>f", "<cmd>lua vim.lsp.buf.format {async=true}<CR>", opts) -- format buffer
@@ -57,15 +76,51 @@ return {
 								client.server_capabilities.documentFormattingProvider = true
 							end
 						end,
-					})
+					}
+
+					if server_name == "lua_ls" then
+						serverConfig.settings = {
+							Lua = {
+								diagnostics = {
+									globals = { "vim" },
+								},
+								workspace = {
+									library = {
+										[vim.fn.expand("$VIMRUNTIME/lua")] = true,
+									},
+								},
+							},
+						}
+					end
+
+					if server_name == "gopls" then
+						serverConfig.settings = {
+							gopls = {
+								gofumpt = true,
+							},
+						}
+					end
+
+					require("lspconfig")[server_name].setup(serverConfig)
 				end,
 			})
 		end,
 	},
 	{
-		"neovim/nvim-lspconfig",
+		"jose-elias-alvarez/null-ls.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		config = function()
+			require("null-ls").setup({
+				sources = {
+					require("null-ls").builtins.formatting.stylua,
+					require("null-ls").builtins.formatting.prettierd,
+					-- require("null-ls").builtins.diagnostics.tsc,
+					-- require("null-ls").builtins.diagnostics.eslint,
+					-- require("null-ls").builtins.completion.spell,
+				},
+			})
+		end,
 	},
-	{ "jose-elias-alvarez/null-ls.nvim" },
 	{
 		"jay-babu/mason-null-ls.nvim",
 		event = { "BufReadPre", "BufNewFile" },
