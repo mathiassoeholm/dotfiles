@@ -1,8 +1,4 @@
 return {
-	-- {
-	-- 	"nvim-telescope/telescope-fzf-native.nvim",
-	-- 	build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
-	-- },
 	{
 		"nvim-telescope/telescope.nvim",
 		dependencies = {
@@ -14,11 +10,6 @@ return {
 		},
 		config = function()
 			require("telescope").setup({
-				-- pickers = {
-				-- 	find_files = {
-				-- 		theme = "ivy",
-				-- 	},
-				-- },
 				defaults = {
 					preview = {
 						filesize_limit = 0.1,

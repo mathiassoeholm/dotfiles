@@ -1,6 +1,7 @@
 {
   "bufferline.nvim": { "branch": "main", "commit": "eb4e95be22c55890b90fc01a8223e0c0ea4a0862" },
   "lazy.nvim": { "branch": "main", "commit": "57cce98dfdb2f2dd05a0567d89811e6d0505e13b" },
+  "lspsaga.nvim": { "branch": "main", "commit": "d73a826b05f76da72866ebf601464da2686fd122" },
   "mason-lspconfig": { "branch": "main", "commit": "b64fdede85fd5e0b720ce722919e0a9b95ed6547" },
   "mason-null-ls.nvim": { "branch": "main", "commit": "a991e7697514f30126fac7c07a11c488c553e94f" },
   "mason.nvim": { "branch": "main", "commit": "46abd3ff86c74294fed9a530ec872ec7a4680bef" },
