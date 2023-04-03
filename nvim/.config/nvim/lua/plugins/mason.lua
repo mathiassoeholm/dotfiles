@@ -11,18 +11,8 @@ return {
 	},
 	{
 		"jose-elias-alvarez/typescript.nvim",
-		dependencies = { "neovim/nvim-lspconfig" },
 		config = function()
-			-- local lspconfig = require("lspconfig")
-			local capabilities = require("cmp_nvim_lsp").default_capabilities()
-			local keybinds = require("configs.lsp.lsp-mappings").on_attach
-			-- custom setup
-			require("typescript").setup({
-				server = {
-					capabilities = capabilities,
-					on_attach = keybinds,
-				},
-			})
+			require("typescript").setup({})
 		end,
 	},
 	{
