@@ -34,6 +34,13 @@ else
 	defaults write .GlobalPreferences com.apple.mouse.scaling -1
 fi
 
+if [ $DOTFILES_FAST_KEY_REPEAT == "true" ]
+then
+	echo "Setting fast key repeat rate"
+	defaults write -g InitialKeyRepeat -int 15
+	defaults write -g KeyRepeat -int 2
+fi
+
 # Install zsh plugins
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
