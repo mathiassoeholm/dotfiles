@@ -66,6 +66,7 @@ brew install gitui
 brew install git-lfs
 brew install remotemobprogramming/brew/mob
 
+brew install java
 brew install nvm
 brew install go
 brew install --cask amethyst
