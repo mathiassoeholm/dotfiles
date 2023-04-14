@@ -1,7 +1,5 @@
-local M = {}
-
-M.Compile = function(packerUse)
-	packerUse({
+return {
+	{
 		"lukas-reineke/indent-blankline.nvim",
 		config = function()
 			require("indent_blankline").setup({
@@ -10,7 +8,5 @@ M.Compile = function(packerUse)
 				-- show_current_context_start = true,
 			})
 		end,
-	})
-end
-
-return M
+	},
+}

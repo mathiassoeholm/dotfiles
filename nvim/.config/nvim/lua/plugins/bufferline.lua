@@ -1,11 +1,8 @@
-local M = {}
-
-M.Compile = function(packerUse)
-	-- Tabs and Buffers
-	packerUse({
+return {
+	{
 		"akinsho/bufferline.nvim",
-		tag = "v2.*",
-		requires = "kyazdani42/nvim-web-devicons",
+		version = "v3.*",
+		dependencies = "nvim-tree/nvim-web-devicons",
 		config = function()
 			-- :h bufferline-configuration
 			require("bufferline").setup({
@@ -33,7 +30,5 @@ M.Compile = function(packerUse)
 				},
 			})
 		end,
-	})
-end
-
-return M
+	},
+}

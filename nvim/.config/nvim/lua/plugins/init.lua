@@ -1,14 +1,12 @@
-local M = {}
-
-M.Compile = function(packerUse)
-	packerUse({
+return {
+	{ "mbbill/undotree" },
+	{ "famiu/bufdelete.nvim" },
+	{
 		"kylechui/nvim-surround",
 		config = function()
 			require("nvim-surround").setup({
 				-- Configuration here, or leave empty to use defaults
 			})
 		end,
-	})
-end
-
-return M
+	},
+}

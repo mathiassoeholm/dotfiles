@@ -1,9 +1,12 @@
-local M = {}
-
-M.Compile = function(packerUse)
-	packerUse({
+return {
+	{
 		"glepnir/lspsaga.nvim",
-		branch = "main",
+		dependencies = {
+			{ "nvim-tree/nvim-web-devicons" },
+			--Please make sure you install markdown and markdown_inline parser
+			{ "nvim-treesitter/nvim-treesitter" },
+		},
+		event = "LspAttach",
 		config = function()
 			local saga = require("lspsaga")
 			saga.setup({
@@ -40,7 +43,5 @@ M.Compile = function(packerUse)
 				},
 			})
 		end,
-	})
-end
-
-return M
+	},
+}

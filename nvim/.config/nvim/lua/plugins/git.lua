@@ -1,7 +1,21 @@
-local M = {}
+return {
+	{
+		"sindrets/diffview.nvim",
+	},
+	{
+		"tpope/vim-fugitive",
+		config = function()
+			local opts = { noremap = true, silent = true }
 
-M.Compile = function(packerUse)
-	packerUse({
+			vim.keymap.set("n", "<leader>gs", ":G<CR>", opts)
+			vim.keymap.set("n", "<leader>gh", ":diffget //2<CR>", opts)
+			vim.keymap.set("n", "<leader>gl", ":diffget //3<CR>", opts)
+			vim.keymap.set("n", "<leader>gfh", ":0GcLog<CR>", opts)
+
+			vim.keymap.set("n", "<leader>gcbn", ":!git rev-parse --abbrev-ref HEAD | pbcopy<CR>", opts)
+		end
+	},
+	{
 		"lewis6991/gitsigns.nvim",
 		config = function()
 			require("gitsigns").setup({
@@ -66,7 +80,5 @@ M.Compile = function(packerUse)
 				},
 			})
 		end,
-	})
-end
-
-return M
+	}
+}

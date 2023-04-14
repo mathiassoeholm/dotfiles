@@ -1,9 +1,7 @@
-local M = {}
-
-M.Compile = function(packerUse)
-	packerUse({
+return {
+	{
 		"nvim-lualine/lualine.nvim",
-		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+		requires = { "kyazdani42/nvim-web-devicons" },
 		config = function()
 			require("lualine").setup({
 				-- options = { theme = "gruvbox_material" },
@@ -16,7 +14,7 @@ M.Compile = function(packerUse)
 							require("noice").api.statusline.mode.get,
 							cond = require("noice").api.statusline.mode.has,
 							color = { fg = "#ff9e64" },
-						}
+						},
 					},
 					lualine_y = { "filetype" },
 					lualine_z = { "location" },
@@ -32,7 +30,5 @@ M.Compile = function(packerUse)
 				extensions = { "nvim-tree" },
 			})
 		end,
-	})
-end
-
-return M
+	},
+}

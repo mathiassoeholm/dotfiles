@@ -11,6 +11,9 @@ git config --global user.email "$DOTFILES_GIT_EMAIL"
 # Set the strategy to reconcile divergent branches for Git to rebase.
 git config --global pull.rebase true
 
+# Allow git pull on a dirty working tree.
+git config --global rebase.autoStash true
+
 # Automatically hide and show the Dock
 # Disable the dock animation, to make it show/hide instantly
 defaults write com.apple.dock autohide -bool true
@@ -29,6 +32,13 @@ then
 else 
 	echo "Disabled mouse acceleration"
 	defaults write .GlobalPreferences com.apple.mouse.scaling -1
+fi
+
+if [ $DOTFILES_FAST_KEY_REPEAT == "true" ]
+then
+	echo "Setting fast key repeat rate"
+	defaults write -g InitialKeyRepeat -int 15
+	defaults write -g KeyRepeat -int 2
 fi
 
 # Install zsh plugins
@@ -54,11 +64,9 @@ source ~/.zshrc
 brew install neovim
 brew install wget
 brew install ripgrep
-
 brew install vifm
 # For veiwing images in Kitty (and vifm)
 brew install imagemagick
-
 brew tap homebrew/cask-fonts
 brew install font-hack-nerd-font
 brew install git
@@ -69,6 +77,7 @@ brew install remotemobprogramming/brew/mob
 brew install java
 brew install nvm
 brew install go
+brew install minikube
 brew install --cask amethyst
 brew install --cask kitty
 brew install --cask karabiner-elements

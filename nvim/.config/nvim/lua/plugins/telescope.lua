@@ -1,27 +1,15 @@
-local M = {}
-
-M.Added = function()
-	-- Find files using Telescope command-line sugar.
-	vim.keymap.set("n", "<C-p>", "<cmd>Telescope git_files show_untracked=true<CR>")
-	vim.keymap.set("n", "<C-b>", "<cmd>Telescope resume<CR>")
-	vim.keymap.set("n", "<S-f>", "<cmd>Telescope live_grep<CR>")
-	vim.keymap.set("n", "<C-f>", "<cmd>Telescope current_buffer_fuzzy_find<CR>")
-end
-
-M.Compile = function(packerUse)
-	packerUse({
+return {
+	{
 		"nvim-telescope/telescope.nvim",
-		requires = {
+		dependencies = {
 			"nvim-lua/plenary.nvim",
-			{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
+			{
+				"nvim-telescope/telescope-fzf-native.nvim",
+				build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+			},
 		},
 		config = function()
 			require("telescope").setup({
-				-- pickers = {
-				-- 	find_files = {
-				-- 		theme = "ivy",
-				-- 	},
-				-- },
 				defaults = {
 					preview = {
 						filesize_limit = 0.1,
@@ -42,10 +30,12 @@ M.Compile = function(packerUse)
 			-- load_extension, somewhere after setup function:
 			require("telescope").load_extension("fzf")
 			require("telescope").load_extension("noice")
-			-- only used with CoC
-			-- require("telescope").load_extension("coc")
-		end,
-	})
-end
 
-return M
+			-- Find files using Telescope command-line sugar.
+			vim.keymap.set("n", "<C-p>", "<cmd>Telescope git_files show_untracked=true<CR>")
+			vim.keymap.set("n", "<C-b>", "<cmd>Telescope resume<CR>")
+			vim.keymap.set("n", "<S-f>", "<cmd>Telescope live_grep<CR>")
+			vim.keymap.set("n", "<C-f>", "<cmd>Telescope current_buffer_fuzzy_find<CR>")
+		end,
+	},
+}

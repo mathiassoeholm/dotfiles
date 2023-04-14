@@ -1,9 +1,9 @@
-local M = {}
-
-M.Compile = function(packerUse)
-	packerUse({
+return {
+	{
 		"L3MON4D3/LuaSnip",
 		config = function()
+			vim.opt.completeopt = "menu,menuone,noselect"
+
 			local luasnip = require("luasnip")
 
 			-- Get html snippets in react tsx/jsx files
@@ -13,19 +13,11 @@ M.Compile = function(packerUse)
 			-- load friendly-snippets
 			require("luasnip/loaders/from_vscode").lazy_load()
 		end,
-	})
-
-	packerUse({
+	},
+	{
 		"saadparwaiz1/cmp_luasnip",
-	})
-
-	packerUse({
+	},
+	{
 		"rafamadriz/friendly-snippets",
-	})
-end
-
-M.Added = function()
-	vim.opt.completeopt = "menu,menuone,noselect"
-end
-
-return M
+	},
+}

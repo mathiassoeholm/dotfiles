@@ -4,13 +4,10 @@ An always work in progress repo for my dotfiles.
 ## Setup
 
 ####
-- Make sure that you have neovim 8.0+ installed
-
-#### Formatting and editing nvim lua
- - Follow the installation steps at https://github.com/JohnnyMorganz/StyLua
+- Make sure that you have neovim 8.3+ installed
 
 #### Nvim
-- open `nvim` and run `:PackerSync`
+- open `nvim` and run `:Lazy`
 - open `nvim` and run `:Mason`
 
 #### For Symlinking
@@ -25,7 +22,6 @@ An always work in progress repo for my dotfiles.
 ## TODO's
 - Changing colors themes `dark` to `light` does not update the cursor. `Kitty` (or what ever terminal) needs to also have its theme updated
 - A custom `ZSH` setup, not using `ohmyzsh`. But for now my main focus is on `nvim`
-- Clean up the lsp mess and remove CoC entirely
 
 ## Troubleshooting
 
@@ -33,14 +29,6 @@ An always work in progress repo for my dotfiles.
 
 #### Reminders 
 - When having trouble always run `:healthcheck`
-- Remember to run `:PackerCompile` after updating any of the configs
-
-### pyx command not found, while using CoC
-Many features of CoC requires Python3 to be installed and pynvim as a provider for nvim. 
-If you are having trouble or errors with pyx command not found.
-- `brew install python`
-- `brew install pyvim` 
-- `python3 -m pip install pynvim --user`
 
 ### XCode errors while compiling treesitter
 If the console on compiling (first time) throws some XCode errors scanner.cc etc.

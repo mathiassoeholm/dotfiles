@@ -1,7 +1,5 @@
-local M = {}
-
-M.Compile = function(packerUse)
-	packerUse({
+return {
+	{
 		"zbirenbaum/copilot.lua",
 		event = "VimEnter",
 		config = function()
@@ -19,16 +17,5 @@ M.Compile = function(packerUse)
 				})
 			end, 100)
 		end,
-	})
-	packerUse({
-		"zbirenbaum/copilot-cmp",
-		after = { "copilot.lua" },
-		config = function()
-			require("copilot_cmp").setup({
-				-- method = "getPanelCompletions",
-			})
-		end,
-	})
-end
-
-return M
+	},
+}
