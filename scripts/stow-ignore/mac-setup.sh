@@ -73,9 +73,12 @@ brew install git
 brew install gitui
 brew install git-lfs
 brew install remotemobprogramming/brew/mob
+
+brew install java
 brew install nvm
 brew install go
 brew install minikube
+brew install cmake
 brew install --cask amethyst
 brew install --cask kitty
 brew install --cask karabiner-elements
