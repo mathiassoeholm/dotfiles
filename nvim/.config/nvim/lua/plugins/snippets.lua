@@ -1,6 +1,7 @@
 return {
 	{
 		"L3MON4D3/LuaSnip",
+		build = "make install_jsregexp",
 		config = function()
 			vim.opt.completeopt = "menu,menuone,noselect"
 
