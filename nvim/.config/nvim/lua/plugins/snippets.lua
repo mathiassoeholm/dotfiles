@@ -18,7 +18,9 @@ return {
 	{
 		"saadparwaiz1/cmp_luasnip",
 	},
-	{
-		"rafamadriz/friendly-snippets",
-	},
+
+	-- NOTE: 
+	-- `rafamadriz/friendly-snippets` is loaded and added as a dependency of nvim-cmp
+	-- This needs to also be added as a dependency to nvim-cmp and cmp-nvim-lsp for it to work
+	-- See nvim-cmp.lua
 }

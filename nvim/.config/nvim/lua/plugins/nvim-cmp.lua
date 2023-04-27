@@ -2,9 +2,17 @@ return {
 	"onsails/lspkind.nvim",
 	"hrsh7th/cmp-buffer",
 	"hrsh7th/cmp-path",
-	"hrsh7th/cmp-nvim-lsp",
+	{
+		"hrsh7th/cmp-nvim-lsp",
+		dependencies = {
+			"rafamadriz/friendly-snippets",
+			"L3MON4D3/LuaSnip",
+		},
+		config = function() end,
+	},
 	{
 		"hrsh7th/nvim-cmp",
+		dependencies = { "friendly-snippets" },
 		config = function()
 			local cmp = require("cmp")
 			local compare = cmp.config.compare
