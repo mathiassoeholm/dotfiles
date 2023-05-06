@@ -86,6 +86,7 @@ brew install --cask brave-browser
 brew install --cask discord
 brew install --cask docker
 brew install --cask bitwarden
+brew install --cask spotify
 
 # Install the Google Cloud SDK, and any components that are needed.
 brew install --cask google-cloud-sdk
