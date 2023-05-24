@@ -103,6 +103,7 @@ alias gitui="gitui -t catpuccino.ron"
 alias vim="nvim"
 alias icat="kitty +kitten icat"
 alias python=/usr/bin/python3
+alias codei="code-insiders"
 
 # Interactive checkout tool, can be cloned from here and built from source with: cargo build --release
 # https://github.com/mathiassoeholm/rust-projects
