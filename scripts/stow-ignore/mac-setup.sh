@@ -87,6 +87,7 @@ brew install --cask discord
 brew install --cask docker
 brew install --cask bitwarden
 brew install --cask spotify
+brew install --cask raycast
 
 # Install the Google Cloud SDK, and any components that are needed.
 brew install --cask google-cloud-sdk
