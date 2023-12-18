@@ -100,10 +100,8 @@ source $ZSH/oh-my-zsh.sh
 #
 # Example aliases
 alias gitui="gitui -t catpuccino.ron"
-alias vim="nvim"
 alias icat="kitty +kitten icat"
 alias python=/usr/bin/python3
-alias codei="code-insiders"
 
 # Interactive checkout tool, can be cloned from here and built from source with: cargo build --release
 # https://github.com/mathiassoeholm/rust-projects
@@ -137,5 +135,7 @@ then
   set -o vi
 fi
 
-# Add Google Cloud SDK to PATH
-(source "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc") || true
+# Autocomplete for terraform
+# Added by runnning `terraform -install-autocomplete`
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform
