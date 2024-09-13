@@ -74,7 +74,7 @@ brew install ripgrep
 brew install git
 brew install git-lfs
 brew install remotemobprogramming/brew/mob
-
+brew install pre-commit
 brew install java
 brew install nvm
 brew install go
