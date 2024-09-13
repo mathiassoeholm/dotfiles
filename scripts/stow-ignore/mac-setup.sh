@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 echo "Ask for the administrator password for the duration of this script"
 sudo -v
 
@@ -56,53 +58,41 @@ brew install stow
 # Symlink all directories inside the dotfiles directory.
 cd ~/dotfiles && stow stow/ && stow */ && cd -
 
-# Install Oh My Zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --keep-zshrc --unattended
-source ~/.zshrc
+# Check if .oh-my-zsh directory exists
+if [ -d "$HOME/.oh-my-zsh" ]; then
+  # Update Oh My Zsh if the directory exists
+  "$ZSH/tools/upgrade.sh"
+else
+  # Install Oh My Zsh if the directory does not exist
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --keep-zshrc --unattended
+  source ~/.zshrc
+fi
 
 # Install all the brew packages
-brew install neovim
 brew install wget
 brew install ripgrep
-brew tap homebrew/cask-fonts
-brew install font-hack-nerd-font
 brew install git
-brew install gitui
 brew install git-lfs
 brew install remotemobprogramming/brew/mob
 
 brew install java
 brew install nvm
 brew install go
-brew install minikube
-brew install cmake
 brew install --cask amethyst
 brew install --cask kitty
 brew install --cask karabiner-elements
 brew install --cask brave-browser
 brew install --cask discord
 brew install --cask docker
-brew install --cask bitwarden
 brew install --cask spotify
 brew install --cask raycast
-
-# Install the Google Cloud SDK, and any components that are needed.
-brew install --cask google-cloud-sdk
-brew install helm
-
-source ~/.zshrc
-gcloud components install kubectl
-gcloud components install gke-gcloud-auth-plugin
-gcloud auth login
-gcloud auth configure-docker
+brew install --cask nikitabobko/tap/aerospace
 
 # Install the latest LTS version of node
 nvm install --lts
 
 # Install global NPM packages that are used by the dotfiles
 npm install -g yarn
-
-yarn global add @aivenio/tsc-output-parser
 
 # Install rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path -y
