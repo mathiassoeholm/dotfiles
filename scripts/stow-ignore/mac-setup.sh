@@ -16,6 +16,13 @@ git config --global pull.rebase true
 # Allow git pull on a dirty working tree.
 git config --global rebase.autoStash true
 
+# Fixes issue with Mission Control where windows are very small
+# https://nikitabobko.github.io/AeroSpace/guide#a-note-on-mission-control
+defaults write com.apple.dock expose-group-apps -bool true
+
+# https://nikitabobko.github.io/AeroSpace/guide#a-note-on-displays-have-separate-spaces
+defaults write com.apple.spaces spans-displays -bool true && killall SystemUIServer
+
 # Automatically hide and show the Dock
 # Disable the dock animation, to make it show/hide instantly
 defaults write com.apple.dock autohide -bool true
