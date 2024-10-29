@@ -160,10 +160,10 @@ backspace = ['close-all-windows-but-current', 'mode main']
 #s = ['layout sticky tiling', 'mode main']
 
 # Needs shortcuts for these
-# alt-shift-h = ['join-with left', 'mode main']
-# alt-shift-j = ['join-with down', 'mode main']
-# alt-shift-k = ['join-with up', 'mode main']
-# alt-shift-l = ['join-with right', 'mode main']
+alt-ctrl-shift-h = ['join-with left', 'mode main']
+alt-ctrl-shift-j = ['join-with down', 'mode main']
+alt-ctrl-shift-k = ['join-with up', 'mode main']
+alt-ctrl-shift-l = ['join-with right', 'mode main']
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'brave'
