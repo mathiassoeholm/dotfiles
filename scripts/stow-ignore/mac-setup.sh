@@ -95,6 +95,8 @@ brew install --cask docker
 brew install --cask spotify
 brew install --cask raycast
 brew install --cask nikitabobko/tap/aerospace
+brew tap hashicorp/tap
+brew install hashicorp/tap/terraform
 
 # Install the latest LTS version of node
 nvm install --lts
