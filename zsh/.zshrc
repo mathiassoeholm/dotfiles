@@ -154,6 +154,9 @@ case ":$PATH:" in
 esac
 # pnpm end
 
+# Add Go bin to PATH
+export PATH="$HOME/go/bin:$PATH"
+
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
 function aws-profile {
