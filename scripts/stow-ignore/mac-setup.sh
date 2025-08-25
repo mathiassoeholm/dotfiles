@@ -98,6 +98,7 @@ brew install --cask raycast
 brew install --cask nikitabobko/tap/aerospace
 brew tap hashicorp/tap
 brew install hashicorp/tap/terraform
+brew install --cask dotnet-sdk
 
 # Install the latest LTS version of node
 nvm install --lts
@@ -107,3 +108,6 @@ npm install -g yarn
 
 # Install rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path -y
+
+# Install the amma-cli (Might want to get the latest version)
+cargo install --git ssh://git@github.com/LEGO/amma-cli.git --tag v0.9.1
