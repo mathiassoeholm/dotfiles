@@ -99,6 +99,7 @@ brew install --cask nikitabobko/tap/aerospace
 brew tap hashicorp/tap
 brew install hashicorp/tap/terraform
 brew install --cask dotnet-sdk
+brew install --cask jetbrains-toolbox
 
 # Install the latest LTS version of node
 nvm install --lts

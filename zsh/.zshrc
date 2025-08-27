@@ -76,6 +76,7 @@ plugins=(git zsh-z zsh-autosuggestions zsh-syntax-highlighting ssh-agent yarn)
 
 source $ZSH/oh-my-zsh.sh
 
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -161,4 +162,34 @@ export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
 function aws-profile {
     export AWS_PROFILE=$1
+}
+
+function gitci() {
+	local -r commit_message="$1"
+	if [ -z "$commit_message" ]; then
+		echo "Commit message is required"
+		return 1
+	fi
+	timestamp=$(date +"%Y-%m-%d-%H-%M-%S")
+	branch_name="some-words-$timestamp"
+	# Step 1: Stash current changes
+	git stash
+ 
+	# Step 2: Ensure main is up to date
+	git checkout main
+	git pull origin main
+ 
+	# Step 3: Create a new branch and apply stashed changes
+	git checkout -b "$branch_name"
+	git stash pop
+ 
+	# Step 4: Commit and push changes
+	git add .
+	git commit -m "$commit_message"
+	git push -u origin "$branch_name"
+ 
+	# Step 5: Create a pull request and merge
+	pr_name=$(echo "$commit_message" | tr '\n' ' ' | cut -c 1-50)
+	gh pr create --base main --head "$branch_name" --title "$pr_name" --body "$commit_message"
+	gh pr merge --auto --squash "$branch_name"
 }
