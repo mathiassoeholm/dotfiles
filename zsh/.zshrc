@@ -166,30 +166,45 @@ function aws-profile {
 
 function gitci() {
 	local -r commit_message="$1"
+
+	# Check if on main branch and up to date
+	local current_branch
+	current_branch=$(git rev-parse --abbrev-ref HEAD)
+	if [[ "$current_branch" != "main" ]]; then
+		echo "Error: Not on main branch."
+		return 1
+	fi
+
+	git fetch origin main
+	local local_commit
+	local remote_commit
+	local_commit=$(git rev-parse main)
+	remote_commit=$(git rev-parse origin/main)
+
+	if [[ "$local_commit" != "$remote_commit" ]]; then
+		echo "Error: Your main branch is not up to date with origin/main."
+		return 1
+	fi
+
 	if [ -z "$commit_message" ]; then
 		echo "Commit message is required"
 		return 1
 	fi
-	timestamp=$(date +"%Y-%m-%d-%H-%M-%S")
-	branch_name="some-words-$timestamp"
-	# Step 1: Stash current changes
-	git stash
+
+	branch_name=$(echo "$commit_message" | tr '[:upper:]' '[:lower:]' | sed -e 's/[^a-z0-9]/-/g' -e 's/-\{2,\}/-/g' -e 's/^-//' -e 's/-$//' | cut -c1-40)
+	# Add a short unique suffix to the branch name to avoid collisions
+	branch_name="${branch_name}-$RANDOM"
  
-	# Step 2: Ensure main is up to date
-	git checkout main
-	git pull origin main
- 
-	# Step 3: Create a new branch and apply stashed changes
 	git checkout -b "$branch_name"
-	git stash pop
  
-	# Step 4: Commit and push changes
 	git add .
 	git commit -m "$commit_message"
 	git push -u origin "$branch_name"
  
-	# Step 5: Create a pull request and merge
 	pr_name=$(echo "$commit_message" | tr '\n' ' ' | cut -c 1-50)
 	gh pr create --base main --head "$branch_name" --title "$pr_name" --body "$commit_message"
 	gh pr merge --auto --squash "$branch_name"
+
+	# Jump back to main branch
+	git checkout main
 }
