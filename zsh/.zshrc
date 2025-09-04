@@ -191,6 +191,12 @@ function gitci() {
 		return 1
 	fi
 
+	# Fail if working tree is clean
+	if git diff-index --quiet HEAD --; then
+		echo "No changes to commit"
+		return 1
+	fi
+
 	branch_name=$(echo "$commit_message" | tr '[:upper:]' '[:lower:]' | sed -e 's/[^a-z0-9]/-/g' -e 's/-\{2,\}/-/g' -e 's/^-//' -e 's/-$//' | cut -c1-40)
 	# Add a short unique suffix to the branch name to avoid collisions
 	branch_name="${branch_name}-$RANDOM"
