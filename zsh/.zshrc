@@ -164,7 +164,7 @@ function aws-profile {
     export AWS_PROFILE=$1
 }
 
-function gitci() {
+function integrate() {
 	local -r commit_message="$1"
 
 	# Check if on main branch and up to date
@@ -211,6 +211,25 @@ function gitci() {
 	gh pr create --base main --head "$branch_name" --title "$pr_name" --body "$commit_message"
 	gh pr merge --auto --squash "$branch_name"
 
-	# Jump back to main branch
-	git checkout main
+	echo "Waiting for checks to complete..."
+	if ! gh pr checks "$branch_name" --watch; then
+		echo "Checks failed for branch $branch_name. Please check the PR on GitHub."
+		return 1
+	fi
+
+	echo "Checks passed. Waiting for PR to be merged..."
+	while true; do
+		pr_state=$(gh pr view "$branch_name" --json state -q '.state')
+		if [[ "$pr_state" == "MERGED" ]]; then
+			echo "PR successfully merged."
+			git checkout main
+			git branch -d "$branch_name"
+			git pull
+			return 0
+		elif [[ "$pr_state" == "CLOSED" ]]; then
+			echo "PR was closed without merging."
+			return 1
+		fi
+		sleep 5
+	done
 }
