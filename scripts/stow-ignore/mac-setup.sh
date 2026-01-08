@@ -98,8 +98,16 @@ brew install --cask raycast
 brew install --cask nikitabobko/tap/aerospace
 brew tap hashicorp/tap
 brew install hashicorp/tap/terraform
-brew install --cask dotnet-sdk
 brew install bruno
+
+# Install jira-cli
+brew tap ankitpokhrel/jira-cli
+brew install jira-cli
+
+# Install latest dotnet AND dotnet 9
+brew install --cask dotnet-sdk
+brew tap isen-ng/dotnet-sdk-versions
+brew install --cask dotnet-sdk9
 
 # Install the latest LTS version of node
 nvm install --lts
