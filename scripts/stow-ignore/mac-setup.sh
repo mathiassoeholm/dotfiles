@@ -99,6 +99,7 @@ brew install --cask nikitabobko/tap/aerospace
 brew tap hashicorp/tap
 brew install hashicorp/tap/terraform
 brew install bruno
+brew install anomalyco/tap/opencode
 
 # Install jira-cli
 brew tap ankitpokhrel/jira-cli
