@@ -108,8 +108,8 @@ alias pn="pnpm"
 # https://github.com/mathiassoeholm/rust-projects
 alias gci="~/git/rust-projects/git-checkout-interactive/target/release/git-checkout-interactive"
 
-# Alias for MBM CLI used in MBM project
-alias mbm="./src/MBM.Cli/bin/Release/net10.0/publish/MBM.Cli"
+# MBM CLI
+export PATH="$PATH:/Users/dkmajuso/git/lego/mbm/src/MBM.Cli/bin/Release/net10.0/publish"
 
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"

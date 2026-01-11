@@ -22,9 +22,8 @@ Integrates uncommitted changes on `main` into an auto-merged PR. One command han
 └──────────────┬──────────────┘
                ▼
 ┌─────────────────────────────┐
-│ Ask: "Please review these   │
-│ changes. Reply 'approve'    │
-│ to integrate."              │
+│ Ask user to review and      │
+│ approve changes             │
 └──────────────┬──────────────┘
                ▼
         ┌──────────────┐
@@ -32,7 +31,19 @@ Integrates uncommitted changes on `main` into an auto-merged PR. One command han
         └──────┬───────┘
           no   │   yes
           ▼    │    ▼
-       STOP    └──► mbm integrate "message"
+       STOP    │  ┌─────────────────────────────┐
+               │  │ Propose commit message      │
+               └─►│ Wait for approval or        │
+                  │ alternative                 │
+                  └──────────────┬──────────────┘
+                                 ▼
+                          ┌──────────────┐
+                          │ User approves?│
+                          └──────┬───────┘
+                      alternative│   yes
+                            ▼    │    ▼
+                    Use user's   └──► mbm integrate "message"
+                    wording exactly
 ```
 
 **Approval phrases**: "approve", "approved", "yes", "go ahead", "lgtm", "looks good, proceed"
@@ -67,10 +78,12 @@ Must be true before running:
 
 1. Complete code changes
 2. Run `git status` and `git diff` - show output to user
-3. **STOP** - Ask user to review and approve
+3. **STOP** - Ask user to review and approve the changes
 4. Wait for explicit approval (see phrases above)
-5. Run `mbm integrate "Short descriptive message"`
-6. Command monitors PR until merged or failed
+5. Propose a commit message
+6. **STOP** - Wait for user to approve the message or provide an alternative
+7. Run `mbm integrate "approved message"`
+8. Command monitors PR until merged or failed
 
 ## Error Handling
 
@@ -95,6 +108,8 @@ The MBM CLI provides important guardrails and consistency. Silently working arou
 ## Commit Messages
 
 Keep it short - one or two sentences describing the change.
+
+**Propose the message and wait for explicit approval.** If the user provides an alternative, use their wording exactly.
 
 ## When NOT to Use
 

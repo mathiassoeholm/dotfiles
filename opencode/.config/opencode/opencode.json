@@ -44,6 +44,7 @@
             "git branch": "allow",
             "git branch --list": "allow",
             "git branch --list *": "allow",
+            "git branch --show-current": "allow",
             "git remote -v": "allow",
             "git config --get *": "allow",
             "git config --list": "allow",
