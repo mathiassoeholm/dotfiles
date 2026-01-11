@@ -82,7 +82,7 @@ Must be true before running:
 4. Wait for explicit approval (see phrases above)
 5. Propose a commit message
 6. **STOP** - Wait for user to approve the message or provide an alternative
-7. Run `mbm integrate "approved message"`
+7. Run `mbm integrate "approved message"` with a **10 minute timeout** (600000ms)
 8. Command monitors PR until merged or failed
 
 ## Error Handling
