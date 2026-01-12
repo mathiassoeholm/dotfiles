@@ -58,7 +58,8 @@
             "git stash show": "allow",
             "git stash show *": "allow",
             "git fetch": "allow",
-            "git fetch *": "allow"
+            "git fetch *": "allow",
+            "firebase *": "ask"
         }
     }
 }
