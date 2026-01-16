@@ -109,7 +109,7 @@ alias pn="pnpm"
 alias gci="~/git/rust-projects/git-checkout-interactive/target/release/git-checkout-interactive"
 
 # MBM CLI
-export PATH="$PATH:/Users/dkmajuso/git/lego/mbm/src/MBM.Cli/bin/Release/net10.0/publish"
+export PATH="$PATH:/Users/dkmajuso/git/lego/mbm-worktrees/mbm/src/MBM.Cli/bin/Release/net10.0/publish"
 
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
