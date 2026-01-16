@@ -4,6 +4,10 @@
         "@franlol/opencode-md-table-formatter@0.0.3"
     ],
     "permission": {
+        "external_directory": {
+            "*": "ask",
+            "/Users/dkmajuso/git/lego/mbm-worktrees/*": "allow"
+        },
         "bash": {
             "jira *": "ask",
             "jira help *": "allow",
@@ -59,6 +63,8 @@
             "git stash show *": "allow",
             "git fetch": "allow",
             "git fetch *": "allow",
+            "git worktree list": "allow",
+            "git worktree add ../*": "allow",
             "firebase *": "ask"
         }
     }
