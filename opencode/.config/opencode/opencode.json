@@ -6,7 +6,8 @@
     "permission": {
         "external_directory": {
             "*": "ask",
-            "/Users/dkmajuso/git/lego/mbm-worktrees/*": "allow"
+            "/Users/dkmajuso/git/lego/mbm-worktrees/*": "allow",
+            "/Users/dkmajuso/.config/opencode/skill/*": "allow"
         },
         "bash": {
             "jira *": "ask",
@@ -68,6 +69,8 @@
             "firebase *": "ask",
             "aws *": "ask",
             "aws sts get-caller-identity": "allow",
+            "aws configure list-profiles": "allow",
+            "aws s3 ls *": "allow",
             "aws rds describe-db-clusters *": "allow",
             "aws backup list-recovery-points-by-resource *": "allow"
         }

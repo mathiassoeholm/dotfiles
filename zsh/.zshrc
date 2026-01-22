@@ -124,6 +124,7 @@ wt-cleanup() {
   git stash
   git -C "$MAIN_REPO" worktree remove "$WORKTREE_PATH"
   cd "$MAIN_REPO"
+  git pull
   git stash pop
 }
 
