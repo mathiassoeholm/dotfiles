@@ -65,7 +65,11 @@
             "git fetch *": "allow",
             "git worktree list": "allow",
             "git worktree add ../*": "allow",
-            "firebase *": "ask"
+            "firebase *": "ask",
+            "aws *": "ask",
+            "aws sts get-caller-identity": "allow",
+            "aws rds describe-db-clusters *": "allow",
+            "aws backup list-recovery-points-by-resource *": "allow"
         }
     }
 }
