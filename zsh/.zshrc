@@ -110,7 +110,13 @@ alias gci="~/git/rust-projects/git-checkout-interactive/target/release/git-check
 
 # MBM CLI
 export PATH="$PATH:/Users/dkmajuso/git/lego/mbm-worktrees/mbm/src/MBM.Cli/bin/Release/net10.0/publish"
-wt-cleanup() {
+
+wt-integrate() {
+  if [ -z "$1" ]; then
+    echo "Usage: wt-integrate \"commit message\""
+    return 1
+  fi
+
   MAIN_REPO="$(git rev-parse --git-common-dir | xargs dirname)"
   
   # Check if main repo has uncommitted changes
@@ -121,20 +127,13 @@ wt-cleanup() {
   
   WORKTREE_PATH="$(pwd)"
   
-  git stash
+  git stash --include-untracked
   git -C "$MAIN_REPO" worktree remove "$WORKTREE_PATH"
   cd "$MAIN_REPO"
   git pull
   git stash pop
-}
-
-wt-integrate() {
-  if [ -z "$1" ]; then
-    echo "Usage: wt-integrate \"commit message\""
-    return 1
-  fi
-
-  wt-cleanup && mbm integrate "$1"
+  
+  mbm integrate "$1"
 }
 
 # alias zshconfig="mate ~/.zshrc"
