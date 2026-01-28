@@ -74,6 +74,9 @@ ZSH_THEME="eastwood"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-z zsh-autosuggestions zsh-syntax-highlighting ssh-agent yarn)
 
+# Disable oh-my-zsh's insecure directory check (Docker completions trigger false positive)
+ZSH_DISABLE_COMPFIX="true"
+
 source $ZSH/oh-my-zsh.sh
 
 
