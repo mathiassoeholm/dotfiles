@@ -136,6 +136,10 @@ wt-integrate() {
   mbm integrate "$1"
 }
 
+opc() {
+  op run -- sh -c "ANTHROPIC_API_KEY=\$(op read 'op://LEGO/GenAI agentic-development Key/password') opencode $*"
+}
+
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
