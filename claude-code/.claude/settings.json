@@ -1,0 +1,12 @@
+{
+  "model": "opus",
+  "sandbox": {
+    "enabled": true,
+    "autoAllowBashIfSandboxed": true
+  },
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:legogroup.atlassian.net)"
+    ]
+  }
+}
