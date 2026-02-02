@@ -143,6 +143,10 @@ opc() {
   op run -- sh -c "ANTHROPIC_API_KEY=\$(op read 'op://LEGO/GenAI agentic-development Key/password') opencode $*"
 }
 
+cld () {
+  op run -- sh -c "ANTHROPIC_DEFAULT_SONNET_MODEL='anthropic.claude-sonnet-4-5-20250929-v1:0' ANTHROPIC_DEFAULT_HAIKU_MODEL='anthropic.claude-haiku-4-5-20251001-v1:0' ANTHROPIC_DEFAULT_OPUS_MODEL='anthropic.claude-opus-4-5-20251101-v1:0' ANTHROPIC_BASE_URL='https://models.assistant.legogroup.io/claude' ANTHROPIC_AUTH_TOKEN=\$(op read 'op://LEGO/GenAI agentic-development Key/password') claude $*"
+}
+
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
@@ -192,3 +196,4 @@ export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 function aws-profile {
     export AWS_PROFILE=$1
 }
+export PATH="$HOME/.local/bin:$PATH"

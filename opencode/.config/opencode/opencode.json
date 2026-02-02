@@ -73,6 +73,7 @@
       "git branch --list *": "allow",
       "git branch --show-current": "allow",
       "git remote -v": "allow",
+      "git remote get-url *": "allow",
       "git config --get *": "allow",
       "git config --list": "allow",
       "git rev-parse *": "allow",
