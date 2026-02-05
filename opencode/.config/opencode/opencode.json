@@ -97,7 +97,8 @@
       "aws rds describe-db-clusters *": "allow",
       "aws backup list-recovery-points-by-resource *": "allow",
       "pip *": "ask",
-      "pip3 *": "ask"
+      "pip3 *": "ask",
+      "sudo *": "ask"
     }
   }
 }

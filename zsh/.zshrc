@@ -115,8 +115,25 @@ alias gci="~/git/rust-projects/git-checkout-interactive/target/release/git-check
 export PATH="$PATH:/Users/dkmajuso/git/lego/mbm-worktrees/mbm/src/MBM.Cli/bin/Release/net10.0/publish"
 
 wt-integrate() {
-  if [ -z "$1" ]; then
-    echo "Usage: wt-integrate \"commit message\""
+  local no_merge=false
+  local message=""
+
+  # Parse arguments
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      --no-merge)
+        no_merge=true
+        shift
+        ;;
+      *)
+        message="$1"
+        shift
+        ;;
+    esac
+  done
+
+  if [ -z "$message" ]; then
+    echo "Usage: wt-integrate \"commit message\" [--no-merge]"
     return 1
   fi
 
@@ -136,7 +153,11 @@ wt-integrate() {
   git pull
   git stash pop
   
-  mbm integrate "$1"
+  if [ "$no_merge" = true ]; then
+    mbm integrate "$message" --no-merge
+  else
+    mbm integrate "$message"
+  fi
 }
 
 opc() {
