@@ -168,6 +168,10 @@ cld () {
   op run -- sh -c "ANTHROPIC_DEFAULT_SONNET_MODEL='anthropic.claude-sonnet-4-5-20250929-v1:0' ANTHROPIC_DEFAULT_HAIKU_MODEL='anthropic.claude-haiku-4-5-20251001-v1:0' ANTHROPIC_DEFAULT_OPUS_MODEL='anthropic.claude-opus-4-5-20251101-v1:0' ANTHROPIC_BASE_URL='https://models.assistant.legogroup.io/claude' ANTHROPIC_AUTH_TOKEN=\$(op read 'op://LEGO/GenAI agentic-development Key/password') claude $*"
 }
 
+mdc() {
+  op run -- sh -c "CONFLUENCE_API_TOKEN=\$(op read 'op://LEGO/Atlassian Api Token For MDC/password') CONFLUENCE_URL='https://legogroup.atlassian.net/wiki' CONFLUENCE_EMAIL='mathias.soholm@lego.com' mdc $*"
+}
+
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
