@@ -90,6 +90,8 @@
       "git stash show *": "allow",
       "git fetch": "allow",
       "git fetch *": "allow",
+      "git pull": "allow",
+      "git pull *": "allow",
       "git worktree list": "allow",
       "git worktree add ../*": "allow",
       "firebase *": "ask",

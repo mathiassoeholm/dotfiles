@@ -164,6 +164,10 @@ opencode() {
   op run -- sh -c "ANTHROPIC_API_KEY=\$(op read 'op://LEGO/GenAI agentic-development Key/password') opencode $*"
 }
 
+opc() {
+  op run -- sh -c "ANTHROPIC_API_KEY=\$(op read 'op://LEGO/GenAI agentic-development Key/password') OPENCODE_EXPERIMENTAL_PLAN_MODE=true open -a OpenCode"
+}
+
 claude () {
   op run -- sh -c "ANTHROPIC_DEFAULT_SONNET_MODEL='anthropic.claude-sonnet-4-5-20250929-v1:0' ANTHROPIC_DEFAULT_HAIKU_MODEL='anthropic.claude-haiku-4-5-20251001-v1:0' ANTHROPIC_DEFAULT_OPUS_MODEL='anthropic.claude-opus-4-5-20251101-v1:0' ANTHROPIC_BASE_URL='https://models.assistant.legogroup.io/claude' ANTHROPIC_AUTH_TOKEN=\$(op read 'op://LEGO/GenAI agentic-development Key/password') claude $*"
 }
@@ -222,3 +226,6 @@ function aws-profile {
     export AWS_PROFILE=$1
 }
 export PATH="$HOME/.local/bin:$PATH"
+
+# opencode
+export PATH=/Users/dkmajuso/.opencode/bin:$PATH
