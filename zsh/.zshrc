@@ -165,7 +165,7 @@ opencode() {
 }
 
 opc() {
-  op run -- sh -c "ANTHROPIC_API_KEY=\$(op read 'op://LEGO/GenAI agentic-development Key/password') OPENCODE_EXPERIMENTAL_PLAN_MODE=true open -a OpenCode"
+  op run -- sh -c "ANTHROPIC_API_KEY=\$(op read 'op://LEGO/GenAI agentic-development Key/password') open -a OpenCode"
 }
 
 claude () {

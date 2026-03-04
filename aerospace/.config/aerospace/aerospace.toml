@@ -170,7 +170,7 @@ if.app-name-regex-substring = 'brave'
 run = ['move-node-to-workspace 1']
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'code$'
+if.app-name-regex-substring = '^code'
 run = ['move-node-to-workspace 2']
 
 [[on-window-detected]]
