@@ -1,9 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": [
-    "@franlol/opencode-md-table-formatter@0.0.3",
-    "@mohak34/opencode-notifier@0.1.15"
-  ],
+  "plugin": [],
   "provider": {
     "anthropic": {
       "options": {
@@ -101,6 +98,31 @@
       "aws s3 ls *": "allow",
       "aws rds describe-db-clusters *": "allow",
       "aws backup list-recovery-points-by-resource *": "allow",
+      "amma *": "ask",
+      "amma help *": "allow",
+      "amma * help *": "allow",
+      "amma * --help": "allow",
+      "amma * -h": "allow",
+      "amma * -V": "allow",
+      "amma * --version": "allow",
+      "amma apis get *": "allow",
+      "amma apis pending-connections *": "allow",
+      "amma workspaces list *": "allow",
+      "amma workspaces get *": "allow",
+      "amma workspaces pending-connections *": "allow",
+      "amma workspaces identity *": "allow",
+      "amma workspaces allowed-subdomains *": "allow",
+      "amma specifications get *": "allow",
+      "amma collaborators get *": "allow",
+      "amma configuration get *": "allow",
+      "amma connection-requests list *": "allow",
+      "amma connection-requests get *": "allow",
+      "amma connection-requests me": "allow",
+      "amma connection-requests me *": "allow",
+      "amma users me": "allow",
+      "amma users me *": "allow",
+      "amma users workspaces *": "allow",
+      "amma utilities validate-specification *": "allow",
       "pip *": "ask",
       "pip3 *": "ask",
       "sudo *": "ask"
