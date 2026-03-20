@@ -4,4 +4,4 @@ model: anthropic/claude-haiku-4-5 (LEGO MPS)
 input: description of the work
 ---
 
-Create a worktree for $ARGUMENTS
+Create a worktree for $ARGUMENTS. Auto-approve the name you come up with.
