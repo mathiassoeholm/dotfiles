@@ -61,6 +61,7 @@
       "gh search *": "allow",
       "gh pr diff *": "allow",
       "git *": "ask",
+      "git add .": "allow",
       "git status": "allow",
       "git status *": "allow",
       "git diff": "allow",
