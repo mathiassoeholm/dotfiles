@@ -10,8 +10,8 @@
         }
       },
       "models": {
-        "claude-sonnet-4-5 (LEGO MPS)": {
-          "id": "anthropic.claude-sonnet-4-5-20250929-v1:0"
+        "claude-sonnet-4-6 (LEGO MPS)": {
+          "id": "anthropic.claude-opus-4-6-v1"
         },
         "claude-haiku-4-5 (LEGO MPS)": {
           "id": "anthropic.claude-haiku-4-5-20251001-v1:0"
