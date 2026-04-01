@@ -161,19 +161,37 @@ wt-integrate() {
 }
 
 opencode() {
-  op run -- sh -c "ANTHROPIC_API_KEY=\$(op read 'op://LEGO/GenAI agentic-development Key/password') opencode $*"
+  op run -- sh -c '
+    ANTHROPIC_API_KEY="$(op read '\''op://LEGO/GenAI agentic-development Key/password'\'')" \
+    exec opencode "$@"
+  ' sh "$@"
 }
 
 opc() {
-  op run -- sh -c "ANTHROPIC_API_KEY=\$(op read 'op://LEGO/GenAI agentic-development Key/password') open -a OpenCode"
+  op run -- sh -c '
+    ANTHROPIC_API_KEY="$(op read '\''op://LEGO/GenAI agentic-development Key/password'\'')" \
+    exec open -a OpenCode
+  '
 }
 
 claude () {
-  op run -- sh -c "ANTHROPIC_DEFAULT_SONNET_MODEL='anthropic.claude-sonnet-4-5-20250929-v1:0' ANTHROPIC_DEFAULT_HAIKU_MODEL='anthropic.claude-haiku-4-5-20251001-v1:0' ANTHROPIC_DEFAULT_OPUS_MODEL='anthropic.claude-opus-4-5-20251101-v1:0' ANTHROPIC_BASE_URL='https://models.assistant.legogroup.io/claude' ANTHROPIC_AUTH_TOKEN=\$(op read 'op://LEGO/GenAI agentic-development Key/password') claude $*"
+  op run -- sh -c '
+    ANTHROPIC_DEFAULT_SONNET_MODEL="anthropic.claude-sonnet-4-5-20250929-v1:0" \
+    ANTHROPIC_DEFAULT_HAIKU_MODEL="anthropic.claude-haiku-4-5-20251001-v1:0" \
+    ANTHROPIC_DEFAULT_OPUS_MODEL="anthropic.claude-opus-4-5-20251101-v1:0" \
+    ANTHROPIC_BASE_URL="https://models.assistant.legogroup.io/claude" \
+    ANTHROPIC_AUTH_TOKEN="$(op read '\''op://LEGO/GenAI agentic-development Key/password'\'')" \
+    exec claude "$@"
+  ' sh "$@"
 }
 
 mdc() {
-  op run -- sh -c "CONFLUENCE_API_TOKEN=\$(op read 'op://LEGO/Atlassian Api Token For MDC/password') CONFLUENCE_URL='https://legogroup.atlassian.net/wiki' CONFLUENCE_EMAIL='mathias.soholm@lego.com' mdc $*"
+  op run -- sh -c '
+    CONFLUENCE_API_TOKEN="$(op read '\''op://LEGO/Atlassian Api Token For MDC/password'\'')" \
+    CONFLUENCE_URL="https://legogroup.atlassian.net/wiki" \
+    CONFLUENCE_EMAIL="mathias.soholm@lego.com" \
+    exec mdc "$@"
+  ' sh "$@"
 }
 
 # alias zshconfig="mate ~/.zshrc"
