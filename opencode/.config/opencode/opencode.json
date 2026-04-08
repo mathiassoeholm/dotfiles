@@ -29,6 +29,7 @@
     "external_directory": {
       "*": "ask",
       "/Users/dkmajuso/git/lego/mbm-worktrees/*": "allow",
+      "/Users/dkmajuso/.nuget/packages/*": "allow",
       "/Users/dkmajuso/.config/opencode/skill/*": "allow"
     },
     "bash": {
@@ -45,6 +46,8 @@
       "jira project list *": "allow",
       "jira open *": "allow",
       "gh *": "ask",
+      "gh api": "allow",
+      "gh api *": "allow",
       "gh help *": "allow",
       "gh * --help": "allow",
       "gh * -h": "allow",

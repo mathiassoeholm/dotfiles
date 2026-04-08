@@ -166,7 +166,7 @@ alt-ctrl-shift-k = ['join-with up', 'mode main']
 alt-ctrl-shift-l = ['join-with right', 'mode main']
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'brave'
+if.app-name-regex-substring = 'brave|safari'
 run = ['move-node-to-workspace 1']
 
 [[on-window-detected]]
