@@ -178,7 +178,7 @@ if.app-name-regex-substring = 'rider'
 run = ['move-node-to-workspace 2']
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'kitty'
+if.app-name-regex-substring = 'ghostty'
 run = ['move-node-to-workspace 3']
 
 [[on-window-detected]]

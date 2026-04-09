@@ -88,7 +88,7 @@ brew install go
 brew install golangci-lint
 brew install awscli
 brew install --cask amethyst
-brew install --cask kitty
+brew install --cask ghostty
 brew install --cask karabiner-elements
 brew install --cask brave-browser
 brew install --cask discord
