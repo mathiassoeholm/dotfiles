@@ -1,0 +1,55 @@
+{
+  "$schema": "https://www.schemastore.org/claude-code-keybindings.json",
+  "$docs": "https://code.claude.com/docs/en/keybindings",
+  "bindings": [
+    {
+      "context": "Chat",
+      "bindings": {
+        "escape": null,
+        "ctrl+g": "chat:cancel"
+      }
+    },
+    {
+      "context": "Autocomplete",
+      "bindings": {
+        "escape": null,
+        "ctrl+g": "autocomplete:dismiss"
+      }
+    },
+    {
+      "context": "Help",
+      "bindings": {
+        "escape": null,
+        "ctrl+g": "help:dismiss"
+      }
+    },
+    {
+      "context": "DiffDialog",
+      "bindings": {
+        "escape": null,
+        "ctrl+g": "diff:dismiss"
+      }
+    },
+    {
+      "context": "Select",
+      "bindings": {
+        "escape": null,
+        "ctrl+g": "select:cancel"
+      }
+    },
+    {
+      "context": "Attachments",
+      "bindings": {
+        "escape": null,
+        "ctrl+g": "attachments:exit"
+      }
+    },
+    {
+      "context": "Footer",
+      "bindings": {
+        "escape": null,
+        "ctrl+g": "footer:clearSelection"
+      }
+    }
+  ]
+}
