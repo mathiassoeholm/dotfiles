@@ -1,5 +1,6 @@
 ---
 description: Review the full current change set, confirm a short commit message, confirm whether to keep the current branch/worktree, then run `mbm --agent integrate` with the right flags.
+model: haiku
 ---
 
 Integrate the current work using the MBM CLI only. Follow this exact workflow:
@@ -21,7 +22,8 @@ Output rules:
 2. If the current branch is not `main`, also inspect the branch-level delta with `git diff main...HEAD`.
 3. Use the combined picture of staged local changes and, on feature branches, the full `main...HEAD` diff to produce:
    - a brief summary of the work
-   - a short commit message
+   - a commit message of max 50 characters (hard limit: 72), imperative mood, no trailing period
+     - Example: "Add LXFML status inference" not "Implement LXFML status inference from per-BuildDesign artifacts..."
 4. STOP and ask whether the proposed commit message is appropriate.
    - Do not continue until the user explicitly approves the message or provides replacement wording.
    - If the user provides a replacement, use it exactly.
