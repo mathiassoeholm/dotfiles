@@ -1,6 +1,6 @@
 ---
 description: Create a worktree for a task
-input: description of the work
+argument: description of the work
 ---
 
 Create a worktree for $ARGUMENTS. Auto-approve the name you come up with.
