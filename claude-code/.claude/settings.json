@@ -30,6 +30,8 @@
       "Bash(gh browse *)",
       "Bash(gh search *)",
       "Bash(gh pr diff *)",
+      "Bash(gh pr checks)",
+      "Bash(gh pr checks *)",
       "Bash(git add .)",
       "Bash(git status)",
       "Bash(git status *)",
@@ -93,7 +95,11 @@
       "Bash(amma utilities validate-specification *)",
       "Bash(dotnet build *)",
       "Bash(dotnet test *)",
-      "Bash(mbm *)"
+      "Bash(mbm *)",
+      "Bash(ls)",
+      "Bash(ls *)",
+      "Bash(find *)",
+      "Bash(grep *)"
     ]
   }
 }

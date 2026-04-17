@@ -178,7 +178,7 @@ claude () {
   op run -- sh -c '
     ANTHROPIC_DEFAULT_SONNET_MODEL="anthropic.claude-sonnet-4-5-20250929-v1:0" \
     ANTHROPIC_DEFAULT_HAIKU_MODEL="anthropic.claude-haiku-4-5-20251001-v1:0" \
-    ANTHROPIC_DEFAULT_OPUS_MODEL="anthropic.claude-opus-4-6-v1" \
+    ANTHROPIC_DEFAULT_OPUS_MODEL="anthropic.claude-opus-4-7" \
     ANTHROPIC_BASE_URL="https://models.assistant.legogroup.io/claude" \
     ANTHROPIC_AUTH_TOKEN="$(op read '\''op://LEGO/GenAI agentic-development Key/password'\'')" \
     exec claude "$@"

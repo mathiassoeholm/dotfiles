@@ -87,6 +87,7 @@ brew install nvm
 brew install go
 brew install golangci-lint
 brew install awscli
+brew install rtk
 brew install --cask amethyst
 brew install --cask ghostty
 brew install --cask karabiner-elements
