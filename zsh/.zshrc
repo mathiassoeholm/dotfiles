@@ -247,3 +247,6 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # opencode
 export PATH=/Users/dkmajuso/.opencode/bin:$PATH
+
+# .NET Core SDK tools
+export PATH="$PATH:$HOME/.dotnet/tools"

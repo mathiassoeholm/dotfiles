@@ -1,5 +1,4 @@
 {
-  "model": "opus",
   "permissions": {
     "allow": [
       "Bash(jira help *)",
@@ -99,7 +98,75 @@
       "Bash(ls)",
       "Bash(ls *)",
       "Bash(find *)",
-      "Bash(grep *)"
+      "Bash(grep *)",
+      "Bash(rtk dotnet build *)",
+      "Bash(rtk dotnet test *)",
+      "Bash(rtk read *)",
+      "Bash(rtk ls)",
+      "Bash(rtk ls *)",
+      "Bash(rtk find *)",
+      "Bash(rtk grep *)",
+      "Bash(rtk wc *)",
+      "Bash(rtk gh api)",
+      "Bash(rtk gh api *)",
+      "Bash(rtk gh status)",
+      "Bash(rtk gh status *)",
+      "Bash(rtk gh * list)",
+      "Bash(rtk gh * list *)",
+      "Bash(rtk gh * view)",
+      "Bash(rtk gh * view *)",
+      "Bash(rtk gh * status)",
+      "Bash(rtk gh * status *)",
+      "Bash(rtk gh browse)",
+      "Bash(rtk gh browse *)",
+      "Bash(rtk gh search *)",
+      "Bash(rtk gh pr diff *)",
+      "Bash(rtk gh pr checks)",
+      "Bash(rtk gh pr checks *)",
+      "Bash(rtk git status)",
+      "Bash(rtk git status *)",
+      "Bash(rtk git diff)",
+      "Bash(rtk git diff *)",
+      "Bash(rtk git log)",
+      "Bash(rtk git log *)",
+      "Bash(rtk git show)",
+      "Bash(rtk git show *)",
+      "Bash(rtk git branch)",
+      "Bash(rtk git branch --list)",
+      "Bash(rtk git branch --list *)",
+      "Bash(rtk git branch --show-current)",
+      "Bash(rtk git remote -v)",
+      "Bash(rtk git remote get-url *)",
+      "Bash(rtk git config --get *)",
+      "Bash(rtk git config --list)",
+      "Bash(rtk git rev-parse *)",
+      "Bash(rtk git ls-files)",
+      "Bash(rtk git ls-files *)",
+      "Bash(rtk git blame *)",
+      "Bash(rtk git shortlog *)",
+      "Bash(rtk git describe *)",
+      "Bash(rtk git stash list)",
+      "Bash(rtk git stash show)",
+      "Bash(rtk git stash show *)",
+      "Bash(rtk git worktree list)"
     ]
-  }
+  },
+  "model": "opus[1m]",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "rtk hook claude"
+          }
+        ]
+      }
+    ]
+  },
+  "enabledPlugins": {
+    "csharp-lsp@claude-plugins-official": true
+  },
+  "effortLevel": "xhigh"
 }
