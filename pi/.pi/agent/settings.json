@@ -1,0 +1,10 @@
+{
+  "lastChangelogVersion": "0.70.2",
+  "defaultProvider": "github-copilot",
+  "defaultModel": "gpt-5.4",
+  "defaultThinkingLevel": "medium",
+  "packages": [
+    "git:https://github.com/ferologics/pi-system-theme@086121acf9fb5f1e4e56d326bca52c20438b5f54"
+  ],
+  "theme": "light"
+}

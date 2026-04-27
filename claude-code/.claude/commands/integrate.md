@@ -19,8 +19,9 @@ Output rules:
    - Detect whether the current directory is a git worktree with:
      - `git rev-parse --git-dir`
      - `git rev-parse --git-common-dir`
-2. If the current branch is not `main`, also inspect the branch-level delta with `git diff main...HEAD`.
-3. Use the combined picture of staged local changes and, on feature branches, the full `main...HEAD` diff to produce:
+2. If the current branch is not `main`, also inspect the branch-level delta with `git diff origin/main...HEAD`.
+   - Run `git fetch origin main` first so `origin/main` reflects the latest remote state, not a stale local ref.
+3. Use the combined picture of staged local changes and, on feature branches, the full `origin/main...HEAD` diff to produce:
    - a brief summary of the work
    - a commit message of max 50 characters (hard limit: 72), imperative mood, no trailing period
      - Example: "Add LXFML status inference" not "Implement LXFML status inference from per-BuildDesign artifacts..."

@@ -87,7 +87,6 @@ brew install nvm
 brew install go
 brew install golangci-lint
 brew install awscli
-brew install rtk
 brew install --cask amethyst
 brew install --cask ghostty
 brew install --cask karabiner-elements
@@ -97,6 +96,7 @@ brew install --cask docker
 brew install --cask spotify
 brew install --cask raycast
 brew install --cask nikitabobko/tap/aerospace
+brew install supacode
 brew tap hashicorp/tap
 brew install hashicorp/tap/terraform
 brew install bruno
