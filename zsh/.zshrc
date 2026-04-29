@@ -79,6 +79,8 @@ ZSH_DISABLE_COMPFIX="true"
 
 source $ZSH/oh-my-zsh.sh
 
+# Disable implicit `cd` when typing a directory name
+unsetopt autocd
 
 # User configuration
 
@@ -106,6 +108,7 @@ source $ZSH/oh-my-zsh.sh
 alias gitui="gitui -t catpuccino.ron"
 alias icat="kitty +kitten icat"
 alias pn="pnpm"
+alias python="python3"
 
 # Interactive checkout tool, can be cloned from here and built from source with: cargo build --release
 # https://github.com/mathiassoeholm/rust-projects

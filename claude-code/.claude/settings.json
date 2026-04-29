@@ -112,6 +112,6 @@
   "enabledPlugins": {
     "csharp-lsp@claude-plugins-official": true
   },
-  "effortLevel": "xhigh",
+  "effortLevel": "high",
   "theme": "auto"
 }
