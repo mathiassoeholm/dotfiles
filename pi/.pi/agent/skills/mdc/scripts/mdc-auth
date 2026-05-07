@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Load the user's interactive zsh config and invoke the `mdc` shell function
+# defined in ~/.zshrc. That function obtains Confluence credentials from
+# 1Password via `op` and then execs the real mdc binary.
+exec zsh -ic 'mdc "$@"' mdc "$@"

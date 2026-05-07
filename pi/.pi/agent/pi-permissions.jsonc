@@ -61,6 +61,7 @@
     "git rev-parse *": "allow",
     "git ls-files": "allow",
     "git ls-files *": "allow",
+    "git mv *": "allow",
     "git blame *": "allow",
     "git shortlog *": "allow",
     "git describe *": "allow",
