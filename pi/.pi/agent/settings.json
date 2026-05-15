@@ -6,8 +6,7 @@
   "packages": [
     "git:https://github.com/ferologics/pi-system-theme@086121acf9fb5f1e4e56d326bca52c20438b5f54",
     "git:github.com/MasuRii/pi-permission-system@88034e0a8418174a284dc5b43651460daa0c44d7",
-    "npm:pi-subagents",
-    "npm:pi-prompt-template-model"
+    "npm:pi-subagents"
   ],
   "theme": "light",
   "subagents": {

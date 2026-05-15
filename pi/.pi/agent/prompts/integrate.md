@@ -1,6 +1,5 @@
 ---
 description: Review the current git change set, confirm a short commit message, keep the current branch/worktree, then run `mbm --agent integrate` with the right flags.
-model: github-copilot/claude-haiku-4.5
 ---
 
 Integrate the current work using the MBM CLI only. Follow this exact workflow:

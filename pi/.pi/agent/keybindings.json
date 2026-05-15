@@ -1,0 +1,4 @@
+{
+  "app.interrupt": ["ctrl+g"],
+  "app.editor.external": []
+}
