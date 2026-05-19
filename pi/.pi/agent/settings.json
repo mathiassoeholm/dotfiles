@@ -9,6 +9,7 @@
     "npm:pi-subagents"
   ],
   "theme": "light",
+  "treeFilterMode": "no-tools",
   "subagents": {
     "agentOverrides": {
       "scout": {
