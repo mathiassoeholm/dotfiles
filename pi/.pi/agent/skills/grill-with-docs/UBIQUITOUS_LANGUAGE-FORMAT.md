@@ -33,7 +33,7 @@ Use the repo's existing structure:
 
 ## Rules
 
-- **Use one root file.** MBM uses exactly one `UBIQUITOUS_LANGUAGE.md`; do not introduce `CONTEXT.md`, `CONTEXT-MAP.md`, or per-context glossary files.
+- **Use one root file.** MBM uses exactly one `UBIQUITOUS_LANGUAGE.md`; do not introduce per-context glossary files.
 - **Be opinionated.** When multiple words exist for the same concept, pick the best canonical term and list the others as aliases to avoid.
 - **Prefer existing MBM terms.** Before adding a term, search `UBIQUITOUS_LANGUAGE.md`, relevant KDRs, feature briefs, and code for existing names.
 - **Flag conflicts explicitly.** If a term is used ambiguously, call it out in `Flagged ambiguities` with a clear resolution.

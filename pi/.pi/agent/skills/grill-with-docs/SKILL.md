@@ -44,7 +44,7 @@ Continue until the target has been thoroughly stress-tested and the major assump
 
 During codebase exploration, also look for existing documentation:
 
-- `UBIQUITOUS_LANGUAGE.md` at the repository root is the single canonical glossary for MBM language. Use it instead of `CONTEXT.md`; do not look for or create `CONTEXT.md` or `CONTEXT-MAP.md`.
+- `UBIQUITOUS_LANGUAGE.md` at the repository root is the single canonical glossary for MBM language.
 - `docs/kdr/` contains Knowledge Decision Records. Use KDRs instead of ADRs; do not create `docs/adr/`.
 - Relevant feature briefs and technical docs may live under `docs/feature_briefs/`, `docs/mbm-arch/`, and `agents/docs/`. Load only the docs relevant to the plan being grilled.
 - Follow the repo's `AGENTS.md` routing instructions when the discussion touches architecture, API behavior, domain, application, infrastructure, Temporal, or frontend concerns.

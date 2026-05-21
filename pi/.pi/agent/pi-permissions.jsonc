@@ -117,7 +117,6 @@
     "pip3 *": "ask",
 
     "sudo *": "ask",
-    "rm -rf *": "ask",
     "dd *": "ask",
     "mkfs *": "ask",
     "shutdown *": "ask",
