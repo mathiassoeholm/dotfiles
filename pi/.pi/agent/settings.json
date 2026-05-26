@@ -1,7 +1,7 @@
 {
   "lastChangelogVersion": "0.73.0",
-  "defaultProvider": "github-copilot",
-  "defaultModel": "gpt-5.5",
+  "defaultProvider": "lego-anthropic",
+  "defaultModel": "anthropic.claude-opus-4-6-v1",
   "defaultThinkingLevel": "medium",
   "packages": [
     "git:https://github.com/ferologics/pi-system-theme@086121acf9fb5f1e4e56d326bca52c20438b5f54",

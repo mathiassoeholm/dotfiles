@@ -170,6 +170,13 @@ opencode() {
   ' sh "$@"
 }
 
+kodex() {
+  op run -- sh -c '
+    OPENAI_API_KEY="$(op read '\''op://LEGO/GenAI agentic-development Key/password'\'')" \
+    exec codex "$@"
+  ' sh "$@"
+}
+
 opc() {
   op run -- sh -c '
     ANTHROPIC_API_KEY="$(op read '\''op://LEGO/GenAI agentic-development Key/password'\'')" \
@@ -181,7 +188,7 @@ claude () {
   op run -- sh -c '
     ANTHROPIC_DEFAULT_SONNET_MODEL="anthropic.claude-sonnet-4-5-20250929-v1:0" \
     ANTHROPIC_DEFAULT_HAIKU_MODEL="anthropic.claude-haiku-4-5-20251001-v1:0" \
-    ANTHROPIC_DEFAULT_OPUS_MODEL="anthropic.claude-opus-4-7" \
+    ANTHROPIC_DEFAULT_OPUS_MODEL="anthropic.claude-opus-4-6-v1" \
     ANTHROPIC_BASE_URL="https://models.assistant.legogroup.io/claude" \
     ANTHROPIC_AUTH_TOKEN="$(op read '\''op://LEGO/GenAI agentic-development Key/password'\'')" \
     exec claude "$@"
@@ -199,6 +206,14 @@ mdc() {
 
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+pi() {
+  op run -- sh -c '
+    OPENAI_API_KEY="$(op read '\''op://LEGO/GenAI agentic-development Key/password'\'')" \
+    ANTHROPIC_AUTH_TOKEN="$(op read '\''op://LEGO/GenAI agentic-development Key/password'\'')" \
+    exec pi "$@"
+  ' sh "$@"
+}
 
 prompt_context() {
   if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
