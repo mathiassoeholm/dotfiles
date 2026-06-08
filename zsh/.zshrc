@@ -209,8 +209,7 @@ mdc() {
 
 pi() {
   op run -- sh -c '
-    OPENAI_API_KEY="$(op read '\''op://LEGO/GenAI agentic-development Key/password'\'')" \
-    ANTHROPIC_AUTH_TOKEN="$(op read '\''op://LEGO/GenAI agentic-development Key/password'\'')" \
+    MPS_API_KEY="$(op read '\''op://LEGO/GenAI agentic-development Key/password'\'')" \
     exec pi "$@"
   ' sh "$@"
 }
