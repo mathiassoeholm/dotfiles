@@ -34,9 +34,4 @@ Output rules:
 7. Run `mbm --agent integrate "<approved-commit-message>" --yes --include-uncommitted --body "<pr-body>"`.
    - Add `--return-to-branch` when the current directory is a worktree or the current branch is not `main`.
 8. Use a 15 minute timeout for the `mbm` command.
-9. If the command fails with `Local branch is not up to date with remote`, recover based on the current branch:
-   - If the current branch is not `main`, assume the upstream branch may have been deleted and run `git push --set-upstream origin $(git_current_branch)`.
-   - If the current branch is `main`, run `git pull`.
-   - Then retry the same `mbm --agent integrate ...` command.
-10. Never replace this workflow with manual `git commit`, `git push`, `gh pr create`, or any other git/GitHub fallback.
-    - The only allowed exceptions are the exact recovery commands in step 9.
+9. Never replace this workflow with manual `git commit`, `git push`, `gh pr create`, or any other git/GitHub fallback.

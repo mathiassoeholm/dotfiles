@@ -1,6 +1,6 @@
 {
   "lastChangelogVersion": "0.78.0",
-  "defaultProvider": "lego-anthropic",
+  "defaultProvider": "anthropic-proxy",
   "defaultModel": "anthropic.claude-opus-4-6-v1",
   "defaultThinkingLevel": "medium",
   "packages": [
