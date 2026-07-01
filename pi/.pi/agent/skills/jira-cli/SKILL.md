@@ -3,21 +3,6 @@ name: jira-cli
 description: Use when querying or automating Jira - sprints, issues, epics, stories, boards, or correlating Jira data with external systems
 ---
 
-> **CRITICAL:** You MUST use pi's `subagent` tool with `agent: "delegate"` to execute Jira CLI commands. NEVER run `jira` commands directly in your parent bash session.
-
-Example subagent invocation:
-
-```json
-{
-  "agent": "delegate",
-  "task": "Use jira CLI to list current sprint issues: jira sprint list --current --plain"
-}
-```
-
-This preserves conversation context and isolates CLI output.
-
----
-
 # Jira CLI
 
 Command-line interface for Jira. **Always use `--plain` flag when available** for scriptable, parseable output.
@@ -41,7 +26,8 @@ Primary project: **MDBIM**. Override with `-p PROJECT` for other projects.
 | Open in browser | `jira open ISSUE-KEY`                             |
 | Who am I        | `jira me`                                         |
 
-For detailed flags and examples, see issue-commands.md, sprint-commands.md, epic-commands.md, and other-commands.md in this skill directory.
+For detailed flags and examples, see issue-commands.md, sprint-commands.md, epic-commands.md, and other-commands.md in this skill u7ui9;p'00-
+directory.
 
 ## Global Flags
 

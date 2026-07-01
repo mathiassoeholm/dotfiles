@@ -209,7 +209,7 @@ mdc() {
 
 pi() {
   op run -- sh -c '
-    MPS_API_KEY="$(op read '\''op://LEGO/GenAI agentic-development Key/password'\'')" \
+    LEGO_MPS_AUTH_TOKEN="$(op read '\''op://LEGO/GenAI agentic-development Key/password'\'')" \
     exec pi "$@"
   ' sh "$@"
 }

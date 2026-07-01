@@ -1,0 +1,1 @@
+/Users/dkmajuso/git/lego/mbm-worktrees/mbm/agents/commands/briefs-to-stories.md

@@ -13,6 +13,7 @@
     "id": "anthropic.claude-opus-4-8",
     "name": "Opus 4.8",
     "reasoning": true,
+    "thinkingMode": "adaptive",
     "input": ["text", "image"],
     "cost": { "input": 15, "output": 75, "cacheRead": 1.5, "cacheWrite": 18.75 },
     "contextWindow": 200000,
