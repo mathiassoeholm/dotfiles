@@ -208,11 +208,14 @@ mdc() {
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 pi() {
-  op run -- sh -c '
-    LEGO_MPS_AUTH_TOKEN="$(op read '\''op://LEGO/GenAI agentic-development Key/password'\'')" \
-    exec pi "$@"
-  ' sh "$@"
-}
+     LEGO_AI_MODEL_GATEWAY_AUTH_TOKEN="$(
+       security find-generic-password \
+         -a "$USER" \
+         -s "LEGO_AI_MODEL_GATEWAY_AUTH_TOKEN" \
+         -w
+     )" \
+     command pi "$@"
+   }
 
 prompt_context() {
   if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then

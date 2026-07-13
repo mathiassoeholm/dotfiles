@@ -1,7 +1,7 @@
 {
-  "lastChangelogVersion": "0.80.3",
-  "defaultProvider": "lego-anthropic",
-  "defaultModel": "Claude Sonnet 4.6",
+  "lastChangelogVersion": "0.80.6",
+  "defaultProvider": "github-copilot",
+  "defaultModel": "claude-sonnet-5",
   "defaultThinkingLevel": "medium",
   "packages": [
     "git:github.com/MasuRii/pi-permission-system@88034e0a8418174a284dc5b43651460daa0c44d7",

@@ -18,21 +18,21 @@ interface DifficultyLevel {
 
 const LEVELS: Record<DifficultyName, DifficultyLevel> = {
   easy: {
-    provider: "lego-anthropic",
+    provider: "lego-gateway-anthropic",
     model: "Claude Haiku 4.5",
     modelName: "Haiku 4.5",
     thinkingLevel: "off",
     widgetColor: "success",
   },
   medium: {
-    provider: "lego-anthropic",
-    model: "Claude Sonnet 4.6",
-    modelName: "Sonnet 4.6",
+    provider: "github-copilot",
+    model: "claude-sonnet-5",
+    modelName: "Sonnet 5",
     thinkingLevel: "medium",
     widgetColor: "warning",
   },
   hard: {
-    provider: "lego-openai",
+    provider: "lego-gateway-openai",
     model: "GPT 5.5",
     modelName: "GPT 5.5",
     thinkingLevel: "medium",

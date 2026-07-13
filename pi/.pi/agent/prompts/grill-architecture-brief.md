@@ -1,1 +1,0 @@
-/Users/dkmajuso/git/lego/mbm-worktrees/mbm/agents/commands/grill-architecture-brief.md
