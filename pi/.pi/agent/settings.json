@@ -1,7 +1,7 @@
 {
   "lastChangelogVersion": "0.80.6",
   "defaultProvider": "lego-gateway-openai",
-  "defaultModel": "GPT 5.6 Terra",
+  "defaultModel": "GPT 5.6 Sol",
   "defaultThinkingLevel": "medium",
   "packages": [
     "git:github.com/MasuRii/pi-permission-system@88034e0a8418174a284dc5b43651460daa0c44d7"
