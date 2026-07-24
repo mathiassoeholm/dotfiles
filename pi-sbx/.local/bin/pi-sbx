@@ -1,0 +1,264 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+readonly PI_SBX_VERSION="2"
+readonly MIN_SBX_VERSION="0.35.0"
+readonly WORKTREES_DIR="${HOME}/git/lego/mbm-worktrees"
+readonly MAIN_CHECKOUT="${WORKTREES_DIR}/mbm"
+readonly EXPECTED_COMMON_DIR="${MAIN_CHECKOUT}/.git"
+readonly PROJECT_PI="${WORKTREES_DIR}/.pi"
+readonly PERSONAL_PI_SOURCE="${HOME}/dotfiles/pi/.pi/agent"
+readonly CLI_CACHE="${HOME}/.local/share/pi-sbx/mbm-cli"
+readonly KIT_DIR="${HOME}/.config/pi-sbx/mbm"
+readonly REQUIRED_SIGNING_FINGERPRINT="SHA256:dLFjku94LM9gD2KYBtMqQbnMTepubBgCVGd+KBU/+Jg"
+
+MODE="launch"
+declare -a PI_ARGS=()
+WORKTREE_ROOT=""
+SANDBOX_NAME=""
+SIGNING_PUBLIC_KEY=""
+
+fail() {
+	printf 'pi-sbx: %s\n' "$*" >&2
+	exit 1
+}
+
+canonical_dir() {
+	(cd "$1" 2>/dev/null && pwd -P)
+}
+
+canonical_path() {
+	local path="$1" directory basename
+	directory="$(canonical_dir "$(dirname "$path")")" || return 1
+	basename="$(basename "$path")"
+	if [[ -L "$path" ]]; then
+		canonical_path "${directory}/$(readlink "$path")"
+	else
+		printf '%s/%s\n' "$directory" "$basename"
+	fi
+}
+
+usage() {
+	cat >&2 <<'EOF'
+Usage:
+  pi-sbx
+  pi-sbx -- <pi arguments...>
+  pi-sbx update
+EOF
+}
+
+parse_arguments() {
+	case "${1-}" in
+		"") return ;;
+		update)
+			[[ $# -eq 1 ]] || { usage; fail "'update' takes no arguments"; }
+			MODE="update"
+			;;
+		--)
+			shift
+			PI_ARGS=("$@")
+			;;
+		*)
+			usage
+			fail "arguments must follow '--'; the only subcommand is 'update'"
+			;;
+	esac
+}
+
+version_at_least() {
+	local actual="$1" required="$2" a b c x y z
+	IFS=. read -r a b c <<<"$actual"
+	IFS=. read -r x y z <<<"$required"
+	a=${a:-0}; b=${b:-0}; c=${c:-0}; x=${x:-0}; y=${y:-0}; z=${z:-0}
+	(( a > x || (a == x && b > y) || (a == x && b == y && c >= z) ))
+}
+
+check_platform_and_sbx() {
+	[[ "$(uname -s)" == "Darwin" ]] || fail "macOS is required"
+	[[ "$(uname -m)" == "arm64" ]] || fail "Apple silicon (arm64) is required"
+	local command_name
+	for command_name in bash git ssh-add ssh-keygen sbx jq; do
+		command -v "$command_name" >/dev/null || fail "required executable '$command_name' is missing"
+	done
+
+	local version_output version policy_json
+	version_output="$(sbx version 2>&1)" || fail "cannot run sbx; install sbx >= ${MIN_SBX_VERSION}"
+	version="$(printf '%s\n' "$version_output" | grep -Eo 'v?[0-9]+\.[0-9]+\.[0-9]+' | head -1 | tr -d v)"
+	[[ -n "$version" ]] || fail "could not parse sbx version from: $version_output"
+	version_at_least "$version" "$MIN_SBX_VERSION" || fail "sbx ${version} is too old; install sbx >= ${MIN_SBX_VERSION}"
+
+	# Both calls also verify that sbx can reach its daemon and is signed in.
+	SBX_LIST_JSON="$(sbx ls --json 2>&1)" || fail "sbx is not usable; run 'sbx login' and retry"
+	printf '%s' "$SBX_LIST_JSON" | jq -e . >/dev/null || fail "sbx ls returned invalid JSON"
+	policy_json="$(sbx policy ls --json 2>&1)" || fail "network policy is unavailable; run 'sbx policy init balanced' once"
+	printf '%s' "$policy_json" | jq -e 'if type == "array" then length > 0 else length > 0 end' >/dev/null || \
+		fail "network policy is not initialized; run 'sbx policy init balanced'"
+}
+
+check_repository() {
+	local common_dir settings_file resolved target
+	WORKTREE_ROOT="$(git rev-parse --show-toplevel 2>/dev/null)" || fail "current directory is not inside a Git worktree"
+	WORKTREE_ROOT="$(canonical_dir "$WORKTREE_ROOT")"
+	[[ "$WORKTREE_ROOT" == "$WORKTREES_DIR"/* ]] || fail "worktree must be under $WORKTREES_DIR"
+	[[ "$WORKTREE_ROOT" != "$WORKTREES_DIR" ]] || fail "the worktrees parent is not an MBM worktree"
+
+	common_dir="$(git -C "$WORKTREE_ROOT" rev-parse --path-format=absolute --git-common-dir 2>/dev/null)" || fail "cannot resolve the Git common directory"
+	common_dir="$(canonical_dir "$common_dir")"
+	[[ "$common_dir" == "$EXPECTED_COMMON_DIR" ]] || fail "Git common directory must be $EXPECTED_COMMON_DIR (found $common_dir)"
+	if [[ "$WORKTREE_ROOT" != "$MAIN_CHECKOUT" ]]; then
+		local worktree_git_dir
+		[[ -f "$WORKTREE_ROOT/.git" ]] || fail "secondary worktree must have a .git file: $WORKTREE_ROOT/.git"
+		worktree_git_dir="$(git -C "$WORKTREE_ROOT" rev-parse --path-format=absolute --git-dir 2>/dev/null)" || fail "cannot resolve secondary worktree Git metadata"
+		worktree_git_dir="$(canonical_dir "$worktree_git_dir")"
+		[[ "$worktree_git_dir" == "$EXPECTED_COMMON_DIR/worktrees/"* ]] || \
+			fail "secondary worktree metadata must resolve beneath $EXPECTED_COMMON_DIR/worktrees"
+	fi
+	[[ -d "$MAIN_CHECKOUT" && -d "$EXPECTED_COMMON_DIR" && -d "$MAIN_CHECKOUT/agents" && -d "$PROJECT_PI" ]] || \
+		fail "the fixed MBM main-checkout, agents, shared .git, or parent .pi layout is incomplete"
+
+	settings_file="${WORKTREE_ROOT}/.pi/settings.json"
+	[[ -f "$settings_file" ]] || fail "missing $settings_file; repair the worktree .pi configuration manually"
+	jq -e '.skills | index("../../.pi/skills")' "$settings_file" >/dev/null && \
+		jq -e '.extensions | index("../../.pi/extensions")' "$settings_file" >/dev/null || \
+		fail "$settings_file must reference ../../.pi/skills and ../../.pi/extensions"
+
+	while IFS= read -r target; do
+		[[ -L "$target" ]] || fail "parent pi resource is not a symlink: $target"
+		resolved="$(canonical_path "$target" 2>/dev/null || true)"
+		[[ "$resolved" == "$MAIN_CHECKOUT/agents"/* ]] || fail "parent pi link must resolve under $MAIN_CHECKOUT/agents: $target"
+	done < <(find "$PROJECT_PI/skills" "$PROJECT_PI/extensions" -mindepth 1 -maxdepth 1 -print)
+}
+
+check_personal_configuration() {
+	[[ -d "$PERSONAL_PI_SOURCE" ]] || fail "personal pi source is missing: $PERSONAL_PI_SOURCE"
+	local required forbidden
+	for required in settings.json keybindings.json APPEND_SYSTEM.md pi-permissions.jsonc prompts skills \
+		extensions/difficulty.ts extensions/fuzzy-at-files.ts extensions/train-working-indicator.ts \
+		extensions/pi-permission-system extensions/pi-permission-system/config.json; do
+		[[ -e "${PERSONAL_PI_SOURCE}/${required}" ]] || fail "required personal pi resource is missing: ${PERSONAL_PI_SOURCE}/${required}"
+	done
+
+	for forbidden in auth.json sessions run-history.jsonl pi-debug.log trust.json npm git bin credentials.json \
+		credentials sessions.json history.json history.jsonl cache logs; do
+		if find "$PERSONAL_PI_SOURCE" -mindepth 1 -name "$forbidden" -print -quit | grep -q .; then
+			fail "forbidden runtime/authentication state named '$forbidden' exists under $PERSONAL_PI_SOURCE; remove it before launch"
+		fi
+	done
+}
+
+check_credentials() {
+	[[ -n "${LEGO_AI_MODEL_GATEWAY_AUTH_TOKEN:-}" ]] || fail "LEGO_AI_MODEL_GATEWAY_AUTH_TOKEN is not set"
+	local github_secrets key fingerprint
+	github_secrets="$(sbx secret ls --service github 2>&1)" || fail "cannot query the Docker Sandbox github secret"
+	printf '%s\n' "$github_secrets" | grep -qi github || \
+		fail "Docker Sandbox github secret is missing; run 'gh auth token | sbx secret set -g github'"
+	printf '%s\n' "$github_secrets" | grep -qi 'no secrets' && \
+		fail "Docker Sandbox github secret is missing; run 'gh auth token | sbx secret set -g github'"
+
+	[[ -n "${SSH_AUTH_SOCK:-}" ]] || fail "SSH_AUTH_SOCK is not set; enable host SSH-agent forwarding"
+	while IFS= read -r key; do
+		fingerprint="$(printf '%s\n' "$key" | ssh-keygen -lf - 2>/dev/null | awk '{print $2}')"
+		if [[ "$fingerprint" == "$REQUIRED_SIGNING_FINGERPRINT" ]]; then
+			SIGNING_PUBLIC_KEY="$key"
+			break
+		fi
+	done < <(ssh-add -L 2>/dev/null)
+	[[ -n "$SIGNING_PUBLIC_KEY" ]] || fail "required signing key $REQUIRED_SIGNING_FINGERPRINT is not loaded; add it with ssh-add"
+}
+
+sync_gateway_secret() {
+	# sbx 0.35 does not inject legacy env-only kit credentials at runtime. A
+	# custom secret keeps the real token host-side and injects only a placeholder.
+	if sbx secret ls 2>/dev/null | grep -Fq 'LEGO_AI_MODEL_GATEWAY_AUTH_TOKEN'; then
+		return
+	fi
+	sbx secret set-custom -g \
+		--host api.genai.thelegogroup.com \
+		--env LEGO_AI_MODEL_GATEWAY_AUTH_TOKEN \
+		--value "$LEGO_AI_MODEL_GATEWAY_AUTH_TOKEN" \
+		>/dev/null || fail "could not store the LEGO gateway token in Docker Sandbox secrets"
+}
+
+prepare_generated_state() {
+	mkdir -p "$CLI_CACHE"
+	[[ -d "$CLI_CACHE" && -w "$CLI_CACHE" ]] || fail "shared CLI cache is not writable: $CLI_CACHE"
+	[[ -f "$KIT_DIR/spec.yaml" ]] || fail "kit is not installed at $KIT_DIR; stow the pi-sbx package"
+}
+
+derive_sandbox_name() {
+	local normalized
+	normalized="$(basename "$WORKTREE_ROOT" | tr '[:upper:]' '[:lower:]' | sed -E 's/[^a-z0-9.+-]+/-/g; s/^-+//; s/-+$//')"
+	[[ -n "$normalized" ]] || fail "worktree directory name cannot produce a sandbox name"
+	SANDBOX_NAME="pi-mbm-${normalized}"
+}
+
+sandbox_exists() {
+	printf '%s' "$SBX_LIST_JSON" | jq -e --arg name "$SANDBOX_NAME" \
+		'[.. | objects | select(.name? == $name)] | length > 0' >/dev/null
+}
+
+validate_existing_sandbox() {
+	local inspect_json primary marker
+	inspect_json="$(sbx inspect "$SANDBOX_NAME" --json 2>&1)" || fail "cannot inspect existing sandbox $SANDBOX_NAME"
+	printf '%s' "$inspect_json" | jq -e . >/dev/null || fail "sbx inspect returned invalid JSON for $SANDBOX_NAME"
+	primary="$(printf '%s' "$inspect_json" | jq -r '
+		.workspace.path? // .workspace? // .primaryWorkspace.path? // .primaryWorkspace? //
+		.workspaces[0].path? // .spec.workspaces[0].path? // empty' | head -1)"
+	[[ -n "$primary" ]] || fail "cannot determine primary workspace for existing sandbox $SANDBOX_NAME; inspect it with 'sbx inspect $SANDBOX_NAME'"
+	[[ "$(canonical_dir "$primary" 2>/dev/null || printf '%s' "$primary")" == "$WORKTREE_ROOT" ]] || \
+		fail "sandbox $SANDBOX_NAME belongs to '$primary', not '$WORKTREE_ROOT'; choose a distinct worktree directory name"
+	printf '%s' "$inspect_json" | jq -e '.. | strings | select(. == "mbm-pi")' >/dev/null || \
+		fail "sandbox $SANDBOX_NAME was not created with the expected mbm-pi kit; remove it manually with 'sbx rm $SANDBOX_NAME'"
+
+	marker="$(sbx exec "$SANDBOX_NAME" pi-sbx-entrypoint __pi_sbx_version 2>&1)" || \
+		fail "sandbox $SANDBOX_NAME has no valid kit marker; run 'sbx rm $SANDBOX_NAME' then 'pi-sbx'"
+	marker="$(printf '%s' "$marker" | tr -d '\r' | tail -1)"
+	[[ "$marker" == "$PI_SBX_VERSION" ]] || \
+		fail "sandbox $SANDBOX_NAME uses kit version '$marker' (expected '$PI_SBX_VERSION'); run 'sbx rm $SANDBOX_NAME' then 'pi-sbx'"
+}
+
+create_sandbox() {
+	declare -a workspaces
+	workspaces=("$WORKTREE_ROOT" "${PROJECT_PI}:ro" "$PERSONAL_PI_SOURCE" "$CLI_CACHE")
+	if [[ "$WORKTREE_ROOT" != "$MAIN_CHECKOUT" ]]; then
+		workspaces+=("$EXPECTED_COMMON_DIR" "${MAIN_CHECKOUT}/agents:ro")
+	fi
+
+	sbx kit validate "$KIT_DIR"
+	sbx create \
+		--name "$SANDBOX_NAME" \
+		--kit "$KIT_DIR" \
+		mbm-pi \
+		"${workspaces[@]}"
+}
+
+run_sandbox() {
+	if [[ "$MODE" == "update" ]]; then
+		sbx run --name "$SANDBOX_NAME" -- __pi_sbx_update
+	elif (( ${#PI_ARGS[@]} )); then
+		sbx run --name "$SANDBOX_NAME" -- "${PI_ARGS[@]}"
+	else
+		sbx run --name "$SANDBOX_NAME"
+	fi
+}
+
+main() {
+	parse_arguments "$@"
+	check_platform_and_sbx
+	check_repository
+	check_personal_configuration
+	check_credentials
+	sync_gateway_secret
+	prepare_generated_state
+	derive_sandbox_name
+
+	if sandbox_exists; then
+		validate_existing_sandbox
+	else
+		[[ "$MODE" != "update" ]] || fail "sandbox $SANDBOX_NAME does not exist; run 'pi-sbx' to create it first"
+		create_sandbox
+	fi
+	run_sandbox
+}
+
+main "$@"

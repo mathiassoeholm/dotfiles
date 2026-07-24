@@ -1,0 +1,144 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+readonly PI_SBX_VERSION="2"
+readonly PERSONAL_SOURCE="/Users/dkmajuso/dotfiles/pi/.pi/agent"
+readonly PROJECT_PI="/Users/dkmajuso/git/lego/mbm-worktrees/.pi"
+readonly REQUIRED_SIGNING_FINGERPRINT="SHA256:dLFjku94LM9gD2KYBtMqQbnMTepubBgCVGd+KBU/+Jg"
+readonly WORKTREE_ROOT="${WORKDIR:-$(git rev-parse --show-toplevel 2>/dev/null)}"
+[[ -n "$WORKTREE_ROOT" ]] || { echo "pi-sbx install: cannot determine the active MBM worktree" >&2; exit 1; }
+
+retry_docker() {
+	local attempt
+	for attempt in {1..30}; do
+		if docker info >/dev/null 2>&1; then return 0; fi
+		sleep 2
+	done
+	echo "pi-sbx install: private Docker daemon did not become reachable" >&2
+	return 1
+}
+
+install_system_prerequisites() {
+	sudo apt-get update
+	sudo apt-get install --yes ca-certificates curl fd-find fzf gnupg
+
+	if ! command -v dotnet >/dev/null || [[ "$(dotnet --version)" != 10.* ]]; then
+		local distro_version ms_deb
+		distro_version="$(. /etc/os-release && printf '%s' "$VERSION_ID")"
+		ms_deb="$(mktemp --suffix=.deb)"
+		curl --fail --show-error --silent --location \
+			"https://packages.microsoft.com/config/ubuntu/${distro_version}/packages-microsoft-prod.deb" \
+			--output "$ms_deb"
+		sudo dpkg -i "$ms_deb"
+		rm -f "$ms_deb"
+		sudo apt-get update
+		sudo apt-get install --yes dotnet-sdk-10.0
+	fi
+
+	if ! command -v node >/dev/null || [[ "$(node --version)" != v24.* ]]; then
+		local nodesource_setup
+		nodesource_setup="$(mktemp)"
+		curl --fail --show-error --silent --location \
+			https://deb.nodesource.com/setup_24.x \
+			--output "$nodesource_setup"
+		sudo bash "$nodesource_setup"
+		rm -f "$nodesource_setup"
+		sudo apt-get install --yes nodejs
+	fi
+
+	[[ "$(dotnet --version)" == 10.* ]]
+	[[ "$(node --version)" == v24.* ]]
+	npm --version
+	docker --version
+	retry_docker
+	docker version
+	gh --version
+	(command -v fd >/dev/null || command -v fdfind >/dev/null)
+	fzf --version
+}
+
+install_pi() {
+	sudo corepack enable
+	corepack prepare pnpm@11.11.0 --activate
+	npm install --global @earendil-works/pi-coding-agent@latest
+	[[ "$(pnpm --version)" == "11.11.0" ]]
+	pi --version
+}
+
+link_pi_configuration() {
+	local target source name
+	target="${HOME}/.pi/agent"
+	mkdir -p "$target/extensions" "$target/skills"
+
+	for name in settings.json keybindings.json APPEND_SYSTEM.md pi-permissions.jsonc prompts; do
+		source="${PERSONAL_SOURCE}/${name}"
+		[[ -e "$source" ]] || { echo "pi-sbx install: missing personal resource: $source" >&2; return 1; }
+		ln -sfn "$source" "${target}/${name}"
+	done
+
+	for source in "$PERSONAL_SOURCE"/skills/*; do
+		[[ -e "$source" ]] || continue
+		name="${source##*/}"
+		# Parent-scoped project skills win when a personal skill has the same name.
+		[[ -e "${PROJECT_PI}/skills/${name}" ]] && continue
+		ln -sfn "$source" "${target}/skills/${name}"
+	done
+
+	for name in difficulty.ts fuzzy-at-files.ts train-working-indicator.ts pi-permission-system; do
+		source="${PERSONAL_SOURCE}/extensions/${name}"
+		[[ -e "$source" ]] || { echo "pi-sbx install: missing personal extension: $source" >&2; return 1; }
+		ln -sfn "$source" "${target}/extensions/${name}"
+	done
+}
+
+configure_git() {
+	local key fingerprint matching_key=""
+	while IFS= read -r key; do
+		fingerprint="$(printf '%s\n' "$key" | ssh-keygen -lf - 2>/dev/null | awk '{print $2}')"
+		if [[ "$fingerprint" == "$REQUIRED_SIGNING_FINGERPRINT" ]]; then
+			matching_key="$key"
+			break
+		fi
+	done < <(ssh-add -L)
+	[[ -n "$matching_key" ]] || { echo "pi-sbx install: required forwarded signing key is unavailable" >&2; return 1; }
+
+	git config --global user.name "Mathias Soeholm"
+	git config --global user.email "mathias.soholm@lego.com"
+	git config --global commit.gpgsign true
+	git config --global gpg.format ssh
+	git config --global user.signingkey "key::${matching_key}"
+	git config --global url.https://github.com/.insteadOf git@github.com:
+
+	local configured_key
+	configured_key="$(git config --global user.signingkey)"
+	configured_key="${configured_key#key::}"
+	fingerprint="$(printf '%s\n' "$configured_key" | ssh-keygen -lf - | awk '{print $2}')"
+	[[ "$fingerprint" == "$REQUIRED_SIGNING_FINGERPRINT" ]]
+}
+
+restore_dependencies() {
+	cd "$WORKTREE_ROOT"
+	dotnet tool restore
+	dotnet restore mbm.sln
+	CI=true pnpm --dir src/MBM.App install --frozen-lockfile
+}
+
+initialize_cli() {
+	if [[ ! -x /Users/dkmajuso/.local/share/pi-sbx/mbm-cli/mbm ]]; then
+		cd "$WORKTREE_ROOT"
+		mbm build-cli
+	fi
+}
+
+main() {
+	install_system_prerequisites
+	install_pi
+	link_pi_configuration
+	configure_git
+	restore_dependencies
+	initialize_cli
+	mkdir -p "${HOME}/.local/state/pi-sbx"
+	printf '%s\n' "$PI_SBX_VERSION" > "${HOME}/.local/state/pi-sbx/version"
+}
+
+main "$@"

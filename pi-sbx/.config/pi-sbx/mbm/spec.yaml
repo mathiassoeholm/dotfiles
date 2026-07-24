@@ -1,0 +1,18 @@
+schemaVersion: "1"
+kind: sandbox
+name: mbm-pi
+displayName: Personal MBM Pi Sandbox
+description: Personal pi development environment for Mathias's MBM worktrees
+sandbox:
+  image: docker/sandbox-templates:shell-docker
+  aiFilename: AGENTS.md
+  entrypoint:
+    run: [pi-sbx-entrypoint]
+network:
+  allowedDomains:
+    - api.genai.thelegogroup.com
+agentContext: |
+  Execution is inside a Docker Sandbox. The active worktree and selected extra
+  workspaces are host mounts. Docker uses the sandbox-private daemon. Passwordless
+  sudo affects only the sandbox VM. Shared Git metadata and the MBM CLI cache are
+  host-visible shared state; modify them deliberately.

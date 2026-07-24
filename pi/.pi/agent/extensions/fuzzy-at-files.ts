@@ -1,5 +1,5 @@
-import { CustomEditor, type ExtensionAPI } from "@mariozechner/pi-coding-agent";
-import type { AutocompleteItem, AutocompleteProvider, AutocompleteSuggestions } from "@mariozechner/pi-tui";
+import { CustomEditor, type ExtensionAPI } from "@earendil-works/pi-coding-agent";
+import type { AutocompleteItem, AutocompleteProvider, AutocompleteSuggestions } from "@earendil-works/pi-tui";
 import { spawnSync } from "node:child_process";
 import { constants } from "node:fs";
 import { accessSync } from "node:fs";

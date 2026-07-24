@@ -1,0 +1,69 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+readonly CACHE_DIR="/Users/dkmajuso/.local/share/pi-sbx/mbm-cli"
+readonly CACHE_BINARY="${CACHE_DIR}/mbm"
+readonly EXPECTED_COMMON_DIR="/Users/dkmajuso/git/lego/mbm-worktrees/mbm/.git"
+
+fail() {
+	echo "mbm: $*" >&2
+	exit 1
+}
+
+canonical_dir() {
+	(cd "$1" 2>/dev/null && pwd -P)
+}
+
+build_cli() {
+	command -v git >/dev/null || fail "git is required"
+	command -v dotnet >/dev/null || fail "dotnet is required"
+
+	local root common_dir lock_dir publish_dir release_name next_link
+	root="$(git rev-parse --show-toplevel 2>/dev/null)" || fail "run 'mbm build-cli' inside an MBM worktree"
+	root="$(canonical_dir "$root")"
+	common_dir="$(git -C "$root" rev-parse --path-format=absolute --git-common-dir 2>/dev/null)" || fail "cannot resolve Git common directory"
+	common_dir="$(canonical_dir "$common_dir")"
+	[[ "$common_dir" == "$EXPECTED_COMMON_DIR" ]] || fail "current repository is not the expected MBM checkout"
+	[[ -w "$CACHE_DIR" ]] || fail "shared cache is not writable: $CACHE_DIR"
+
+	lock_dir="${CACHE_DIR}/.build-lock"
+	if ! mkdir "$lock_dir" 2>/dev/null; then
+		fail "another CLI publication holds $lock_dir; wait for it to finish or remove a verified stale lock"
+	fi
+	publish_dir="$(mktemp -d "${CACHE_DIR}/.publish.XXXXXX")"
+	trap '[[ -z "${publish_dir:-}" ]] || rm -rf "$publish_dir"; rmdir "$lock_dir" 2>/dev/null || true' EXIT
+
+	dotnet publish \
+		--configuration Release \
+		--output "$publish_dir" \
+		"$root/src/MBM.Cli"
+
+	[[ -x "${publish_dir}/mbm" ]] || fail "publish output has no runnable Linux mbm executable"
+	find "$publish_dir" -mindepth 1 -maxdepth 1 -type f ! -name mbm | grep -q . || fail "publish output has no companion files"
+
+	release_name="release-$(date -u +%Y%m%dT%H%M%SZ)-$$"
+	mv "$publish_dir" "${CACHE_DIR}/${release_name}"
+	publish_dir=""
+	next_link="${CACHE_DIR}/.current.$$"
+	ln -s "$release_name" "$next_link"
+	mv -Tf "$next_link" "${CACHE_DIR}/current"
+	if [[ ! -L "$CACHE_BINARY" ]]; then
+		[[ ! -e "$CACHE_BINARY" ]] || fail "$CACHE_BINARY exists but is not the launcher-owned symlink"
+		ln -s "current/mbm" "$CACHE_BINARY"
+	fi
+	[[ -x "$CACHE_BINARY" ]] || fail "published CLI failed final verification"
+
+	# The current symlink changes atomically. Old release directories are retained so
+	# an already-running process never loses companion files during a publication.
+	trap - EXIT
+	rmdir "$lock_dir"
+	printf 'Published MBM CLI from %s to %s\n' "$root" "$CACHE_BINARY"
+}
+
+if [[ "${1-}" == "build-cli" && $# -eq 1 ]]; then
+	build_cli
+	exit
+fi
+
+[[ -x "$CACHE_BINARY" ]] || fail "shared Linux CLI is absent or incomplete; run 'mbm build-cli' in an MBM sandbox"
+exec "$CACHE_BINARY" "$@"

@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+readonly PI_SBX_VERSION="2"
+readonly VERSION_FILE="${HOME}/.local/state/pi-sbx/version"
+readonly INSTALLER="${HOME}/.local/bin/pi-sbx-install"
+
+ensure_setup() {
+	if [[ ! -f "$VERSION_FILE" ]]; then
+		[[ -x "$INSTALLER" ]] || { echo "pi-sbx-entrypoint: installer is unavailable: $INSTALLER" >&2; exit 1; }
+		"$INSTALLER"
+	fi
+	[[ "$(<"$VERSION_FILE")" == "$PI_SBX_VERSION" ]] || { echo "pi-sbx-entrypoint: kit version mismatch" >&2; exit 1; }
+}
+
+case "${1-}" in
+	__pi_sbx_version)
+		[[ $# -eq 1 ]] || { echo "pi-sbx-entrypoint: __pi_sbx_version takes no arguments" >&2; exit 2; }
+		[[ -f "$VERSION_FILE" ]] || { echo "missing"; exit 1; }
+		cat "$VERSION_FILE"
+		;;
+	__pi_sbx_update)
+		[[ $# -eq 1 ]] || { echo "pi-sbx-entrypoint: __pi_sbx_update takes no arguments" >&2; exit 2; }
+		sudo npm install --global @earendil-works/pi-coding-agent@latest
+		pi --version
+		;;
+	__*)
+		echo "pi-sbx-entrypoint: unknown internal operation: $1" >&2
+		exit 2
+		;;
+	*)
+		ensure_setup
+		exec pi --approve "$@"
+		;;
+esac
